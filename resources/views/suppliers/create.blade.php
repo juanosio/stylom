@@ -51,8 +51,8 @@
                                         <div class="col-lg-12">
                                             <div class="card-body">
                                                 <form id="formulario_registro_proveedores" method="POST"
-                                                    action="/admin/proveedores/registrar/store">
-
+                                                    action=" {{ route('supplier.store') }}">
+                                                     @csrf
                                                     <div class="row">
                                                         <div class="col mt-3">
                                                             <label class="alinear">Nombre del Proveedor<span

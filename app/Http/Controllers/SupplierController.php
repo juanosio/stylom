@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App;
 
 use Illuminate\Http\Request;
 
@@ -13,6 +14,7 @@ class SupplierController extends Controller
      */
     public function index()
     {
+         $supplier = App\Supplier::all();
         return view ('suppliers/consultsupplier');
     }
 
@@ -33,9 +35,11 @@ class SupplierController extends Controller
      * @return \Illuminate\Http\Response
      */
    
-    public function store(SupplierRequest $request)
+    public function store(Request $request)
     {
-        $supplier = new Supplier;
+
+        // return $request->all();
+         $supplier = new Supplier;
 
         $supplier->nombrep = $request->nombrep;
         $supplier->rif = $request->rif;

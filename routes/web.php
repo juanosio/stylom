@@ -53,7 +53,8 @@ Route::get('/admin/usuarios', function () {
 Route::get('/admin/proveedores', 'SupplierController@index')->name('consultsupplier');
 Route::get('/admin/proveedores/registrar', 'SupplierController@create')->name('consultsuppliercreate');
 
-Route::post('/admin/proveedores/registrar/store', 'SupplierController@store')->name('supplier.store');
+Route::resource('supplier', 'SupplierController');
+
 
 
 Auth::routes();
