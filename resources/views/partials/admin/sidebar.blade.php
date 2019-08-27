@@ -19,7 +19,7 @@
                                     </a>
                                     <ul class="pcoded-submenu">
                                         <li>
-                                            <a href="/stylom/usuarios">
+                                            <a href="/admin/usuarios/registrar">
                                                 <span class="pcoded-mtext">Registro secretaria</span>
                                             </a>
                                             
@@ -56,7 +56,7 @@
                                     </a>
                                     <ul class="pcoded-submenu">
                                         <li class=" ">
-                                            <a href="/stylom/inventario">
+                                            <a href="/admin/inventario/registrar">
                                                 <span class="pcoded-mtext">Registrar inventario</span>
                                             </a>
                                         </li>
@@ -81,7 +81,7 @@
                                     </a>
                                     <ul class="pcoded-submenu">
                                         <li class=" ">
-                                            <a href="/stylom/proveedores/registrar">
+                                            <a href="/admin/proveedores/registrar">
                                                 <span class="pcoded-mtext">Registrar proveedores</span>
                                             </a>
                                         </li>

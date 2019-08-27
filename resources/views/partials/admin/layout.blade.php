@@ -12,7 +12,7 @@
     <meta name="keywords" content="Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
     <meta name="author" content="#">
     <!-- Favicon icon -->
-    <link rel="icon" href="{{ asset('assets/admin/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="{{ asset('assets/admin/images/favicon.ico') }}" type="image/x-icon">
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
     <!-- Required Fremwork -->
@@ -99,7 +99,7 @@
     <!-- <script type="text/javascript" src="{{ asset('assets/admin/pages/dashboard/custom-dashboard.js') }}"></script> -->
     <script type="text/javascript" src="{{ asset('assets/admin/js/script.js') }}"></script>
     
-    <script>
+   <script>
     $("#seeAnotherField").change(function () {
         if ($(this).val() == "yes") {
             $('#otherFieldDiv').show();

@@ -1,5 +1,5 @@
-{% extends "partials/admin/layout.twig" %}
-{% block content %}
+@extends ("partials.admin.layout")
+@section('content')
 
 
 
@@ -243,4 +243,4 @@
 
 
 
-{% endblock %}
+@endsection

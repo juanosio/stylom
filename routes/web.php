@@ -28,6 +28,23 @@ Route::get('/contacto', function () {
     return view('contact');
 })->name('contact');
 
+Route::get('/admin', function () {
+    return view('admin');
+})->name('admin');
+
+Route::get('/admin/inventario/registrar', function () {
+    return view('inventory');
+})->name('inventory');
+
+Route::get('/admin/usuarios/registrar', function () {
+    return view('users');
+})->name('users');
+
+Route::get('/admin/proveedores/registrar', function () {
+    return view('suppliers');
+})->name('suppliers');
+
+
 
 
 

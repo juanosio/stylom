@@ -1,5 +1,5 @@
-﻿{% extends "partials/admin/layout.twig" %}
-{% block content %}
+﻿@extends("partials.admin.layout")
+@section('content')
        <div class="pcoded-content">
                         <div class="pcoded-inner-content">
                             <div class="main-body">
@@ -98,4 +98,4 @@
         </div>
     </div>
 
-                    {% endblock %}
+    @endsection
