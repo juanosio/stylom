@@ -51,7 +51,7 @@
                                         <div class="col-lg-12">
                                             <div class="card-body">
                                                 <form id="formulario_registro_proveedores" method="POST"
-                                                    action="/stylom/store">
+                                                    action="/admin/proveedores/registrar/store">
 
                                                     <div class="row">
                                                         <div class="col mt-3">

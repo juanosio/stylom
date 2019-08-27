@@ -37,15 +37,23 @@ Route::get('/admin/inventario/registrar', function () {
 })->name('inventory');
 
 Route::get('/admin/usuarios/registrar', function () {
-    return view('users');
-})->name('users');
+    return view('users/create');
+})->name('create');
 
-Route::get('/admin/proveedores/registrar', function () {
-    return view('suppliers');
-})->name('suppliers');
+Route::get('/admin/usuarios', function () {
+    return view('users/consultusers');
+})->name('consult');
 
 
 
+
+
+//Rutas con controller
+
+Route::get('/admin/proveedores', 'SupplierController@index')->name('consultsupplier');
+Route::get('/admin/proveedores/registrar', 'SupplierController@create')->name('consultsuppliercreate');
+
+Route::post('/admin/proveedores/registrar/store', 'SupplierController@store')->name('supplier.store');
 
 
 Auth::routes();
