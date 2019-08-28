@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App;
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -38,7 +39,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-          //  return $request->all();
+        //    return $request->all();
           $products = new App\Product;
 
           $products->nombre = $request->nombre;
@@ -48,10 +49,29 @@ class ProductController extends Controller
           $products->stock_max= 50;
           $products->foto = $request->foto;
           $products->talla = $request->talla;
-          $products->genero = $request->descripcion;
-          $products->envio = $request->descripcion;
+          $products->genero = $request->genero;
+          $products->envio = $request->envio;
   
           $products->save();
+
+          //IMAGEN
+         
+  
+          if ($request->hasFile('foto')) {
+            $file = $request->file('foto');
+            
+$filename = $file->getClientOriginalName();
+$destinationPath = 'uploads/';
+
+$uploadSuccess = $file->move($destinationPath, $filename);
+
+
+
+     }
+        
+
+ 
+
   
           return redirect()->route('products.index')
           ->with('info', 'Los datos de la cita han sido guardados');

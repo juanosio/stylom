@@ -14,7 +14,7 @@ class SupplierController extends Controller
      */
     public function index()
     {
-         $suppliers = App\Proveedores::all();
+         $suppliers = App\Supplier::all();
         return view ('suppliers/consultsupplier', compact('suppliers'));
     }
 
@@ -39,7 +39,7 @@ class SupplierController extends Controller
     {
 
         // return $request->all();
-         $suppliers = new App\Proveedores;
+         $suppliers = new App\Supplier;
 
         $suppliers->nombrep = $request->nombrep;
         $suppliers->rif = $request->rif;
