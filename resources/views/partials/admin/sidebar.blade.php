@@ -19,8 +19,14 @@
                                     </a>
                                     <ul class="pcoded-submenu">
                                         <li>
+                                            <a href="{{ route('empleados.index') }}">
+                                                <span class="pcoded-mtext">Ver usuarios</span>
+                                            </a>
+                                            
+                                        </li>
+                                        <li>
                                             <a href="/admin/usuarios/registrar">
-                                                <span class="pcoded-mtext">Registro secretaria</span>
+                                                <span class="pcoded-mtext">Registrar secretaria</span>
                                             </a>
                                             
                                         </li>

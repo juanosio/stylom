@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Adminty - Premium Admin Template by Colorlib </title>
+    <title>StyloM - Administativo </title>
 
     <!-- Meta -->
     <meta charset="utf-8">
@@ -144,6 +144,32 @@
         }
     });
     $("#seeAnotherField").trigger("change");
+
+
+
+    $('#simpletable').DataTable({
+    language: {
+    "decimal": "",
+    "emptyTable": "No hay información",
+    "info": "Mostrando la página _PAGE_ de _PAGES_",
+    "infoEmpty": "Mostrando 0 de 0 Entradas",
+    "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+    "infoPostFix": "",
+    "thousands": ",",
+    "lengthMenu": "Mostrar _MENU_ Entradas",
+    "loadingRecords": "Cargando...",
+    "processing": "Procesando...",
+    "search": "Buscar:",
+    "zeroRecords": "Sin resultados encontrados",
+    "paginate": {
+        "first": "Primero",
+        "last": "Ultimo",
+        "next": "Siguiente",
+        "previous": "Anterior"
+      }
+    }
+
+});
 </script>
 
 
