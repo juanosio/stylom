@@ -59,23 +59,26 @@
                                                         <tr>
                                                            
                                                             <th>Nombre</th>
-                                                            <th>Rif</th>
-                                                            <th>Telefono</th>
-                                                            <th>Direccion</th>
-                                                            <th>Correo</th>
+                                                            <th>Cantidad</th>
+                                                            <th>Genero</th>
+                                                            <th>Talla</th>
+                                                            <th>Envio</th>
+                                                            <th>Foto</th>
                                                             <th>Opciones</th>
                                                            
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        @foreach($suppliers as $supplier)
+                                                        @foreach($products as $products)
                                                         <tr>
                                                            
-                                                            <td>{{ $supplier->nombrep}}</td>
-                                                            <td>{{ $supplier->rif}}</td>
-                                                            <td>{{ $supplier->telefono}}</td>
-                                                            <td>{{ $supplier->direccion}}</td>
-                                                            <td>{{ $supplier->correo}}</td>
+                                                            <td>{{ $products->nombre}}</td>
+                                                            <td>{{ $products->cantidad}}</td>
+                                                            <td>{{ $products->genero}}</td>
+                                                            <td>{{ $products->talla}}</td>
+                                                            <td>{{ $products->envio}}</td>
+                                                            <td>{{ $products->foto}}</td>
+
                                                             <td><button class="btn btn-primary">Editar</button>
                                                             <button class="btn btn-danger">Eliminar</button></td>
                                                         </tr>

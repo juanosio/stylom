@@ -37,19 +37,19 @@ class MaterialController extends Controller
      */
     public function store(Request $request)
     {
-         return $request->all();
-        // $materials = new App\Material;
+        //  return $request->all();
+        $materials = new App\Material;
 
-        // $materials->nombre = $request->nombre;
-        // $materials->medida = $request->medida;
-        // $materials->cantidad = $request->cantidad;
-        // $materials->stock_min = 50;
-        // $materials->stock_max= 50;
+        $materials->nombre = $request->nombre;
+        $materials->medida = $request->medida;
+        $materials->cantidad = $request->cantidad;
+        $materials->stock_min = 50;
+        $materials->stock_max= 50;
 
-        // $materials->save();
+        $materials->save();
 
-        // return redirect()->route('materials.index')
-        // ->with('info', 'Los datos de la cita han sido guardados');
+        return redirect()->route('materials.index')
+        ->with('info', 'Los datos de la cita han sido guardados');
     }
 
     /**

@@ -15,7 +15,7 @@
                                 <li class="pcoded-hasmenu">
                                     <a href="#">
                                         <span class="pcoded-micon"><i class="feather icon-sidebar"></i></span>
-                                        <span class="pcoded-mtext">Usuarios</span>
+                                        <span class="pcoded-mtext">Secretarias</span>
                                     </a>
                                     <ul class="pcoded-submenu">
                                         <li>
@@ -31,51 +31,54 @@
                                             
                                         </li>
                                         <li>
-                                            <a href="#">
-                                                <span class="pcoded-mtext">Horizontal</span>
+                                            <a href="/admin/usuarios">
+                                                <span class="pcoded-mtext">Consultar secretarias</span>
                                             </a>
                                             
-                                        </li>
-                                        <li>
-                                            <a href="menu-bottom.htm">
-                                                <span class="pcoded-mtext">Bottom Menu</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="box-layout.htm" target="_blank">
-                                                <span class="pcoded-mtext">Box Layout</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="menu-rtl.htm" target="_blank">
-                                                <span class="pcoded-mtext">RTL</span>
-                                            </a>
-                                        </li>
+                                      </li>
+                                       
                                     </ul>
                                 </li>
                                
                                 <li class="pcoded-hasmenu">
                                     <a href="#">
                                         <span class="pcoded-micon"><i class="feather icon-layers"></i></span>
-                                        <span class="pcoded-mtext">Inventario</span>
+                                        <span class="pcoded-mtext">Materia prima</span>
                                         
                                     </a>
                                     <ul class="pcoded-submenu">
                                         <li class=" ">
-                                            <a href="/admin/inventario/registrar">
-                                                <span class="pcoded-mtext">Registrar inventario</span>
+                                            <a href="/admin/materia-prima/registrar">
+                                                <span class="pcoded-mtext">Registrar materia prima</span>
                                             </a>
                                         </li>
                                         <li class=" ">
-                                            <a href="widget-data.htm">
-                                                <span class="pcoded-mtext">Data</span>
+                                            <a href="/admin/materia-prima">
+                                                <span class="pcoded-mtext">Consultar materia prima</span>
+                                            </a>
+                                        </li>
+                                       
+
+                                    </ul>
+                                </li>
+                                <li class="pcoded-hasmenu">
+                                    <a href="#">
+                                        <span class="pcoded-micon"><i class="feather icon-layers"></i></span>
+                                        <span class="pcoded-mtext">Productos</span>
+                                        
+                                    </a>
+                                    <ul class="pcoded-submenu">
+                                        <li class=" ">
+                                            <a href="/admin/productos/registrar">
+                                                <span class="pcoded-mtext">Registrar productos</span>
                                             </a>
                                         </li>
                                         <li class=" ">
-                                            <a href="widget-chart.htm">
-                                                <span class="pcoded-mtext">Chart Widget</span>
+                                            <a href="/admin/productos">
+                                                <span class="pcoded-mtext">Consultar productos</span>
                                             </a>
                                         </li>
+                                       
 
                                     </ul>
                                 </li>
@@ -92,15 +95,10 @@
                                             </a>
                                         </li>
                                         <li class=" ">
-                                            <a href="widget-data.htm">
-                                                <span class="pcoded-mtext">Data</span>
+                                            <a href="/admin/proveedores">
+                                                <span class="pcoded-mtext">Consultar proveedores</span>
                                             </a>
-                                        </li>
-                                        <li class=" ">
-                                            <a href="widget-chart.htm">
-                                                <span class="pcoded-mtext">Chart Widget</span>
-                                            </a>
-                                        </li>
+                                        </li>     
 
                                     </ul>
                                 </li>
