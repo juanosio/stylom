@@ -52,7 +52,7 @@
                     <div class="col-lg-12">
                         <div class="card-body">
                             <form id="formulario_registro_materiaprima" method="POST" action="{{ route('materials.store') }}">
-
+                            @csrf
                                 <div class="row">
                                     <div class="col mt-3">
                                         <label class="alinear">Nombre<span style="color:red">*</span></label>
