@@ -40,12 +40,12 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <center>
-                                            <h4 class="box-title">Lista de Proveedores</h4>
+                                            <h4 class="box-title">Lista de Materia Prima</h4>
                                             <td> <a href="admin/proveedores" class="btn btn-success mt-3">Volver</a>
                                             </td>
 
                                             <td style="text-align:center"> <a class="btn btn-primary mt-3"
-                                                    href="/admin/proveedores/registrar">Registrar</a></td>
+                                                    href="">Registrar</a></td>
 
                                         </center>
                                     </div>
@@ -59,23 +59,19 @@
                                                         <tr>
                                                            
                                                             <th>Nombre</th>
-                                                            <th>Rif</th>
-                                                            <th>Telefono</th>
-                                                            <th>Direccion</th>
-                                                            <th>Correo</th>
+                                                            <th>Medida</th>
+                                                            <th>Cantidad</th>
                                                             <th>Opciones</th>
                                                            
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        @foreach($suppliers as $supplier)
+                                                    @foreach($materials as $material)
                                                         <tr>
                                                            
-                                                            <td>{{ $supplier->nombrep}}</td>
-                                                            <td>{{ $supplier->rif}}</td>
-                                                            <td>{{ $supplier->telefono}}</td>
-                                                            <td>{{ $supplier->direccion}}</td>
-                                                            <td>{{ $supplier->correo}}</td>
+                                                            <td>{{ $material->nombre}}</td>
+                                                            <td>{{ $material->medida}}</td>
+                                                            <td>{{ $material->cantidad}}</td>
                                                             <td><button class="btn btn-primary">Editar</button>
                                                             <button class="btn btn-danger">Eliminar</button></td>
                                                         </tr>

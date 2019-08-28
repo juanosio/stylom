@@ -41,7 +41,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <center>
-                                            <h2 class="box-title">Registro de Proveedores</h2>
+                                            <h2 class="box-title">Registro de Productos</h2>
                                             <p>Los campos que contengan (<span style="color:red">*</span>) son
                                                 obligatorios</p>
 
@@ -51,7 +51,7 @@
                                         <div class="col-lg-12">
                                             <div class="card-body">
                                                 <form id="formulario_registro_proveedores" method="POST"
-                                                    action=" {{ route('suppliers.store') }}">
+                                                    action=" {{ route('products.store') }}">
                                                      @csrf
                                                     <div class="row">
                                                         <div class="col mt-3">

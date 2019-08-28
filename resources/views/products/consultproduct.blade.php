@@ -40,7 +40,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <center>
-                                            <h4 class="box-title">Lista de Proveedores</h4>
+                                            <h4 class="box-title">Lista de Productos</h4>
                                             <td> <a href="admin/proveedores" class="btn btn-success mt-3">Volver</a>
                                             </td>
 

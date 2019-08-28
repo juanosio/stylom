@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 use App;
-
+use App\Material;
 use Illuminate\Http\Request;
 
-class SupplierController extends Controller
+class MaterialController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class SupplierController extends Controller
      */
     public function index()
     {
-         $suppliers = App\Proveedores::all();
-        return view ('suppliers/consultsupplier', compact('suppliers'));
+        $materials = App\Material::all();
+        return view ('materials/consultmaterial', compact('materials'));
     }
 
     /**
@@ -25,7 +25,8 @@ class SupplierController extends Controller
      */
     public function create()
     {
-        return view ('suppliers/create');
+        return view ('materials/create');
+
     }
 
     /**
@@ -34,32 +35,30 @@ class SupplierController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-   
     public function store(Request $request)
     {
+         return $request->all();
+        // $materials = new App\Material;
 
-        // return $request->all();
-         $suppliers = new App\Proveedores;
+        // $materials->nombre = $request->nombre;
+        // $materials->medida = $request->medida;
+        // $materials->cantidad = $request->cantidad;
+        // $materials->stock_min = 50;
+        // $materials->stock_max= 50;
 
-        $suppliers->nombrep = $request->nombrep;
-        $suppliers->rif = $request->rif;
-        $suppliers->direccion = $request->direccion;
-        $suppliers->telefono = $request->telefono;
-        $suppliers->correo = $request->correo;
+        // $materials->save();
 
-        $suppliers->save();
-
-        return redirect()->route('suppliers.index')
-        ->with('info', 'Los datos de la cita han sido guardados');
+        // return redirect()->route('materials.index')
+        // ->with('info', 'Los datos de la cita han sido guardados');
     }
 
     /**
-     * Display the specified resource.
+     * Display the spemedidaied resource.
      *
-     * @param  int  $id
+     * @param  \App\Material  $material
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Material $material)
     {
         //
     }
@@ -67,10 +66,10 @@ class SupplierController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Material  $material
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Material $material)
     {
         //
     }
@@ -79,10 +78,10 @@ class SupplierController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Material  $material
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Material $material)
     {
         //
     }
@@ -90,10 +89,10 @@ class SupplierController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Material  $material
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Material $material)
     {
         //
     }

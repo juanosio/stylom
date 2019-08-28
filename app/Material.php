@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Supplier extends Model
+class Material extends Model
 {
     protected $fillable = [
-        'nombrep', 'rif', 'direccion', 'telefono','correo'
+        'nombre', 'medida', 'cantidad', 'stock_min','stock_max'
     ];
 }

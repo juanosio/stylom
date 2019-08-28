@@ -28,13 +28,11 @@ Route::get('/contacto', function () {
     return view('contact');
 })->name('contact');
 
+//Rutas admin
+
 Route::get('/admin', function () {
     return view('admin');
 })->name('admin');
-
-Route::get('/admin/inventario/registrar', function () {
-    return view('inventory');
-})->name('inventory');
 
 Route::get('/admin/usuarios/registrar', function () {
     return view('users/create');
@@ -44,16 +42,30 @@ Route::get('/admin/usuarios', function () {
     return view('users/consultusers');
 })->name('consult');
 
-
-
+Route::get('/admin/usuarios', function () {
+    return view('users/consultusers');
+})->name('consult');
 
 
 //Rutas con controller
+//proveedores
 
-Route::get('/admin/proveedores', 'SupplierController@index')->name('consultsupplier');
-Route::get('/admin/proveedores/registrar', 'SupplierController@create')->name('consultsuppliercreate');
+Route::get('/admin/proveedores', 'SupplierController@index')->name('suppliers.index');
+Route::get('/admin/proveedores/registrar', 'SupplierController@create')->name('suppliers.create');
+Route::post('/admin/proveedores/store', 'SupplierController@store')->name('suppliers.store');
 
-Route::resource('supplier', 'SupplierController');
+//materiaprima
+
+Route::get('/admin/materia-prima', 'MaterialController@index')->name('materials.index');
+Route::get('/admin/materia-prima/registrar', 'MaterialController@create')->name('materials.create');
+Route::post('/admin/materia-prima/store', 'MaterialController@store')->name('materials.store');
+
+//productos
+
+Route::get('/admin/productos', 'ProductController@index')->name('products.index');
+Route::get('/admin/productos/registrar', 'ProductController@create')->name('products.create');
+Route::post('/admin/productos/store', 'ProductController@store')->name('products.store');
+
 
 
 

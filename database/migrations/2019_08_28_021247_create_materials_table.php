@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSuppliersTable extends Migration
+class CreateMaterialsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateSuppliersTable extends Migration
      */
     public function up()
     {
-        Schema::create('proveedores', function (Blueprint $table) {
+        Schema::create('materials', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->string('nombrep');
-            $table->string('rif');
-            $table->string('direccion');
-            $table->integer('telefono');
-            $table->string('correo');
+            $table->text('nombre');
+            $table->enum('medida',['UNITARIO','m','cm','mm','inch']);
+            $table->integer('cantidad');
+            $table->integer('stock_min')->nullable();
+            $table->integer('stock_max')->nullable();
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ class CreateSuppliersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('proveedores');
+        Schema::dropIfExists('materials');
     }
 }
