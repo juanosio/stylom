@@ -82,23 +82,45 @@
                                 </div>
                             </li>
                            
+                            <li class="header-notification">
+                                <div class="dropdown-primary dropdown">
+                                    <div class="displayChatbox dropdown-toggle" data-toggle="dropdown">
+                                        <i class="feather icon-message-square"></i>
+                                        <span class="badge bg-c-green">3</span>
+                                    </div>
+                                </div>
+                            </li>
                             <li class="user-profile header-notification">
                                 <div class="dropdown-primary dropdown">
                                     <div class="dropdown-toggle" data-toggle="dropdown">
-                                        <img src="{{ asset('assets/admin/images/avatar-4.jpg')}}" class="img-radius" alt="User-Profile-Image">
+                                        <img src="{{ asset('assets\admin\images\avatar-4.jpg')}}" class="img-radius" alt="User-Profile-Image">
                                         <span>John Doe</span>
                                         <i class="feather icon-chevron-down"></i>
                                     </div>
                                     <ul class="show-notification profile-notification dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
-                                        
+                                        <li>
+                                            <a href="#!">
+                                                <i class="feather icon-settings"></i> Settings
+                                            </a>
+                                        </li>
                                         <li>
                                             <a href="user-profile.htm">
-                                                <i class="feather icon-user"></i> Mi perfil
+                                                <i class="feather icon-user"></i> Profile
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="email-inbox.htm">
+                                                <i class="feather icon-mail"></i> My Messages
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="auth-lock-screen.htm">
+                                                <i class="feather icon-lock"></i> Lock Screen
                                             </a>
                                         </li>
                                         <li>
                                             <a href="auth-normal-sign-in.htm">
-                                                <i class="feather icon-log-out"></i> Cerrar Sesión
+                                                <i class="feather icon-log-out"></i> Logout
                                             </a>
                                         </li>
                                     </ul>
@@ -110,3 +132,4 @@
                 </div>
             </nav>
             <!-- End up menu -->
+            <script type="text/javascript" src="{{ asset('assets/admin/popper/js/popper.min.js') }}"></script>
