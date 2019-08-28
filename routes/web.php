@@ -72,3 +72,5 @@ Route::post('/admin/productos/store', 'ProductController@store')->name('products
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('empleados','WorkerController');

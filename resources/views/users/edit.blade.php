@@ -25,7 +25,7 @@
                                         <li class="breadcrumb-item"><a
                                                 href="{{ route('empleados.index') }}">Usuarios</a>
                                         </li>
-                                        <li class="breadcrumb-item"><a href="#!">Registrar Secretaria</a>
+                                        <li class="breadcrumb-item"><a href="#!">Registrar usuarios</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -45,7 +45,7 @@
                                             <a href="{{ route('empleados.index') }}" class="btn btn-info">Volver</a>
                                         </div>
                                         <center>
-                                            <h4 class="box-title">Registro de secretarias</h4>
+                                            <h4 class="box-title">Editar datos de secretarias</h4>
                                             <p>Los campos que contengan (<span style="color:red">*</span>) son
                                                 obligatorios</p>
                                         </center>
@@ -53,8 +53,9 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="card-body">
-                                                {!! Form::open(['route' => 'empleados.store', 'files' => true, 'id' =>
-                                                'formulario_registro_usuarios']) !!}
+                                                {!! Form::model($user, ['route' => ['empleados.update', $user->id],
+                                                'method' => 'PUT']) !!}
+                                                @method('PUT')
 
                                                 @include('users.partials.form')
 
