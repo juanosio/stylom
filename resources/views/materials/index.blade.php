@@ -65,6 +65,7 @@
                                                                 <th>Nombre</th>
                                                             <th>Medida</th>
                                                             <th>Cantidad</th>
+                                                            <th>Proveedor</th>
 
                                                                 <th>Opciones</th>
 
@@ -78,6 +79,7 @@
                                                                         <td>{{ $materials->nombre}}</td>
                                                                         <td>{{ $materials->medida}}</td>
                                                                        <td>{{ $materials->cantidad}} disponibles</td>
+                                                                       <td>{{ $materials->suppliers->nombrep}}</td>
 
 
                                                                 <td class="text-center">

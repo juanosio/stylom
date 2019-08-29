@@ -45,6 +45,14 @@
 
         </select>
     </div>
+    <div class="col mt-3">
+        <label class="alinear">Proveedor<span style="color:red">*</span></label>
+        <select class="form-control" id="" name="supplier_id">
+        @foreach ($suppliers as $suppliers)
+            <option value="{{ $suppliers['id'] }}">{{ $suppliers['nombrep'] }}</option>
+        @endforeach
+        </select>
+    </div>
 </div>
 
 

@@ -16,12 +16,18 @@ class CreateMaterialsTable extends Migration
         Schema::create('materials', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->text('nombre');
-            $table->enum('medida',['UNITARIO','m','cm','mm','inch']);
+         
             $table->integer('cantidad');
+            $table->enum('medida',['UNITARIO','m','cm','inch']);
+            $table->text('nombre');
+           
             $table->integer('stock_min')->nullable();
             $table->integer('stock_max')->nullable();
+            $table->integer('supplier_id')->unsigned();
+            $table->foreign('supplier_id')->references('id')->on('suppliers');
             $table->timestamps();
+
+         
         });
     }
 

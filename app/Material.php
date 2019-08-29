@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Material extends Model
 {
     protected $fillable = [
-        'nombre', 'medida', 'cantidad', 
+        'nombre', 'medida', 'cantidad', 'supplier_id',
     ];
 
     protected $hidden = [
@@ -15,7 +15,7 @@ class Material extends Model
     ];
 
     public function suppliers(){
-        return $this->belongsToMany(Supplier::class); //Muchos a muchos
+        return $this->belongsTo(Supplier::class);
     }
 
     public function products(){

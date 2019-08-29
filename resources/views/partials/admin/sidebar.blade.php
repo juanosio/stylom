@@ -53,7 +53,7 @@
                                             </a>
                                         </li>
                                         <li class=" ">
-                                            <a href="{{ route('materias-primas.index') }}">
+                                            <a href="{{ route('materias-primas.create') }}">
                                                 <span class="pcoded-mtext">Registrar Materia Prima</span>
                                             </a>
                                         </li>

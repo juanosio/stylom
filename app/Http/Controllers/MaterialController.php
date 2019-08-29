@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App;
 use App\Material;
-use App\Suppliers;
+use App\Supplier;
 use Illuminate\Http\Request;
 use Alert;
 
@@ -16,9 +16,10 @@ class MaterialController extends Controller
      */
     public function index()
     {
+        $suppliers = App\Supplier::all();
         $materials = Material::orderBy('id', 'DESC')->get();
         $i = 1;
-        return view ('materials/index', compact('materials', 'i'));
+        return view ('materials/index', compact('materials', 'i'), compact('suppliers'));
     }
 
     /**
@@ -28,7 +29,8 @@ class MaterialController extends Controller
      */
     public function create()
     {
-        return view ('materials/create');
+        $suppliers = App\Supplier::all();
+        return view ('materials/create', compact('suppliers'));
 
     }
 
@@ -48,6 +50,7 @@ class MaterialController extends Controller
         $materials->cantidad = $request->cantidad;
         $materials->stock_min = 10;
         $materials->stock_max= 50;
+        $materials->supplier_id = $request->supplier_id;
 
         $materials->save();
 

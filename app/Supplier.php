@@ -11,6 +11,6 @@ class Supplier extends Model
     ];
 
     public function materials(){
-        return $this->hasMany(Material::class); //Muchos a muchos
+        return $this->hasMany(Material::class, 'supplier_id'); //Muchos a muchos
     }
 }

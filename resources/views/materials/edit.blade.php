@@ -46,7 +46,7 @@
                                                     class="feather icon-arrow-left" style="font-size: 20px"></i></a>
                                         </div>
                                         <center>
-                                            <h4 class="box-title">Registro de Materia Prima</h4>
+                                            <h4 class="box-title">Editar Materia Prima</h4>
                                             <p>Los campos que contengan (<span style="color:red">*</span>) son
                                                 obligatorios</p>
 
