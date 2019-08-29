@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 use App;
-
+use App\Supplier;
 use Illuminate\Http\Request;
-
+use Alert;
 class SupplierController extends Controller
 {
     /**
@@ -14,8 +14,9 @@ class SupplierController extends Controller
      */
     public function index()
     {
-         $suppliers = App\Supplier::all();
-        return view ('suppliers/consultsupplier', compact('suppliers'));
+         $suppliers = Supplier::orderBy('id', 'DESC')->get();
+         $i = 1;
+        return view ('suppliers/index', compact('suppliers', 'i'));
     }
 
     /**
@@ -49,8 +50,9 @@ class SupplierController extends Controller
 
         $suppliers->save();
 
-        return redirect()->route('suppliers.index')
-        ->with('info', 'Los datos de la cita han sido guardados');
+        Alert::success('Operación realizada con éxito','¡Proveedor registrado!');
+
+        return redirect()->route('proveedores.index');
     }
 
     /**
@@ -72,7 +74,9 @@ class SupplierController extends Controller
      */
     public function edit($id)
     {
-        //
+        $suppliers = App\Supplier::findOrFail($id);
+        return view('suppliers/edit', compact('suppliers'));
+    
     }
 
     /**
@@ -84,7 +88,19 @@ class SupplierController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $suppliersUpdate = App\Supplier::findOrFail($id);
+
+        $suppliersUpdate->nombrep = $request->nombrep;
+        $suppliersUpdate->rif = $request->rif;
+        $suppliersUpdate->direccion = $request->direccion;
+        $suppliersUpdate->telefono = $request->telefono;
+        $suppliersUpdate->correo = $request->correo;
+
+        $suppliersUpdate->save();
+
+        Alert::success('Operación realizada con éxito','¡Proveedor editado!');
+
+        return redirect()->route('proveedores.index');
     }
 
     /**
@@ -95,6 +111,10 @@ class SupplierController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $suppliersDelete = App\Supplier::findOrFail($id);
+        $suppliersDelete->delete();
+        Alert::success('Operación realizada con éxito','¡Proveedor eliminado!');
+
+        return redirect()->route('proveedores.index');
     }
 }

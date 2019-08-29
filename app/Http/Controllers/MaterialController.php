@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 use App;
 use App\Material;
+use App\Suppliers;
 use Illuminate\Http\Request;
+use Alert;
 
 class MaterialController extends Controller
 {
@@ -14,8 +16,9 @@ class MaterialController extends Controller
      */
     public function index()
     {
-        $materials = App\Material::all();
-        return view ('materials/consultmaterial', compact('materials'));
+        $materials = Material::orderBy('id', 'DESC')->get();
+        $i = 1;
+        return view ('materials/index', compact('materials', 'i'));
     }
 
     /**
@@ -43,13 +46,14 @@ class MaterialController extends Controller
         $materials->nombre = $request->nombre;
         $materials->medida = $request->medida;
         $materials->cantidad = $request->cantidad;
-        $materials->stock_min = 50;
+        $materials->stock_min = 10;
         $materials->stock_max= 50;
 
         $materials->save();
 
-        return redirect()->route('materials.index')
-        ->with('info', 'Los datos de la cita han sido guardados');
+        Alert::success('Operación realizada con éxito','¡Materia Prima registrada!');
+
+        return redirect()->route('materias-primas.index');
     }
 
     /**
@@ -69,9 +73,10 @@ class MaterialController extends Controller
      * @param  \App\Material  $material
      * @return \Illuminate\Http\Response
      */
-    public function edit(Material $material)
+    public function edit($id)
     {
-        //
+        $materials = App\Material::findOrFail($id);
+        return view('materials/edit', compact('materials'));
     }
 
     /**
@@ -81,9 +86,18 @@ class MaterialController extends Controller
      * @param  \App\Material  $material
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Material $material)
+    public function update(Request $request, $id)
     {
-        //
+        $materialsUpdate = App\Material::findOrFail($id);
+        $materialsUpdate->nombre = $request->nombre;
+        $materialsUpdate->medida = $request->medida;
+        $materialsUpdate->cantidad = $request->cantidad;
+
+        $materialsUpdate->save();
+
+        Alert::success('Operación realizada con éxito','¡Materia Prima editada!');
+
+        return redirect()->route('materias-primas.index');
     }
 
     /**
@@ -92,8 +106,12 @@ class MaterialController extends Controller
      * @param  \App\Material  $material
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Material $material)
+    public function destroy($id)
     {
-        //
+        $materialsDelete = App\Material::findOrFail($id);
+        $materialsDelete->delete();
+        Alert::success('Operación realizada con éxito','¡Materia Prima eliminada!');
+
+        return redirect()->route('materias-primas.index');
     }
 }

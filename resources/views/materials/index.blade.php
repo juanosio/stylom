@@ -21,7 +21,7 @@
                                             <a href="index-1.htm"> <i class="feather icon-home"></i> </a>
                                         </li>
                                         <li class="breadcrumb-item"><a
-                                                href="{{ route('productos.index') }}">Productos</a>
+                                                href="{{ route('materias-primas.index') }}">Productos</a>
                                         </li>
                                         <li class="breadcrumb-item"><a href="#!">Listado de productos</a>
                                         </li>
@@ -41,13 +41,13 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="float-right">
-                                            <a href="{{ route('productos.create') }}" class="btn btn-primary"
+                                            <a href="{{ route('materias-primas.create') }}" class="btn btn-primary"
                                                 data-toggle="tooltip" data-placement="left"
                                                 title="Registrar un nuevo producto"> <i class="feather icon-plus-circle"
                                                     style="font-size: 20px"></i> Registrar</a>
                                         </div>
                                         <center>
-                                            <h4 class="box-title">Lista de Productos</h4>
+                                            <h4 class="box-title">Lista de Materias Primas</h4>
 
 
                                         </center>
@@ -62,35 +62,27 @@
                                                         <thead class=>
                                                             <tr>
                                                                 <th>#</th>
-                                                                <th>Foto</th>
                                                                 <th>Nombre</th>
-                                                                <th>Cantidad disponible</th>
-                                                                <th>Genero</th>
-                                                                <th>Talla</th>
-                                                                <th>Envio</th>
+                                                            <th>Medida</th>
+                                                            <th>Cantidad</th>
 
                                                                 <th>Opciones</th>
 
                                                             </tr>
                                                         </thead>
                                                         <tbody class="text-center">
-                                                            @foreach($products as $products)
+                                                            @foreach($materials as $materials)
                                                             <tr>
                                                                 <td><b>{{ $i++ }}</b></td>
-                                                                <td><img class="rounded-circle"
-                                                                        src="{{ $products->foto}}" width="100px"
-                                                                        height="100px"></td>
 
-                                                                <td>{{ $products->nombre}}</td>
-                                                                <td>{{ $products->cantidad}} disponibles</td>
-                                                                <td>{{ $products->genero}}</td>
-                                                                <td>{{ $products->talla}}</td>
-                                                                <td>{{ $products->envio}}</td>
+                                                                        <td>{{ $materials->nombre}}</td>
+                                                                        <td>{{ $materials->medida}}</td>
+                                                                       <td>{{ $materials->cantidad}} disponibles</td>
 
 
                                                                 <td class="text-center">
 
-                                                                    <a href="{{ route('productos.edit', $products->id) }}"
+                                                                    <a href="{{ route('materias-primas.edit', $materials->id) }}"
                                                                         data-toggle="tooltip" data-placement="top"
                                                                         title="Editar producto"> <i
                                                                             class="feather icon-edit mr-2"
@@ -101,12 +93,12 @@
                                                                         <i class="feather icon-trash-2"
                                                                             style="font-size: 20px"
                                                                             data-toggle="tooltip" data-placement="top"
-                                                                            title="Eliminar producto"></i>
+                                                                            title="Eliminar materia prima"></i>
                                                                     </a>
 
                                                                     <!--//Con este formulario se manda a la funcion destroy para borrar -->
-                                                                    {!! Form::open(['route' => ['productos.destroy',
-                                                                    $products->id], 'method' => 'DELETE', 'id' =>
+                                                                    {!! Form::open(['route' => ['materias-primas.destroy',
+                                                                    $materials->id], 'method' => 'DELETE', 'id' =>
                                                                     'confirm-delete']) !!}
 
                                                                     {!! Form::close() !!}
@@ -158,7 +150,7 @@
     function destroy() {
         swal({
                 title: "¡Cuidado!",
-                text: "¿Estás seguro que deseas eliminar este producto?",
+                text: "¿Estás seguro que deseas eliminar esta materia prima?",
                 icon: "warning",
                 buttons: ['Cancelar', 'Eliminar'],
                 dangerMode: 'Eliminar',

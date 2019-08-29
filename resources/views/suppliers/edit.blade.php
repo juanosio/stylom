@@ -55,7 +55,11 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="card-body">
-                                                {!! Form::open(['route' => 'proveedores.store', 'id' => 'formulario_registro_proveedores']) !!}
+                                                {!! Form::model($suppliers, ['route' => ['proveedores.update', $suppliers->id], 'id' => 'formulario_registro_proveedores' ,  'method' => 'PUT']) !!}
+                                                @method('PUT')
+
+                                          
+                         
 
                                                 @include('suppliers.partials.form')
 

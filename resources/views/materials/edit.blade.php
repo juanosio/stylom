@@ -21,9 +21,9 @@
                                         <li class="breadcrumb-item">
                                             <a href="index-1.htm"> <i class="feather icon-home"></i> </a>
                                         </li>
-                                        <li class="breadcrumb-item"><a href="#!">Proveedores</a>
+                                        <li class="breadcrumb-item"><a href="#!">Materias Primas</a>
                                         </li>
-                                        <li class="breadcrumb-item"><a href="#!">Registro de Proveedores</a>
+                                        <li class="breadcrumb-item"><a href="#!">Registro de Materias Primas</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -41,12 +41,12 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="float-left">
-                                            <a href="{{ route('proveedores.index') }}" class="btn btn-sm btn-secondary"
+                                            <a href="{{ route('materias-primas.index') }}" class="btn btn-sm btn-secondary"
                                                 data-toggle="tooltip" data-placement="right" title="Volver"><i
                                                     class="feather icon-arrow-left" style="font-size: 20px"></i></a>
                                         </div>
                                         <center>
-                                            <h4 class="box-title">Registro de Proveedor</h4>
+                                            <h4 class="box-title">Registro de Materia Prima</h4>
                                             <p>Los campos que contengan (<span style="color:red">*</span>) son
                                                 obligatorios</p>
 
@@ -55,9 +55,9 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="card-body">
-                                                {!! Form::open(['route' => 'proveedores.store', 'id' => 'formulario_registro_proveedores']) !!}
-
-                                                @include('suppliers.partials.form')
+                                                {!! Form::model($materials, ['route' => ['materias-primas.update', $materials->id], 'id' => 'formulario_registro_materia_prima', 'method' => 'PUT']) !!}
+                                                 @method('PUT')
+                                                @include('materials.partials.form')
 
                                                 {!! Form::close() !!}
 

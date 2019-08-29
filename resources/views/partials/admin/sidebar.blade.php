@@ -25,7 +25,7 @@
                                             
                                         </li>
                                         <li>
-                                            <a href="/admin/usuarios/registrar">
+                                            <a href="{{ route('empleados.create') }}">
                                                 <span class="pcoded-mtext">Registrar secretaria</span>
                                             </a>
                                             
@@ -43,18 +43,18 @@
                                 <li class="pcoded-hasmenu">
                                     <a href="#">
                                         <span class="pcoded-micon"><i class="feather icon-layers"></i></span>
-                                        <span class="pcoded-mtext">Materia prima</span>
+                                        <span class="pcoded-mtext">Materias primas</span>
                                         
                                     </a>
                                     <ul class="pcoded-submenu">
                                         <li class=" ">
-                                            <a href="/admin/materia-prima/registrar">
-                                                <span class="pcoded-mtext">Registrar materia prima</span>
+                                            <a href="{{ route('materias-primas.index') }}">
+                                                <span class="pcoded-mtext">Ver Materia Prima</span>
                                             </a>
                                         </li>
                                         <li class=" ">
-                                            <a href="/admin/materia-prima">
-                                                <span class="pcoded-mtext">Consultar materia prima</span>
+                                            <a href="{{ route('materias-primas.index') }}">
+                                                <span class="pcoded-mtext">Registrar Materia Prima</span>
                                             </a>
                                         </li>
                                        
@@ -75,7 +75,7 @@
                                         </li>
                                         <li class=" ">
                                             <a href="{{ route('productos.create') }}">
-                                                <span class="pcoded-mtext">Registrar productos</span>
+                                                <span class="pcoded-mtext">Registrar Productos</span>
                                             </a>
                                         </li>
                                         
@@ -91,13 +91,13 @@
                                     </a>
                                     <ul class="pcoded-submenu">
                                         <li class=" ">
-                                            <a href="/admin/proveedores/registrar">
-                                                <span class="pcoded-mtext">Registrar proveedores</span>
+                                            <a href="{{ route('proveedores.index') }}">
+                                                <span class="pcoded-mtext">Ver Proveedores</span>
                                             </a>
                                         </li>
                                         <li class=" ">
-                                            <a href="/admin/proveedores">
-                                                <span class="pcoded-mtext">Consultar proveedores</span>
+                                            <a href="{{ route('proveedores.create') }}">
+                                                <span class="pcoded-mtext">Registrar Proveedores</span>
                                             </a>
                                         </li>     
 

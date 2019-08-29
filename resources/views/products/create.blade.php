@@ -31,38 +31,42 @@
                         </div>
                     </div>
 
-                    
+
                     <!-- Page-header end -->
 
                     <!-- Page body start -->
                     <div class="page-body">
                         <div class="row">
-                        <div class="col-lg-12">
-        <div class="card">
-            <div class="card-body">
-                <div class="float-left">
-                    <a  href="{{ route('productos.index') }}" class="btn btn-sm btn-secondary" data-toggle="tooltip" data-placement="right" title="Volver"><i class="feather icon-arrow-left" style="font-size: 20px"></i></a>
-                </div>
-                <center>
-                    <h4 class="box-title">Registro de Producto</h4>
-                    <p>Los campos que contengan (<span style="color:red">*</span>) son obligatorios</p>
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="float-left">
+                                            <a href="{{ route('productos.index') }}" class="btn btn-sm btn-secondary"
+                                                data-toggle="tooltip" data-placement="right" title="Volver"><i
+                                                    class="feather icon-arrow-left" style="font-size: 20px"></i></a>
+                                        </div>
+                                        <center>
+                                            <h4 class="box-title">Registro de Producto</h4>
+                                            <p>Los campos que contengan (<span style="color:red">*</span>) son
+                                                obligatorios</p>
 
-                </center>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="card-body">
-                        {!! Form::open(['route' => 'productos.store', 'files' => true, 'id' => 'formulario_registro_productos']) !!}
+                                        </center>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="card-body">
+                                                {!! Form::open(['route' => 'productos.store', 'files' => true, 'id' =>
+                                                'formulario_registro_productos']) !!}
 
-                    @include('products.partials.form')
+                                                @include('products.partials.form')
 
-                    {!! Form::close() !!}
-                        
-                    </div>
-                </div>
-            </div> <!-- /.row -->
-        </div>
-    </div><!-- /# column -->
+                                                {!! Form::close() !!}
+
+                                            </div>
+                                        </div>
+                                    </div> <!-- /.row -->
+                                </div>
+                            </div><!-- /# column -->
                         </div>
                         <!--  /Traffic -->
                     </div>
@@ -71,10 +75,10 @@
             </div>
         </div>
         <!-- Main-body end -->
-      
 
-        </div>
+
     </div>
+</div>
 </div>
 </div>
 </div>

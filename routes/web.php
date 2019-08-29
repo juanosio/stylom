@@ -50,15 +50,15 @@ Route::get('/admin/usuarios', function () {
 //Rutas con controller
 //proveedores
 
-Route::get('/admin/proveedores', 'SupplierController@index')->name('suppliers.index');
-Route::get('/admin/proveedores/registrar', 'SupplierController@create')->name('suppliers.create');
-Route::post('/admin/proveedores/store', 'SupplierController@store')->name('suppliers.store');
+// Route::get('/admin/proveedores', 'SupplierController@index')->name('suppliers.index');
+// Route::get('/admin/proveedores/registrar', 'SupplierController@create')->name('suppliers.create');
+// Route::post('/admin/proveedores/store', 'SupplierController@store')->name('suppliers.store');
 
 //materiaprima
 
-Route::get('/admin/materia-prima', 'MaterialController@index')->name('materials.index');
-Route::get('/admin/materia-prima/registrar', 'MaterialController@create')->name('materials.create');
-Route::post('/admin/materia-prima/store', 'MaterialController@store')->name('materials.store');
+// Route::get('/admin/materia-prima', 'MaterialController@index')->name('materials.index');
+// Route::get('/admin/materia-prima/registrar', 'MaterialController@create')->name('materials.create');
+// Route::post('/admin/materia-prima/store', 'MaterialController@store')->name('materials.store');
 
 //productos
 
@@ -75,3 +75,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('empleados','WorkerController');
 Route::resource('productos','ProductController');
+Route::resource('proveedores','SupplierController');
+Route::resource('materias-primas','MaterialController');
+

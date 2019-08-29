@@ -87,9 +87,10 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit($id)
     {
-        //
+        $products = App\Product::findOrFail($id);
+        return view('products/edit', compact('products'));
     }
 
     /**
@@ -99,9 +100,34 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $id)
     {
-        //
+      $productsUpdate = App\Product::findOrFail($id);
+
+          $productsUpdate->nombre = $request->nombre;
+          $productsUpdate->cantidad = $request->cantidad;
+          $productsUpdate->descripcion = $request->descripcion;
+          $productsUpdate->stock_min = 10;
+          $productsUpdate->stock_max= 50;
+          $productsUpdate->foto = $request->foto;
+          $productsUpdate->talla = $request->talla;
+          $productsUpdate->genero = $request->genero;
+          $productsUpdate->envio = $request->envio;
+
+          $productsUpdate->save();
+
+          //IMAGEN
+            if ($request->file('fotoProducto')) {
+                $path = Storage::disk('public')->put('img', $request->file('fotoProducto') );
+                
+                $productsUpdate->fill(['foto' => asset($path)]);
+                $productsUpdate->save();
+            }
+        
+        Alert::success('Operación realizada con éxito','¡Producto editado!');
+
+        return redirect()->route('productos.index');
+
     }
 
     /**
@@ -110,8 +136,13 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy($id)
     {
-        //
+        $productsDelete = App\Product::findOrFail($id);
+        $productsDelete->delete();
+        Alert::success('Operación realizada con éxito','¡Producto eliminado!');
+
+        return redirect()->route('productos.index');
+
     }
 }

@@ -21,9 +21,9 @@
                                             <a href="index-1.htm"> <i class="feather icon-home"></i> </a>
                                         </li>
                                         <li class="breadcrumb-item"><a
-                                                href="{{ route('productos.index') }}">Productos</a>
+                                                href="{{ route('proveedores.index') }}">proveedores</a>
                                         </li>
-                                        <li class="breadcrumb-item"><a href="#!">Listado de productos</a>
+                                        <li class="breadcrumb-item"><a href="#!">Listado de proveedores</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -41,13 +41,13 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="float-right">
-                                            <a href="{{ route('productos.create') }}" class="btn btn-primary"
+                                            <a href="{{ route('proveedores.create') }}" class="btn btn-primary"
                                                 data-toggle="tooltip" data-placement="left"
-                                                title="Registrar un nuevo producto"> <i class="feather icon-plus-circle"
+                                                title="Registrar un nuevo proveedor"> <i class="feather icon-plus-circle"
                                                     style="font-size: 20px"></i> Registrar</a>
                                         </div>
                                         <center>
-                                            <h4 class="box-title">Lista de Productos</h4>
+                                            <h4 class="box-title">Lista de proveedores</h4>
 
 
                                         </center>
@@ -62,35 +62,32 @@
                                                         <thead class=>
                                                             <tr>
                                                                 <th>#</th>
-                                                                <th>Foto</th>
                                                                 <th>Nombre</th>
-                                                                <th>Cantidad disponible</th>
-                                                                <th>Genero</th>
-                                                                <th>Talla</th>
-                                                                <th>Envio</th>
-
+                                                                <th>Rif</th>
+                                                                <th>Telefono</th>  
+                                                                <th>Correo</th>
+                                                                <th>Direccion</th>
                                                                 <th>Opciones</th>
 
                                                             </tr>
                                                         </thead>
                                                         <tbody class="text-center">
-                                                            @foreach($products as $products)
+                                                            @foreach($suppliers as $suppliers)
                                                             <tr>
                                                                 <td><b>{{ $i++ }}</b></td>
-                                                                <td><img class="rounded-circle"
-                                                                        src="{{ $products->foto}}" width="100px"
-                                                                        height="100px"></td>
+                                                              
 
-                                                                <td>{{ $products->nombre}}</td>
-                                                                <td>{{ $products->cantidad}} disponibles</td>
-                                                                <td>{{ $products->genero}}</td>
-                                                                <td>{{ $products->talla}}</td>
-                                                                <td>{{ $products->envio}}</td>
+                                                                <td>{{ $suppliers->nombrep}}</td>
+                                                                <td>{{ $suppliers->rif}}</td>
+                                                                <td>{{ $suppliers->telefono}}</td>
+                                                                <td>{{ $suppliers->correo}}</td>
+                                                                <td>{{ $suppliers->direccion}}</td>
+
 
 
                                                                 <td class="text-center">
 
-                                                                    <a href="{{ route('productos.edit', $products->id) }}"
+                                                                    <a href="{{ route('proveedores.edit', $suppliers->id) }}"
                                                                         data-toggle="tooltip" data-placement="top"
                                                                         title="Editar producto"> <i
                                                                             class="feather icon-edit mr-2"
@@ -105,8 +102,8 @@
                                                                     </a>
 
                                                                     <!--//Con este formulario se manda a la funcion destroy para borrar -->
-                                                                    {!! Form::open(['route' => ['productos.destroy',
-                                                                    $products->id], 'method' => 'DELETE', 'id' =>
+                                                                    {!! Form::open(['route' => ['proveedores.destroy',
+                                                                    $suppliers->id], 'method' => 'DELETE', 'id' =>
                                                                     'confirm-delete']) !!}
 
                                                                     {!! Form::close() !!}
@@ -158,7 +155,7 @@
     function destroy() {
         swal({
                 title: "¡Cuidado!",
-                text: "¿Estás seguro que deseas eliminar este producto?",
+                text: "¿Estás seguro que deseas eliminar este proveedor?",
                 icon: "warning",
                 buttons: ['Cancelar', 'Eliminar'],
                 dangerMode: 'Eliminar',

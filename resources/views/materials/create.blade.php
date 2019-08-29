@@ -1,9 +1,8 @@
 @extends ("partials.admin.layout")
-@section('content')
+@section("content")
 
 
 
-<!-- Pre-loader end -->
 <div id="pcoded" class="pcoded">
     <div class="pcoded-container navbar-wrapper">
     </div>
@@ -22,96 +21,63 @@
                                         <li class="breadcrumb-item">
                                             <a href="index-1.htm"> <i class="feather icon-home"></i> </a>
                                         </li>
-                                        <li class="breadcrumb-item"><a href="#!">Form Components</a>
+                                        <li class="breadcrumb-item"><a href="#!">Materias Primas</a>
                                         </li>
-                                        <li class="breadcrumb-item"><a href="#!">Form Components</a>
+                                        <li class="breadcrumb-item"><a href="#!">Registro de Materias Primas</a>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+
                     <!-- Page-header end -->
 
                     <!-- Page body start -->
                     <div class="page-body">
-                 
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="float-left">
+                                            <a href="{{ route('materias-primas.index') }}" class="btn btn-sm btn-secondary"
+                                                data-toggle="tooltip" data-placement="right" title="Volver"><i
+                                                    class="feather icon-arrow-left" style="font-size: 20px"></i></a>
+                                        </div>
+                                        <center>
+                                            <h4 class="box-title">Registro de Materia Prima</h4>
+                                            <p>Los campos que contengan (<span style="color:red">*</span>) son
+                                                obligatorios</p>
 
-
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="card">
-                <div class="card-body">
-                    <center>
-                        <h4 class="box-title">Registro de Materia Prima</h4>
-                        <p>Los campos que contengan (<span style="color:red">*</span>) son obligatorios</p>
-
-                    </center>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card-body">
-                            <form id="formulario_registro_materiaprima" method="POST" action="{{ route('materials.store') }}">
-                            @csrf
-                                <div class="row">
-                                    <div class="col mt-3">
-                                        <label class="alinear">Nombre<span style="color:red">*</span></label>
-                                        <input type="text" onkeypress='return event.charCode >= 65 && event.charCode <= 122 || event.charCode==32' class="form-control" placeholder="Nombre de la materia prima"
-                                            name="nombre" maxlength="50">
+                                        </center>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="card-body">
+                                                {!! Form::open(['route' => 'materias-primas.store', 'id' => 'formulario_registro_materia_prima']) !!}
 
-                                    <div class="col mt-3">
-                                        <label class="alinear">Medida<span style="color:red">*</span></label>
-                                        <select class="form-control" id="" name="medida">
+                                                @include('materials.partials.form')
 
-                                              <option value="UNITARIO" >UNITARIO</option>
-                                              <option value="m" >m</option>
-                                              <option value="cm" >cm</option>
-                                              <option value="inch" >inch</option>
+                                                {!! Form::close() !!}
 
-                                        </select>
-                                    </div>
-      
+                                            </div>
+                                        </div>
+                                    </div> <!-- /.row -->
                                 </div>
-                                 <center>
-                                <div class="row">
-                                    <div class="col mt-3">
-                                        <label class="alinear ">Cantidad<span style="color:red">*</span></label>
-                                        <input onkeypress='return event.charCode >= 48 && event.charCode <= 57' type="text" class="form-control col-4" placeholder="Cantidad"
-                                            name="cantidad" maxlength="5">
-                                    </div>
-                                </div>
-                                </center>
-                                <center>
-
-                                    <button class="btn btn-primary mt-4">Agregar</button>
-                                    <button type="reset" class="btn btn-danger mt-4 ml-2" value="Reset">Limpiar</button>
-                                    <a href="index.php" class="btn btn-success mt-4">Volver</a>
-
-
-                                </center>
-                            </form>
+                            </div><!-- /# column -->
                         </div>
+                        <!--  /Traffic -->
                     </div>
-                </div> <!-- /.row -->
-            </div>
-        </div><!-- /# column -->
-    </div>
-
-
-
-
-
-</div>
                 </div>
                 <!-- Page body end -->
             </div>
         </div>
         <!-- Main-body end -->
-        
 
-        </div>
+
     </div>
+</div>
 </div>
 </div>
 </div>
@@ -126,8 +92,6 @@
 
 
 
-
-      
 
 
 

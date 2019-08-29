@@ -53,8 +53,7 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="card-body">
-                                                {!! Form::model($user, ['route' => ['empleados.update', $user->id],
-                                                'method' => 'PUT']) !!}
+                                                {!! Form::model($user, ['route' => ['empleados.update', $user->id],  'method' => 'PUT']) !!}
                                                 @method('PUT')
 
                                                 @include('users.partials.form')
