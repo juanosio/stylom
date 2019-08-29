@@ -6,7 +6,7 @@
                             <div class="pcoded-navigatio-lavel">Menú de Navegación</div>
                             <ul class="pcoded-item pcoded-left-item">
                                 <li class="pcoded-trigger active">
-                                    <a href="/stylom/admin">
+                                    <a href="{{ route('home') }}">
                                         <span class="pcoded-micon"><i class="feather icon-home"></i></span>
                                         <span class="pcoded-mtext">Inicio</span>
                                     </a>
@@ -69,15 +69,16 @@
                                     </a>
                                     <ul class="pcoded-submenu">
                                         <li class=" ">
-                                            <a href="/admin/productos/registrar">
-                                                <span class="pcoded-mtext">Registrar productos</span>
+                                            <a href="{{ route('productos.index') }}">
+                                                <span class="pcoded-mtext">Ver Productos</span>
                                             </a>
                                         </li>
                                         <li class=" ">
-                                            <a href="/admin/productos">
-                                                <span class="pcoded-mtext">Consultar productos</span>
+                                            <a href="{{ route('productos.create') }}">
+                                                <span class="pcoded-mtext">Registrar productos</span>
                                             </a>
                                         </li>
+                                        
                                        
 
                                     </ul>

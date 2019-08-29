@@ -62,9 +62,9 @@ Route::post('/admin/materia-prima/store', 'MaterialController@store')->name('mat
 
 //productos
 
-Route::get('/admin/productos', 'ProductController@index')->name('products.index');
-Route::get('/admin/productos/registrar', 'ProductController@create')->name('products.create');
-Route::post('/admin/productos/store', 'ProductController@store')->name('products.store');
+//Route::get('/admin/productos', 'ProductController@index')->name('products.index');
+//Route::get('/admin/productos/registrar', 'ProductController@create')->name('products.create');
+//Route::post('/admin/productos/store', 'ProductController@store')->name('products.store');
 
 
 
@@ -74,3 +74,4 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('empleados','WorkerController');
+Route::resource('productos','ProductController');

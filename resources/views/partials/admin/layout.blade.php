@@ -123,8 +123,8 @@
 <script src="{{ asset('assets\admin\assets\js\vartical-layout.min.js') }}"></script>
 <script src="{{ asset('assets\admin\assets\js\jquery.mCustomScrollbar.concat.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets\admin\assets\js\script.js') }}"></script>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script type="text/javascript" src="{{ asset('assets\admin\sweet_alert.js') }}"></script>
+
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -145,7 +145,9 @@
     });
     $("#seeAnotherField").trigger("change");
 
-
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
 
     $('#simpletable').DataTable({
     language: {
@@ -170,9 +172,11 @@
     }
 
 });
+
 </script>
 
-
+@include('sweet::alert')
+@yield('script')
 </body>
 
 </html>

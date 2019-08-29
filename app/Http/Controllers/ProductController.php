@@ -5,6 +5,7 @@ use App;
 use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Alert;
 
 class ProductController extends Controller
 {
@@ -15,8 +16,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = App\Product::all();
-        return view ('products/consultproduct', compact('products'));
+        $products = Product::orderBy('id', 'DESC')->get();
+        $i = 1;
+        return view ('products/index', compact('products', 'i'));
         
     }
 
@@ -45,7 +47,7 @@ class ProductController extends Controller
           $products->nombre = $request->nombre;
           $products->cantidad = $request->cantidad;
           $products->descripcion = $request->descripcion;
-          $products->stock_min = 50;
+          $products->stock_min = 10;
           $products->stock_max= 50;
           $products->foto = $request->foto;
           $products->talla = $request->talla;
@@ -55,26 +57,17 @@ class ProductController extends Controller
           $products->save();
 
           //IMAGEN
-         
-  
-          if ($request->hasFile('foto')) {
-            $file = $request->file('foto');
-            
-$filename = $file->getClientOriginalName();
-$destinationPath = 'uploads/';
-
-$uploadSuccess = $file->move($destinationPath, $filename);
-
-
-
-     }
+            if ($request->file('fotoProducto')) {
+                $path = Storage::disk('public')->put('img', $request->file('fotoProducto') );
+                
+                $products->fill(['foto' => asset($path)]);
+                $products->save();
+            }
         
+        Alert::success('Operación realizada con éxito','¡Producto registrado!');
 
- 
+        return redirect()->route('productos.index');
 
-  
-          return redirect()->route('products.index')
-          ->with('info', 'Los datos de la cita han sido guardados');
     }
 
     /**

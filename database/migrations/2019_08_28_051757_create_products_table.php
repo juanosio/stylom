@@ -18,8 +18,8 @@ class CreateProductsTable extends Migration
 
             $table->text('nombre');
             $table->integer('cantidad');
-            $table->integer('stock_min')->nullable();
-            $table->integer('stock_max')->nullable();
+            $table->integer('stock_min');
+            $table->integer('stock_max');
             $table->text('descripcion');
             $table->string('foto')->nullable();
             $table->enum('talla',['SP','S','M','L','XL','XXL']);
