@@ -15,10 +15,16 @@ class CreateMaterialProductTable extends Migration
     {
         Schema::create('material_product', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('material_id'); // Relación con materials
-            $table->foreign('material_id')->references('id')->on('materials'); // clave foranea
-            $table->unsignedBigInteger('product_id'); // Relación con products
-            $table->foreign('product_id')->references('id')->on('products'); // clave foranea
+            $table->unsignedBigInteger('material_id');
+            $table->unsignedBigInteger('product_id');
+
+            //Relaciones 
+            $table->foreign('material_id')->references('id')->on('materials')
+                    ->onDelete('cascade')
+                    ->onUpdate('cascade');
+            $table->foreign('product_id')->references('id')->on('products')
+                    ->onDelete('cascade')
+                    ->onUpdate('cascade');
             $table->timestamps();
         });
     }
