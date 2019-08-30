@@ -72,14 +72,14 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody class="text-center">
-                                                            @foreach($materials as $materials)
-                                                            <tr>
-                                                                <td><b>{{ $i++ }}</b></td>
+    @foreach($materials as $materials)
+    <tr>
+        <td><b>{{ $i++ }}</b></td>
 
-                                                                        <td>{{ $materials->nombre}}</td>
-                                                                        <td>{{ $materials->medida}}</td>
-                                                                       <td>{{ $materials->cantidad}} disponibles</td>
-                                                                       <td>{{ $materials->suppliers->nombrep}}</td>
+                <td>{{ $materials->nombre}}</td>
+                <td>{{ $materials->medida}}</td>
+               <td>{{ $materials->cantidad}} disponibles</td>
+               <td>{{ $materials->suppliers()->nombrep}}</td>
 
 
                                                                 <td class="text-center">
