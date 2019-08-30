@@ -24,7 +24,7 @@
 <div class="row">
     <div class="col mt-3">
         <label class="alinear">Materia Prima<span style="color:red">*</span></label>
-        <select class="form-control" id="" name="medida">
+        <select class="form-control" id="" name="material_id">
 
         @foreach ($materials as $item)
             <option value="{{ $item['id'] }}">{{ $item['nombre'] }}</option>

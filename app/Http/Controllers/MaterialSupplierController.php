@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App;
 Use App\Supplier;
 Use App\Material;
+use App\MaterialSupplier;
 use Illuminate\Http\Request;
 use Alert;
 
@@ -18,9 +19,9 @@ class MaterialSupplierController extends Controller
      */
     public function index()
     { 
-        $suppliers= App\Supplier::all();
-        $materials= App\Material::all();
-        $matesupp = Material_Supplier::orderBy('id', 'DESC')->get();
+        $suppliers= Supplier::all();
+        $materials= Material::all();
+        $matesupp = MaterialSupplier::orderBy('id', 'DESC')->get();
         $i = 1;
         return view ('materials_suppliers/index', compact('matesupp', 'i'), compact('suppliers'), compact('materials'));
     }
@@ -45,17 +46,21 @@ class MaterialSupplierController extends Controller
      */
     public function store(Request $request)
     {
-        $materials = new App\Material;
+        $suppliers= Supplier::all();
+        $materials= Material::all();
+        //    return $request->all();
+          $matesupp= new MaterialSupplier;
 
-        $materials->material_id = $request->supplier_id;
-        $materials->supplier_id= $request->supplier_id;
-        $materials->cantidad = $request->cantidad;
-        $materials->precio = $request->precio;
-        $materials->save();
-
-        Alert::success('Operación realizada con éxito','¡Materia Prima registrada!');
-
-        return redirect()->route('materia-proveedores.index');
+          $matesupp->material_id = $request->material_id;
+          $matesupp->supplier_id = $request->supplier_id;
+          $matesupp->cantidad = $request->cantidad;
+          $matesupp->precio = $request->precio;
+  
+          $matesupp->save();
+  
+          Alert::success('Operación realizada con éxito','¡Materia Prima registrada!');
+  
+          return redirect()->route('materia-proveedores.index');
     }
 
     /**

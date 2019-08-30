@@ -74,12 +74,10 @@
                                                             @foreach($matesupp as $item)
                                                             <tr>
                                                                 <td><b>{{ $i++ }}</b></td>
-                                                                <td><img class="rounded-circle"
-                                                                        src="{{ $products->foto}}" width="100px"
-                                                                        height="100px"></td>
-
-                                                                <td>{{ $item->materials()->nombre}}</td>
-                                                                <td>{{ $item->suppliers()->nombre}}</td>
+                                                              
+                                                           
+                                                                <td>{{ $item->material->id}}</td>
+                                                                <td>{{ $item->supplier->id}}</td>
                                                                 <td>{{ $item->cantidad}}</td>
                                                                 <td>{{ $item->precio}}</td>
 
@@ -94,8 +92,8 @@
                                                                     </a>
 
                                                                     <!--//Con este formulario se manda a la funcion destroy para borrar -->
-                                                                    {!! Form::open(['route' => ['productos.destroy',
-                                                                    $products->id], 'method' => 'DELETE', 'id' =>
+                                                                    {!! Form::open(['route' => ['materia-proveedores.destroy',
+                                                                    $matesupp->id], 'method' => 'DELETE', 'id' =>
                                                                     'confirm-delete']) !!}
 
                                                                     {!! Form::close() !!}

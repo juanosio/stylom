@@ -79,7 +79,7 @@
                 <td>{{ $materials->nombre}}</td>
                 <td>{{ $materials->medida}}</td>
                <td>{{ $materials->cantidad}} disponibles</td>
-               <td>{{ $materials->suppliers()->nombrep}}</td>
+               <td>{{ $materials->suppliers()->nombre}}</td>
 
 
                                                                 <td class="text-center">
