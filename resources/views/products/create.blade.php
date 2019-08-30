@@ -60,6 +60,82 @@
 
                                                 @include('products.partials.form')
 
+                                                <hr>
+
+                                                <div class="text-center">
+      <h3>Materia prima utilizada</h3>
+      <p>Por favor seleccione cuánto y que materia prima utilizo para la fabricación de este producto</p>
+    </div>
+
+
+
+
+
+
+<div id="materiaPrima">
+    
+
+                                                <div class="row">
+
+
+
+      <div class="col mt-3">
+              <label class="alinear">Talla<span style="color:red">*</span></label>
+              <select class="form-control" id="" name="material[]">
+@foreach($material as $item)
+                    <option value="{{ $item->id }}" >{{ $item->nombre }}</option>
+@endforeach
+
+              </select>
+          </div>
+          <div class="col mt-3">
+        <label class="alinear">Medida<span style="color:red">*</span></label>
+        <select class="form-control" id="" name="medida[]">
+
+            <option value="UNITARIO">UNITARIO</option>
+            <option value="METROS">METROS</option>
+            <option value="CENTIMETROS">CENTIMETROS</option>
+            <option value="PULGADAS">PULGADAS</option>
+
+        </select>
+    </div>
+      <div class="col mt-3">
+          <label class="alinear">Cantidad<span style="color:red">*</span></label>
+          <input type="text" name="cantidadMateria[]" class="form-control $errors->has('cantidad') ? ' is-invalid' : ''" maxlength="5", placeholder="Introduzca la cantidad utilizada">
+          
+          
+      </div>
+  </div>
+
+ 
+
+
+
+</div>
+
+ <div class="text-center mt-3 mb-3">
+      <span data-toggle="tooltip" data-placement="bottom" title="Añadir otra materia prima">
+          <i id="add" class="feather icon-plus-square" style="font-size: 35px; cursor: pointer;"> </i>
+      </span>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+   <center>
+
+      <button type="submit" class="btn btn-primary mt-4">Registrar</button>
+
+
+  </center>
+
                                                 {!! Form::close() !!}
 
                                             </div>
@@ -96,4 +172,49 @@
 
 
 
+@endsection
+
+@section('script')
+<script type="text/javascript">
+    $("#add").on('click', function(){
+        var materia = `
+        <div class="row">
+
+
+
+      <div class="col mt-3">
+              <label class="alinear">Talla<span style="color:red">*</span></label>
+              <select class="form-control" id="" name="material[]">
+@foreach($material as $item)
+                    <option value="{{ $item->id }}" >{{ $item->nombre }}</option>
+@endforeach
+
+              </select>
+          </div>
+          <div class="col mt-3">
+        <label class="alinear">Medida<span style="color:red">*</span></label>
+        <select class="form-control" id="" name="medida[]">
+
+            <option value="UNITARIO">UNITARIO</option>
+            <option value="METROS">METROS</option>
+            <option value="CENTIMETROS">CENTIMETROS</option>
+            <option value="PULGADAS">PULGADAS</option>
+
+        </select>
+    </div>
+      <div class="col mt-3">
+          <label class="alinear">Cantidad<span style="color:red">*</span></label>
+          <input type="text" name="cantidadMateria[]" class="form-control $errors->has('cantidad') ? ' is-invalid' : ''" maxlength="5", placeholder="Introduzca la cantidad utilizada">
+          
+      </div>
+  </div>
+
+
+   
+    `;
+
+    $("#materiaPrima").append(materia);
+    })
+
+</script>
 @endsection

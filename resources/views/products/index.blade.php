@@ -90,6 +90,13 @@
 
                                                                 <td class="text-center">
 
+<a href="{{ route('productos.show', $products->id) }}"
+                                                                        data-toggle="tooltip" data-placement="top"
+                                                                        title="Ver producto"> <i
+                                                                            class="feather icon-eye mr-2"
+                                                                            style="font-size: 20px"></i></a>
+
+
                                                                     <a href="{{ route('productos.edit', $products->id) }}"
                                                                         data-toggle="tooltip" data-placement="top"
                                                                         title="Editar producto"> <i
