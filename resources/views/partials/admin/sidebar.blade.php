@@ -14,7 +14,7 @@
                                 </li>
                                 <li class="pcoded-hasmenu">
                                     <a href="#">
-                                        <span class="pcoded-micon"><i class="feather icon-sidebar"></i></span>
+                                        <span class="pcoded-micon"><i class="feather icon-user"></i></span>
                                         <span class="pcoded-mtext">Secretarias</span>
                                     </a>
                                     <ul class="pcoded-submenu">
@@ -63,7 +63,7 @@
                                 </li>
                                 <li class="pcoded-hasmenu">
                                     <a href="#">
-                                        <span class="pcoded-micon"><i class="feather icon-layers"></i></span>
+                                        <span class="pcoded-micon"><i class="feather icon-shopping-cart"></i></span>
                                         <span class="pcoded-mtext">Productos</span>
                                         
                                     </a>

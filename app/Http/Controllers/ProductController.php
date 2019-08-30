@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App;
 use App\Product;
+use App\MaterialProduct;
+use App\Material;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Alert;
@@ -29,7 +31,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view ('products/create');
+        $material = Material::all();
+        return view ('products/create', compact('material'));
     
     }
 
@@ -41,15 +44,15 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //    return $request->all();
-          $products = new App\Product;
+      
+
+          $products = new Product;
 
           $products->nombre = $request->nombre;
           $products->cantidad = $request->cantidad;
           $products->descripcion = $request->descripcion;
           $products->stock_min = 10;
           $products->stock_max= 50;
-          $products->foto = $request->foto;
           $products->talla = $request->talla;
           $products->genero = $request->genero;
           $products->envio = $request->envio;
@@ -63,6 +66,22 @@ class ProductController extends Controller
                 $products->fill(['foto' => asset($path)]);
                 $products->save();
             }
+
+//Guardando en la tabla relacion
+$cantidadMateria = count($request->medida);
+for($i=0; $i<$cantidadMateria; $i++){
+$materialProducts = new MaterialProduct;
+
+            $materialProducts->material_id = $request->material[$i];
+            $materialProducts->product_id = $products->id;
+
+            $materialProducts->cantidad = $request->cantidadMateria[$i];
+            $materialProducts->medida = $request->medida[$i];
+            $materialProducts->save();
+
+
+}
+            
         
         Alert::success('Operación realizada con éxito','¡Producto registrado!');
 

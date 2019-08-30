@@ -54,6 +54,7 @@
   </div>
 
   <div class="row">
+    
   <div class="col mt-3">
               <label class="alinear">Género<span style="color:red">*</span></label>
               <select class="form-control" id="" name="genero">
@@ -80,9 +81,4 @@
 
 </div>
 
-  <center>
-
-      <button type="submit" class="btn btn-primary mt-4">Registrar</button>
-
-
-  </center>
+ 
