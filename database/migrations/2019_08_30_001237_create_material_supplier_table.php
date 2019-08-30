@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMaterialProductTable extends Migration
+class CreateMaterialSupplierTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,20 @@ class CreateMaterialProductTable extends Migration
      */
     public function up()
     {
-        Schema::create('material_product', function (Blueprint $table) {
+        Schema::create('material_supplier', function (Blueprint $table) {
             $table->bigIncrements('id');
+
             $table->unsignedBigInteger('material_id');
-            $table->unsignedBigInteger('product_id');
+            $table->unsignedBigInteger('supplier_id');
             
             $table->integer('cantidad');
-             $table->enum('medida',['UNITARIO','METROS','CENTIMETROS','PULGADAS']);
+            $table->integer('precio');
 
             //Relaciones 
             $table->foreign('material_id')->references('id')->on('materials')
                     ->onDelete('cascade')
                     ->onUpdate('cascade');
-            $table->foreign('product_id')->references('id')->on('products')
+            $table->foreign('supplier_id')->references('id')->on('suppliers')
                     ->onDelete('cascade')
                     ->onUpdate('cascade');
             $table->timestamps();
@@ -39,6 +40,6 @@ class CreateMaterialProductTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('material_product');
+        Schema::dropIfExists('material_supplier');
     }
 }

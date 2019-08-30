@@ -7,14 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     protected $fillable = [
-        'nombre', 'cantidad','descripcion', 'foto', 'talla', 'genero', 'envio',
+        'nombre', 'cantidad', 'stock_min', 'stock_max', 'descripcion', 'foto', 'talla', 'genero', 'envio',
     ];
 
-    protected $hidden = [
-        'stock_min', 'stock_max',
-    ];
 
     public function materials(){
-        return $this->hasMany(Material::class); //Muchos a muchos
+    	return $this->belongsToMany(Material::class);//Muchos a muchos
     }
 }

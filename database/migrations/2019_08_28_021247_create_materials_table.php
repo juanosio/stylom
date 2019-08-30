@@ -16,21 +16,14 @@ class CreateMaterialsTable extends Migration
         Schema::create('materials', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-             $table->unsignedBigInteger('supplier_id');
-
-         
-            $table->integer('cantidad');
-            $table->enum('medida',['UNITARIO','m','cm','inch']);
-            $table->text('nombre');
-           
+            $table->string('nombre');
             $table->integer('stock_min')->nullable();
             $table->integer('stock_max')->nullable();
+            $table->integer('stock_actual');
+            $table->enum('medida',['UNITARIO','METROS','CENTIMETROS','PULGADAS']);
 
-           
-           $table->foreign('supplier_id')->references('id')->on('suppliers')
-                    ->onDelete('cascade')
-                    ->onUpdate('cascade');
-
+            
+            
            
             $table->timestamps();
 

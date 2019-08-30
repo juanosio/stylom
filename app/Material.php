@@ -7,15 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Material extends Model
 {
     protected $fillable = [
-        'nombre', 'medida', 'cantidad', 'supplier_id',
+        'nombre', 'stock_min', 'stock_max', 'medida', 'stock_actual', 
     ];
 
-    protected $hidden = [
-        'stock_min', 'stockmax',
-    ];
-
+    
     public function suppliers(){
-        return $this->belongsTo(Supplier::class);
+        return $this->belongsToMany(Supplier::class);
     }
 
     public function products(){
