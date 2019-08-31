@@ -23,7 +23,7 @@
       <div class="col mt-3">
           <label class="alinear">Nombre<span style="color:red">*</span></label>
           
-              {{ Form::text('nombrep', null, ['class' => "form-control $errors->has('nombrep') ? ' is-invalid' : ''", 'id' => 'nombrep', 'maxlength' => 50, 'placeholder' => 'Introduzca el nombre del proveedor. Ej: El Castillo']) }}
+              {{ Form::text('nombre', null, ['class' => "form-control $errors->has('nombre') ? ' is-invalid' : ''", 'id' => 'nombre', 'maxlength' => 50, 'placeholder' => 'Introduzca el nombre del proveedor. Ej: El Castillo']) }}
       </div>
       <div class="col mt-3">
           <label class="alinear">Rif<span style="color:red">*</span></label>

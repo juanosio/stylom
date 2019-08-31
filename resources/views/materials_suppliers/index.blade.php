@@ -71,15 +71,16 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody class="text-center">
-                                                            @foreach($matesupp as $item)
+                                                            @foreach($matesupp as $matesupp)
                                                             <tr>
                                                                 <td><b>{{ $i++ }}</b></td>
                                                               
                                                            
-                                                                <td>{{ $item->material->id}}</td>
-                                                                <td>{{ $item->supplier->id}}</td>
-                                                                <td>{{ $item->cantidad}}</td>
-                                                                <td>{{ $item->precio}}</td>
+                                                                <td>{{ $matesupp->material_id('nombre') }}</td>
+                                                       
+                                                                <td>{{ $matesupp->supplier_id('nombre')}}</td>
+                                                                <td>{{ $matesupp->cantidad}}</td>
+                                                                <td>{{ $matesupp->precio}}</td>
 
 
 

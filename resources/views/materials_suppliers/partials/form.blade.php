@@ -26,16 +26,16 @@
         <label class="alinear">Materia Prima<span style="color:red">*</span></label>
         <select class="form-control" id="" name="material_id">
 
-        @foreach ($materials as $item)
-            <option value="{{ $item['id'] }}">{{ $item['nombre'] }}</option>
+        @foreach ($materials as $materials)
+            <option value="{{ $materials->id }}">{{ $materials->nombre }}</option>
         @endforeach
         </select>
     </div>
     <div class="col mt-3">
         <label class="alinear">Proveedor<span style="color:red">*</span></label>
         <select class="form-control" id="" name="supplier_id">
-        @foreach ($suppliers as $item)
-            <option value="{{ $item['id'] }}">{{ $item['nombre'] }}</option>
+        @foreach ($suppliers as $suppliers)
+            <option value="{{ $suppliers->id }}">{{ $suppliers->nombre }}</option>
         @endforeach
         </select>
     </div>

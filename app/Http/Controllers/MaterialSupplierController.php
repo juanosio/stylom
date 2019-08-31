@@ -46,8 +46,8 @@ class MaterialSupplierController extends Controller
      */
     public function store(Request $request)
     {
-        $suppliers= Supplier::all();
-        $materials= Material::all();
+        $suppliers = Supplier::all();
+        $materials = Material::all();
         //    return $request->all();
           $matesupp= new MaterialSupplier;
 

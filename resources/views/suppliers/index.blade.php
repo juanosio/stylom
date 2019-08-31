@@ -77,7 +77,7 @@
                                                                 <td><b>{{ $i++ }}</b></td>
                                                               
 
-                                                                <td>{{ $suppliers->nombrep}}</td>
+                                                                <td>{{ $suppliers->nombre}}</td>
                                                                 <td>{{ $suppliers->rif}}</td>
                                                                 <td>{{ $suppliers->telefono}}</td>
                                                                 <td>{{ $suppliers->correo}}</td>

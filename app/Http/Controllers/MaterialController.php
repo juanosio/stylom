@@ -40,17 +40,16 @@ class MaterialController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MaterialStoreRequest $request)
     {
         //  return $request->all();
         $materials = new App\Material;
 
         $materials->nombre = $request->nombre;
         $materials->medida = $request->medida;
-        $materials->cantidad = $request->cantidad;
+        $materials->stock_actual = $request->stock_actual;
         $materials->stock_min = 10;
         $materials->stock_max= 50;
-        $materials->supplier_id = $request->supplier_id;
 
         $materials->save();
 
@@ -89,12 +88,12 @@ class MaterialController extends Controller
      * @param  \App\Material  $material
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(MaterialUpdateRequest $request, $id)
     {
         $materialsUpdate = App\Material::findOrFail($id);
         $materialsUpdate->nombre = $request->nombre;
         $materialsUpdate->medida = $request->medida;
-        $materialsUpdate->cantidad = $request->cantidad;
+        $materialsUpdate->stock_actual = $request->stock_actual;
 
         $materialsUpdate->save();
 

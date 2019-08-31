@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App;
 use App\Supplier;
-use Illuminate\Http\Request;
+use Illuminate\Http\Requests\MaterialStoreRequest;
 use Alert;
 class SupplierController extends Controller
 {
@@ -36,13 +36,13 @@ class SupplierController extends Controller
      * @return \Illuminate\Http\Response
      */
    
-    public function store(Request $request)
+    public function store(SupplierStoreRequest $request)
     {
 
         // return $request->all();
          $suppliers = new App\Supplier;
 
-        $suppliers->nombrep = $request->nombrep;
+        $suppliers->nombre = $request->nombre;
         $suppliers->rif = $request->rif;
         $suppliers->direccion = $request->direccion;
         $suppliers->telefono = $request->telefono;
@@ -86,11 +86,11 @@ class SupplierController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(SupplierUpdateRequest $request, $id)
     {
         $suppliersUpdate = App\Supplier::findOrFail($id);
 
-        $suppliersUpdate->nombrep = $request->nombrep;
+        $suppliersUpdate->nombre = $request->nombre;
         $suppliersUpdate->rif = $request->rif;
         $suppliersUpdate->direccion = $request->direccion;
         $suppliersUpdate->telefono = $request->telefono;

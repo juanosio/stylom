@@ -27,7 +27,7 @@
     </div>
     <div class="col mt-3">
         <label class="alinear">Cantidad<span style="color:red">*</span></label>
-        {{ Form::text('cantidad', null, ['class' => "form-control $errors->has('cantidad') ? ' is-invalid' : ''", 'id' => 'cantidad', 'maxlength' => 9, 'placeholder' => 'Introduzca la cantidad disponible']) }}
+        {{ Form::text('stock_actual', null, ['class' => "form-control $errors->has('stock_actual') ? ' is-invalid' : ''", 'id' => 'stock_actual', 'maxlength' => 9, 'placeholder' => 'Introduzca la cantidad disponible']) }}
 
     </div>
  
@@ -49,7 +49,7 @@
         <label class="alinear">Proveedor<span style="color:red">*</span></label>
         <select class="form-control" id="" name="supplier_id">
         @foreach ($suppliers as $suppliers)
-            <option value="{{ $suppliers['id'] }}">{{ $suppliers['nombrep'] }}</option>
+            <option value="{{ $suppliers['id'] }}">{{ $suppliers['nombre'] }}</option>
         @endforeach
         </select>
     </div>
