@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App;
 Use App\Supplier;
+use Illuminate\Database\Query\Builder;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
+
 Use App\Material;
 use App\MaterialSupplier;
 use Illuminate\Http\Request;
@@ -19,11 +23,14 @@ class MaterialSupplierController extends Controller
      */
     public function index()
     { 
-        $suppliers= Supplier::all();
-        $materials= Material::all();
+
+
+        $materials = DB::table('materials')->get();
+        $suppliers= DB::table('suppliers')->get();
+
         $matesupp = MaterialSupplier::orderBy('id', 'DESC')->get();
         $i = 1;
-        return view ('materials_suppliers/index', compact('matesupp', 'i'), compact('suppliers'), compact('materials'));
+        return view ('materials_suppliers/index', compact('matesupp', 'i'),['materials' => $materials],['suppliers' => $suppliers]);
     }
 
     /**
@@ -33,9 +40,9 @@ class MaterialSupplierController extends Controller
      */
     public function create()
     {
-        $suppliers = Supplier::all();
-        $materials= Material::all();
-        return view ('materials_suppliers/create', compact('suppliers'), compact('materials'));
+        $materials = DB::table('materials')->get();
+        $suppliers= DB::table('suppliers')->get();
+        return view ('materials_suppliers/create', ['materials' => $materials], ['suppliers' => $suppliers]);
     }
 
     /**
@@ -46,8 +53,8 @@ class MaterialSupplierController extends Controller
      */
     public function store(Request $request)
     {
-        $suppliers = Supplier::all();
-        $materials = Material::all();
+        $materials = DB::table('materials')->get();
+        $suppliers= DB::table('suppliers')->get();
         //    return $request->all();
           $matesupp= new MaterialSupplier;
 
