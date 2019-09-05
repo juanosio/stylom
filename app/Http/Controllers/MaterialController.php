@@ -40,7 +40,7 @@ class MaterialController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(MaterialStoreRequest $request)
+    public function store(\App\Http\Requests\MaterialStoreRequest $request)
     {
         //  return $request->all();
         $materials = new App\Material;
@@ -88,7 +88,7 @@ class MaterialController extends Controller
      * @param  \App\Material  $material
      * @return \Illuminate\Http\Response
      */
-    public function update(MaterialUpdateRequest $request, $id)
+    public function update(\App\Http\Requests\MaterialUpdateRequest $request, $id)
     {
         $materialsUpdate = App\Material::findOrFail($id);
         $materialsUpdate->nombre = $request->nombre;

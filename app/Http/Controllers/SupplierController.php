@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 use App;
 use App\Supplier;
-use Illuminate\Http\Requests\MaterialStoreRequest;
+use App\Http\Request\SupplierStoreRequest;
+use App\Http\Request\SupplierUpdateRequest;
+
 use Alert;
 class SupplierController extends Controller
 {
@@ -36,7 +38,7 @@ class SupplierController extends Controller
      * @return \Illuminate\Http\Response
      */
    
-    public function store(SupplierStoreRequest $request)
+    public function store(\App\Http\Requests\SupplierStoreRequest $request)
     {
 
         // return $request->all();
@@ -86,7 +88,7 @@ class SupplierController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(SupplierUpdateRequest $request, $id)
+    public function update(\App\Http\Requests\SupplierUpdateRequest $request, $id)
     {
         $suppliersUpdate = App\Supplier::findOrFail($id);
 

@@ -42,7 +42,7 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(\App\Http\Requests\ProductStoreRequest $request)
     {
       
 
@@ -119,7 +119,7 @@ $materialProducts = new MaterialProduct;
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(\App\Http\Requests\ProductUpdateRequest $request, $id)
     {
       $productsUpdate = App\Product::findOrFail($id);
 

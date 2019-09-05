@@ -27,6 +27,9 @@
     <!-- Style.css -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/assets/css/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/assets/css/jquery.mCustomScrollbar.css') }}">
+
+
+
 </head>
 </head>
 
@@ -94,6 +97,12 @@
     <script type="text/javascript" src="{{ asset('assets/admin/bower_components/jquery-ui/js/jquery-ui.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/admin/popper.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/admin/bower_components/bootstrap/js/bootstrap.min.js') }}"></script>
+
+<script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+<script language="javascript" type="text/javascript" src=" https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.js"></script>
+<script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+<script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/additional-methods.js"></script>
+<script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/additional-methods.min.js"></script>
     <!-- jquery slimscroll js -->
     <script type="text/javascript" src="{{ asset('assets/admin/bower_components/jquery-slimscroll/js/jquery.slimscroll.js') }}"></script>
 <!-- modernizr js -->
@@ -118,6 +127,8 @@
 <script type="text/javascript" src="{{ asset('assets\admin\bower_components\jquery-i18next\js\jquery-i18next.min.js') }}"></script>
 <!-- Custom js -->
 <script src="{{ asset('assets\admin\assets\pages\data-table\js\data-table-custom.js') }}"></script>
+
+
 
 <script src="{{ asset('assets\admin\assets\js\pcoded.min.js') }}"></script>
 <script src="{{ asset('assets\admin\assets\js\vartical-layout.min.js') }}"></script>
@@ -174,6 +185,225 @@ $(function () {
 });
 
 </script>
+
+<script>
+
+$(function(){
+
+  $.validator.setDefaults({
+
+   highlight: function(element){
+     $(element)
+     .closest('.form-control')
+     .addClass('is-invalid');
+   },
+   unhighlight: function(element){
+     $(element)
+     .closest('.form-control')
+     .removeClass('is-invalid');
+   }
+
+  });
+
+ $("#formulario_registro_proveedores").validate({
+  
+       rules:{
+
+           nombre:{
+                required: true, 
+                minlength: 3
+           },
+           rif:{
+                required: true, 
+                minlength: 7
+           },
+           direccion:{
+                required: true, 
+                minlength: 1
+           },
+           telefono:{
+             required: true,
+             minlength: 11
+           },
+           correo:{
+             required: true,
+             email: true,
+             minlength: 1
+           }      
+       },
+
+       messages:{
+
+         nombre:{
+           required: 'Por favor ingresa el nombre del proveedor',
+           minlength: 'Por favor ingresa mas de 3 caracteres'
+         },
+         rif:{
+             required: 'Por favor ingresa el rif del proveedor',
+             minlength: 'Por favor ingresa al menos 7 digitos'
+           },
+         direccion:{
+             required: 'Por favor ingresa la rireccion del proveedor',
+             minlength: 'Por favor ingresa al menos 1 caracter'
+           },
+           telefono:{
+             required: 'Por favor ingresa la cantidad de materia prima',
+             minlength: 'Por favor ingresa al menos 1 digito'
+           },
+           correo:{
+             required: 'Por favor ingresa la cantidad de materia prima',
+             minlength: 'Por favor ingresa al menos 1 caracter',
+             email: 'Por favor ingresa un correo valido'
+           },
+       }
+
+
+ });
+
+
+});
+
+
+
+
+
+
+</script>
+
+
+<script>
+
+$(function(){
+
+  $.validator.setDefaults({
+
+   highlight: function(element){
+     $(element)
+     .closest('.form-control')
+     .addClass('is-invalid');
+   },
+   unhighlight: function(element){
+     $(element)
+     .closest('.form-control')
+     .removeClass('is-invalid');
+   }
+
+  });
+
+ $("#formulario_registro_materia_prima").validate({
+  
+       rules:{
+
+           nombre:{
+                required: true, 
+                minlength: 3
+           },
+           stock_actual:{
+                required: true, 
+                minlength: 1
+           }, 
+       },
+
+       messages:{
+
+         nombre:{
+           required: 'Por favor ingresa el nombre de la materia prima',
+           minlength: 'Por favor ingresa mas de 3 caracteres'
+         },
+         stock_actual:{
+             required: 'Por favor ingresa la cantidad',
+             minlength: 'Por favor ingresa al menos 1 digito'
+           },
+
+       }
+
+
+ });
+
+
+});
+
+
+</script>
+
+<script>
+
+$(function(){
+
+  $.validator.setDefaults({
+
+   highlight: function(element){
+     $(element)
+     .closest('.form-control')
+     .addClass('is-invalid');
+   },
+   unhighlight: function(element){
+     $(element)
+     .closest('.form-control')
+     .removeClass('is-invalid');
+   }
+
+  });
+
+ $("#formulario_registro_productos").validate({
+  
+       rules:{
+
+           nombre:{
+                required: true, 
+                minlength: 3
+           },
+           cantidad:{
+                required: true, 
+                minlength: 1
+           }, 
+           genero:{
+                required: true, 
+           }, 
+           talla:{
+                required: true, 
+           }, 
+           envio:{
+                required: true, 
+           }, 
+       },
+
+       messages:{
+
+         nombre:{
+           required: 'Por favor ingresa el nombre del producto',
+           minlength: 'Por favor ingresa mas de 3 caracteres'
+         },
+         cantidad:{
+             required: 'Por favor ingresa la cantidad',
+             minlength: 'Por favor ingresa al menos 1 digito'
+           },
+           genero:{
+             required: 'Por favor ingresa el genero',
+           },
+           talla:{
+             required: 'Por favor ingresa la talla',
+           },
+           envio:{
+             required: 'Por favor ingresa la empresa de envio',
+           },
+
+       }
+
+
+ });
+
+
+});
+
+
+
+
+
+
+</script>
+
+
 
 @include('sweet::alert')
 @yield('script')

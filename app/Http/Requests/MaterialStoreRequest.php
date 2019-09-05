@@ -24,9 +24,9 @@ class MaterialStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre'          => 'required|max:20',
-            'medida'          => 'required',
-            'stock_actual'        => 'required',
+            'nombre' => 'required|max:20',
+            'medida' => 'required',
+            'stock_actual' => 'required',
 
         ];
     }

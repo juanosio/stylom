@@ -27,10 +27,12 @@ class MaterialSupplierController extends Controller
 
         $materials = DB::table('materials')->get();
         $suppliers= DB::table('suppliers')->get();
+        
 
         $matesupp = MaterialSupplier::orderBy('id', 'DESC')->get();
+        // dd($matesupp->toArray());
         $i = 1;
-        return view ('materials_suppliers/index', compact('matesupp', 'i'),['materials' => $materials],['suppliers' => $suppliers]);
+        return view ('materials_suppliers/index')->with( compact('matesupp', 'i'),['materials' => $materials],['suppliers' => $suppliers]);
     }
 
     /**
