@@ -19,4 +19,6 @@ class Material extends Model
     public function products(){
         return $this->belongsToMany(Product::class); //Muchos a muchos
     }
+
+   
 }

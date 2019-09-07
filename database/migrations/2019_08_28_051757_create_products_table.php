@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+
 class CreateProductsTable extends Migration
 {
     /**
@@ -14,9 +15,11 @@ class CreateProductsTable extends Migration
     public function up()
     {
         Schema::create('products', function (Blueprint $table) {
+            
             $table->bigIncrements('id');
- 
+         
             $table->text('nombre');
+            $table->unsignedBigInteger('category_id');
             $table->integer('cantidad');
             $table->integer('stock_min');
             $table->integer('stock_max');
@@ -25,8 +28,13 @@ class CreateProductsTable extends Migration
             $table->enum('talla',['SP','S','M','L','XL','XXL']);
             $table->enum('genero',['FEMENINO','MASCULINO']);
             $table->enum('envio',['DOMESA','MRW','ZOOM','LIBERTYEXPRESS']);
-        
+
+            $table->foreign('category_id')->references('id')->on('categories');
+    
             $table->timestamps();
+
+     
+
         });
     }
 

@@ -21,9 +21,9 @@
                                             <a href="index-1.htm"> <i class="feather icon-home"></i> </a>
                                         </li>
                                         <li class="breadcrumb-item"><a
-                                                href="{{ route('materias-primas.index') }}">Productos</a>
+                                                href="{{ route('categorias.index') }}">Categorias</a>
                                         </li>
-                                        <li class="breadcrumb-item"><a href="#!">Listado de productos</a>
+                                        <li class="breadcrumb-item"><a href="#!">Listado de categorias</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -41,13 +41,13 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="float-right">
-                                            <a href="{{ route('materias-primas.create') }}" class="btn btn-primary"
+                                            <a href="{{ route('categorias.create') }}" class="btn btn-primary"
                                                 data-toggle="tooltip" data-placement="left"
                                                 title="Registrar un nuevo producto"> <i class="feather icon-plus-circle"
                                                     style="font-size: 20px"></i> Registrar</a>
                                         </div>
                                         <center>
-                                            <h4 class="box-title">Lista de Materias Primas</h4>
+                                            <h4 class="box-title">Lista de Categorias</h4>
 
 
                                         </center>
@@ -63,27 +63,21 @@
                                                             <tr>
                                                                 <th>#</th>
                                                                 <th>Nombre</th>
-                                                            <th>Medida</th>
-                                                            <th>Cantidad</th>
-                                                            <th>Proveedor</th>
-
                                                                 <th>Opciones</th>
 
                                                             </tr>
                                                         </thead>
                                                         <tbody class="text-center">
-    @foreach($materials as $materials)
-    <tr>
-        <td><b>{{ $i++ }}</b></td>
+                                                            @foreach($categories as $categories)
+                                                            <tr>
+                                                                <td><b>{{ $i++ }}</b></td>
 
-                <td>{{ $materials->nombre}}</td>
-                <td>{{ $materials->medida}}</td>
-               <td>{{ $materials->cantidad}} disponibles</td>
-               <td>{{ $materials->suppliers_id}}</td>
+                                                                <td>{{ $categories->nombre}}</td>
+
 
                                                                 <td class="text-center">
 
-                                                                    <a href="{{ route('materias-primas.edit', $materials->id) }}"
+                                                                    <a href="{{ route('categorias.edit', $categories->id) }}"
                                                                         data-toggle="tooltip" data-placement="top"
                                                                         title="Editar producto"> <i
                                                                             class="feather icon-edit mr-2"
@@ -94,12 +88,12 @@
                                                                         <i class="feather icon-trash-2"
                                                                             style="font-size: 20px"
                                                                             data-toggle="tooltip" data-placement="top"
-                                                                            title="Eliminar materia prima"></i>
+                                                                            title="Eliminar categoria"></i>
                                                                     </a>
 
                                                                     <!--//Con este formulario se manda a la funcion destroy para borrar -->
-                                                                    {!! Form::open(['route' => ['materias-primas.destroy',
-                                                                    $materials->id], 'method' => 'DELETE', 'id' =>
+                                                                    {!! Form::open(['route' => ['categorias.destroy',
+                                                                    $categories->id], 'method' => 'DELETE', 'id' =>
                                                                     'confirm-delete']) !!}
 
                                                                     {!! Form::close() !!}
@@ -151,7 +145,7 @@
     function destroy() {
         swal({
                 title: "¡Cuidado!",
-                text: "¿Estás seguro que deseas eliminar esta materia prima?",
+                text: "¿Estás seguro que deseas eliminar esta categoria?",
                 icon: "warning",
                 buttons: ['Cancelar', 'Eliminar'],
                 dangerMode: 'Eliminar',

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SupplierUpdateRequest extends FormRequest
+class CategoryUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class SupplierUpdateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,11 +24,7 @@ class SupplierUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre'          => 'required|max:20',
-            'rif'          => 'required|integer|max:11|unique:suppliers,rif',
-            'telefono'        => 'required|integer|max:11',
-            'direccion'        => 'required|string|max:80',    
-            'correo'          => 'required|email|max:40', 
+            'nombre' => 'required|max:20',
         ];
     }
 }

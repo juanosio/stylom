@@ -76,9 +76,9 @@
                                                                 <td><b>{{ $i++ }}</b></td>
                                                               
                                                            
-                                                                <td>{{ $matesupp->material_id}}</td>
+                                                                <td>{{ $matesupp->suppliers}}</td>
                                                        
-                                                                <td>{{ $matesupp->supplier_id}}</td>
+                                                                <td>{{ $matesupp->materials}}</td>
                                                                 <td>{{ $matesupp->cantidad}}</td>
                                                                 <td>{{ $matesupp->precio}}</td>
 

@@ -78,4 +78,5 @@ Route::resource('productos','ProductController');
 Route::resource('proveedores','SupplierController');
 Route::resource('materias-primas','MaterialController');
 Route::resource('materia-proveedores','MaterialSupplierController');
+Route::resource('categorias','CategoryController');
 
