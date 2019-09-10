@@ -12,33 +12,7 @@
                                     </a>
                                     
                                 </li>
-                                <li class="pcoded-hasmenu">
-                                    <a href="#">
-                                        <span class="pcoded-micon"><i class="feather icon-user"></i></span>
-                                        <span class="pcoded-mtext">Secretarias</span>
-                                    </a>
-                                    <ul class="pcoded-submenu">
-                                        <li>
-                                            <a href="{{ route('empleados.index') }}">
-                                                <span class="pcoded-mtext">Ver usuarios</span>
-                                            </a>
-                                            
-                                        </li>
-                                        <li>
-                                            <a href="{{ route('empleados.create') }}">
-                                                <span class="pcoded-mtext">Registrar secretaria</span>
-                                            </a>
-                                            
-                                        </li>
-                                        <li>
-                                            <a href="/admin/usuarios">
-                                                <span class="pcoded-mtext">Consultar secretarias</span>
-                                            </a>
-                                            
-                                      </li>
-                                       
-                                    </ul>
-                                </li>
+                                
                                
                                 <li class="pcoded-hasmenu">
                                     <a href="#">
@@ -49,12 +23,17 @@
                                     <ul class="pcoded-submenu">
                                         <li class=" ">
                                             <a href="{{ route('materias-primas.index') }}">
-                                                <span class="pcoded-mtext">Ver Materia Prima</span>
+                                                <span class="pcoded-mtext">Materia Prima en stock</span>
                                             </a>
                                         </li>
                                         <li class=" ">
                                             <a href="{{ route('materias-primas.create') }}">
-                                                <span class="pcoded-mtext">Registrar Materia Prima</span>
+                                                <span class="pcoded-mtext">Realizar pedido de materia prima</span>
+                                            </a>
+                                        </li>
+                                        <li class=" ">
+                                            <a href="{{ route('materias-primas.index') }}">
+                                                <span class="pcoded-mtext">Ordenes de compra de materia Prima</span>
                                             </a>
                                         </li>
                                        
@@ -103,6 +82,68 @@
 
                                     </ul>
                                 </li>
+
+                                <li class="pcoded-hasmenu">
+                                    <a href="#">
+                                        <span class="pcoded-micon"><i class="feather icon-user"></i></span>
+                                        <span class="pcoded-mtext">Usuarios</span>
+                                    </a>
+                                    <ul class="pcoded-submenu">
+                                        <li>
+                                            <a href="{{ route('empleados.index') }}">
+                                                <span class="pcoded-mtext">Ver usuarios</span>
+                                            </a>
+                                            
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('empleados.create') }}">
+                                                <span class="pcoded-mtext">Registrar trabajadores</span>
+                                            </a>
+                                            
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('empleados.index') }}">
+                                                <span class="pcoded-mtext">Ver trabajadores</span>
+                                            </a>
+                                            
+                                        </li>
+                                        
+                                    
+                                       
+                                    </ul>
+                                </li>
+
+                                 <li class="pcoded-hasmenu">
+                                    <a href="#">
+                                        <span class="pcoded-micon"><i class="feather icon-user"></i></span>
+                                        <span class="pcoded-mtext">Mantenimiento</span>
+                                    </a>
+                                    <ul class="pcoded-submenu">
+                                        <li>
+                                            <a href="{{ route('empleados.index') }}">
+                                                <span class="pcoded-mtext">Repaldar base de datos</span>
+                                            </a>
+                                            
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('empleados.create') }}">
+                                                <span class="pcoded-mtext">Restaurar base de datos</span>
+                                            </a>
+                                            
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('empleados.index') }}">
+                                                <span class="pcoded-mtext">Ver trabajadores</span>
+                                            </a>
+                                            
+                                        </li>
+                                        
+                                    
+                                       
+                                    </ul>
+                                </li>
+
+
                             </ul>
                             
                     </nav>

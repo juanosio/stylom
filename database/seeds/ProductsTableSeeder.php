@@ -13,6 +13,7 @@ class ProductsTableSeeder extends Seeder
     {
         \DB::table('products')->insert(array(
             'nombre'      => 'Camisa de vestir',
+            'category_id' => 9,
             'cantidad'  => '18',
             'stock_min'  => '5',
             'stock_max' => '20',
@@ -26,6 +27,7 @@ class ProductsTableSeeder extends Seeder
 
         \DB::table('products')->insert(array(
             'nombre'      => 'Pantalon',
+            'category_id' => 7,
             'cantidad'  => '14',
             'stock_min'  => '5',
             'stock_max' => '20',
@@ -39,6 +41,7 @@ class ProductsTableSeeder extends Seeder
 
         \DB::table('products')->insert(array(
             'nombre'      => 'Franelilla',
+            'category_id' => 8,
             'cantidad'  => '19',
             'stock_min'  => '5',
             'stock_max' => '20',
@@ -52,6 +55,7 @@ class ProductsTableSeeder extends Seeder
 
         \DB::table('products')->insert(array(
             'nombre'      => 'Mono deportivo',
+            'category_id' => 10,
             'cantidad'  => '3',
             'stock_min'  => '5',
             'stock_max' => '20',

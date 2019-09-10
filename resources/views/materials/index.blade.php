@@ -47,7 +47,7 @@
                                                     style="font-size: 20px"></i> Registrar</a>
                                         </div>
                                         <center>
-                                            <h4 class="box-title">Lista de Materias Primas</h4>
+                                            <h4 class="box-title">Lista de Materias Primas en stock</h4>
 
 
                                         </center>
@@ -59,13 +59,13 @@
 
                                                     <table id="simpletable"
                                                         class="table table-striped table-bordered nowrap text-center">
-                                                        <thead class=>
+                                                        <thead>
                                                             <tr>
                                                                 <th>#</th>
                                                                 <th>Nombre</th>
                                                             <th>Medida</th>
                                                             <th>Cantidad</th>
-                                                            <th>Proveedor</th>
+                                                            
 
                                                                 <th>Opciones</th>
 
@@ -78,8 +78,8 @@
 
                 <td>{{ $materials->nombre}}</td>
                 <td>{{ $materials->medida}}</td>
-               <td>{{ $materials->cantidad}} disponibles</td>
-               <td>{{ $materials->suppliers_id}}</td>
+               <td>{{ $materials->stock_actual}} disponibles</td>
+               
 
                                                                 <td class="text-center">
 

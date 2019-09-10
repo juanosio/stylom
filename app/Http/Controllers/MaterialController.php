@@ -16,10 +16,11 @@ class MaterialController extends Controller
      */
     public function index()
     {
-        $suppliers = App\Supplier::all();
+
         $materials = Material::orderBy('id', 'DESC')->get();
         $i = 1;
-        return view ('materials/index', compact('materials', 'i'), compact('suppliers'));
+
+        return view ('materials/index', compact('materials', 'i'));
     }
 
     /**
