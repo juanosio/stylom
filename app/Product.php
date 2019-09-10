@@ -10,6 +10,10 @@ class Product extends Model
         'nombre', 'cantidad', 'stock_min', 'stock_max', 'descripcion', 'foto', 'talla', 'genero', 'envio',
     ];
 
+    protected $hidden = [
+       'category_id',
+    ];
+
 
     public function materials(){
     	return $this->belongsToMany(Material::class);//Muchos a muchos

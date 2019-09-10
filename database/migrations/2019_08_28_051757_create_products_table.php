@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->bigIncrements('id');
          
             $table->text('nombre');
-            $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('category_id')->nullable();
             $table->integer('cantidad');
             $table->integer('stock_min');
             $table->integer('stock_max');

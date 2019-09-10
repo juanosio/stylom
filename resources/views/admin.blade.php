@@ -1,5 +1,7 @@
 ﻿@extends("partials.admin.layout")
 @section('content')
+
+
        <div class="pcoded-content">
                         <div class="pcoded-inner-content">
                             <div class="main-body">
@@ -15,7 +17,7 @@
                                                     <div class="card-block">
                                                         <div class="row align-items-end">
                                                             <div class="col-8">
-                                                                <h4 class="text-white">$30200</h4>
+                                                                <h4 class="text-white">{{$num}}</h4>
                                                                 <h6 class="text-white m-b-0">All Earnings</h6>
                                                             </div>
                                                             

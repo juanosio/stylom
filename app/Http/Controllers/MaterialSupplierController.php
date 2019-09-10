@@ -24,7 +24,7 @@ class MaterialSupplierController extends Controller
     public function index()
     { 
 
-        $materialSupplier = \DB::select('SELECT materials.nombre AS materialNombre, suppliers.nombre AS supplierNombre, material_supplier.id,  material_supplier.precio, material_supplier.cantidad 
+        $materialSupplier = \DB::select('SELECT materials.nombre AS materialNombre, suppliers.nombre AS supplierNombre, material_supplier.id,  material_supplier.precio, material_supplier.cantidad,  material_supplier.medida
 
             FROM material_supplier, materials, suppliers
 
@@ -61,6 +61,7 @@ class MaterialSupplierController extends Controller
 
         $matesupp->material_id = $request->material_id;
         $matesupp->supplier_id = $request->supplier_id;
+        $matesupp->medida = $request->medida;
         $matesupp->cantidad = $request->cantidad;
         $matesupp->precio = $request->precio;
   
@@ -81,6 +82,8 @@ class MaterialSupplierController extends Controller
             $actualizarInventario->stock_actual = $sumarAlInventario;
 
             $actualizarInventario->save();
+
+            
 
 
             

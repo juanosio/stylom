@@ -40,6 +40,20 @@
         </select>
     </div>
 </div>
+<div class="row">
+<div class="col mt-3">
+        <label class="alinear">Medida<span style="color:red">*</span></label>
+        <select class="form-control" id="" name="medida">
+
+            <option value="UNITARIO">UNITARIO</option>
+            <option value="METROS">METROS</option>
+            <option value="CENTIMETROS">CENTIMETROS</option>
+            <option value="PULGADAS">PULGADAS</option>
+
+        </select>
+    </div>
+ 
+</div>
 
 <div class="row">
     <div class="col mt-3">
@@ -54,6 +68,9 @@
     </div>
  
 </div>
+
+
+
 
 
 <center>

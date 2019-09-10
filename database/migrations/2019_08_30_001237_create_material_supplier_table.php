@@ -21,6 +21,7 @@ class CreateMaterialSupplierTable extends Migration
             
             $table->integer('cantidad');
             $table->integer('precio');
+            $table->enum('medida',['UNITARIO','METROS','CENTIMETROS','PULGADAS']);
 
             //Relaciones 
             $table->foreign('material_id')->references('id')->on('materials')

@@ -5,6 +5,7 @@ use App;
 use App\Product;
 use App\MaterialProduct;
 use App\Material;
+use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Alert;
@@ -45,7 +46,7 @@ class ProductController extends Controller
     public function store(\App\Http\Requests\ProductStoreRequest $request)
     {
       
-
+        $materials = Material::all();
           $products = new Product;
 
           $products->nombre = $request->nombre;
@@ -79,9 +80,25 @@ $materialProducts = new MaterialProduct;
             $materialProducts->medida = $request->medida[$i];
             $materialProducts->save();
 
-
-}
             
+}
+
+$cantidadMateria2 = count($request->medida);
+$inventario = \DB::select('SELECT * FROM  materials');
+
+for($i=0; $i<$cantidadMateria2; $i++){
+    
+    $restarAlInventario = $inventario->stock_actual - $request->cantidadMateria;
+
+    $actualizarInventario = Material::find($request->material);
+    $actualizarInventario->stock_actual = $restarAlInventario;
+    $actualizarInventario->save();
+                
+    }
+
+
+
+
         
         Alert::success('Operación realizada con éxito','¡Producto registrado!');
 
@@ -165,3 +182,6 @@ $materialProducts = new MaterialProduct;
 
     }
 }
+
+
+?>

@@ -64,6 +64,7 @@
                                                                 <th>#</th>
                                                                 <th>Materia Prima</th>
                                                                 <th>Proveedor</th>
+                                                                <th>Medida</th>
                                                                 <th>Cantidad</th>
                                                                 <th>Precio</th>
                                                                 <th>Opciones</th>
@@ -79,7 +80,7 @@
 
                                                                 <td>{{ $item->supplierNombre}}</td>
                                                        
-                                                                
+                                                                    <td>{{ $item->medida}}</td>
                                                                 <td>{{ $item->cantidad}}</td>
                                                                 <td>{{ $item->precio}}</td>
 

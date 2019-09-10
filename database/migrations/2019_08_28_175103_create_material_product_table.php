@@ -18,6 +18,7 @@ class CreateMaterialProductTable extends Migration
             $table->unsignedBigInteger('material_id');
             $table->unsignedBigInteger('product_id');
             
+            
             $table->string('cantidad');
              $table->enum('medida',['UNITARIO','METROS','CENTIMETROS','PULGADAS']);
 
