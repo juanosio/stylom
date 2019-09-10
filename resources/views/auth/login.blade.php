@@ -6,9 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="assets/login/vendor/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="assets/login/fuente/font-awesome-4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/login/css/style.css">
+    <link rel="stylesheet" href="{{ asset('assets/login/vendor/bootstrap/css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/login/fuente/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/login/css/style.css') }}">
 
     <style>
         .swal-title {
@@ -23,7 +23,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-                <div class="card card-signin mt-5">
+                <div class="card card-signin mt-2">
                     <div class="card-body">
                         <div class="text-center">
 
@@ -58,9 +58,11 @@
                             <button style="cursor: pointer" class="btn btn-lg btn-stylom btn-block text-uppercase mb-3"
                                 type="submit">Iniciar sesión</button>
 
-                            <p class="text-center">Registrate <a href="/stylom/create">aquí</a></p>
+                            <p class="text-center">Registrate <a href="{{ route('register') }}">aquí</a></p>
                             <hr class="my-4">
-                            <a href=""> ¿Has olvidado tú contraseña? </a>
+                            
+                            <a href="{{ route('password.request') }}"> ¿Has olvidado tú contraseña? </a> <br>
+                             <a href="{{ route('home') }}"> Volver a la página </a>
                         </form>
                     </div>
                 </div>

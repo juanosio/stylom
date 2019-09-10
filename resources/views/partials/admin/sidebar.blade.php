@@ -132,12 +132,7 @@
                                             </a>
                                             
                                         </li>
-                                        <li>
-                                            <a href="{{ route('empleados.index') }}">
-                                                <span class="pcoded-mtext">Ver trabajadores</span>
-                                            </a>
-                                            
-                                        </li>
+                                       
                                         
                                     
                                        

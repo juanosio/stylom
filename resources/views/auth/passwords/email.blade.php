@@ -1,26 +1,39 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="es">
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+<head>
+    <title>Stylo M - Inicio de sesión</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+    <link rel="stylesheet" href="{{ asset('assets/login/vendor/bootstrap/css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/login/fuente/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/login/css/style.css') }}">
+
+    <style>
+        .swal-title {
+
+            margin-bottom: 28px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                <div class="card card-signin mt-5">
+                    <div class="card-body">
+                        <div class="text-center">
+
+                            <img src="{{ asset('assets/login/images/Stylo.png') }}" class="rounded-circle" width="200px" height="200px" alt="">
                         </div>
-                    @endif
-
-                    <form method="POST" action="{{ route('password.email') }}">
+                        <h5 class="card-title text-center">Recuperación de contraseña</h5>
+                         <form method="POST" class="form-signin" action="{{ route('password.email') }}">
                         @csrf
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
+                        
+                            <div class="form-label-group">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
@@ -28,20 +41,37 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
-                        </div>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Send Password Reset Link') }}
-                                </button>
+
+
+                                <label for="password">Ingrese su correo</label>
                             </div>
-                        </div>
-                    </form>
+
+
+                            <button style="cursor: pointer" class="btn btn-lg btn-stylom btn-block text-uppercase mb-3"
+                                type="submit">Enviar correo de recuperación</button>
+
+                            <hr class="my-4">
+                            
+                            <a href="{{ route('login') }}"> Iniciar Sesión </a> <br>
+                             <a href="{{ route('home') }}"> Volver a la página </a>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-@endsection
+
+</body>
+
+</html>
+
+
+
+?>
+
+
+
+
+
+

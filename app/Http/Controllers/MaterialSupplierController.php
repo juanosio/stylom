@@ -56,15 +56,35 @@ class MaterialSupplierController extends Controller
     {
         $materials = DB::table('materials')->get();
         $suppliers= DB::table('suppliers')->get();
-        //    return $request->all();
-          $matesupp= new MaterialSupplier;
+       
+        $matesupp= new MaterialSupplier;
 
-          $matesupp->material_id = $request->material_id;
-          $matesupp->supplier_id = $request->supplier_id;
-          $matesupp->cantidad = $request->cantidad;
-          $matesupp->precio = $request->precio;
+        $matesupp->material_id = $request->material_id;
+        $matesupp->supplier_id = $request->supplier_id;
+        $matesupp->cantidad = $request->cantidad;
+        $matesupp->precio = $request->precio;
   
-          $matesupp->save();
+        $matesupp->save();
+
+
+
+          //Actualizo el inventario
+          
+           $inventario = \DB::select('SELECT * FROM materials WHERE id = ?' , 
+            [$request->material_id]);
+
+           $sumarAlInventario = $inventario[0]->stock_actual + $request->cantidad;
+
+
+            $actualizarInventario = Material::find($request->material_id);
+
+            $actualizarInventario->stock_actual = $sumarAlInventario;
+
+            $actualizarInventario->save();
+
+
+            
+
   
           Alert::success('Operación realizada con éxito','¡Materia Prima registrada!');
   
