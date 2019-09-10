@@ -27,12 +27,12 @@
                                             </a>
                                         </li>
                                         <li class=" ">
-                                            <a href="{{ route('materias-primas.create') }}">
+                                            <a href="{{ route('materia-proveedores.create') }}">
                                                 <span class="pcoded-mtext">Realizar pedido de materia prima</span>
                                             </a>
                                         </li>
                                         <li class=" ">
-                                            <a href="{{ route('materias-primas.index') }}">
+                                            <a href="{{ route('materia-proveedores.index') }}">
                                                 <span class="pcoded-mtext">Ordenes de compra de materia Prima</span>
                                             </a>
                                         </li>

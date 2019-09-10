@@ -39,21 +39,29 @@
         <select class="form-control" id="" name="medida">
 
             <option value="UNITARIO">UNITARIO</option>
-            <option value="m">m</option>
-            <option value="cm">cm</option>
-            <option value="inch">inch</option>
+            <option value="METROS">METROS</option>
+            <option value="CENTIMETROS">CENTIMETROS</option>
+            <option value="PULGADAS">PULGADAS</option>
 
         </select>
     </div>
     <div class="col mt-3">
-        <label class="alinear">Proveedor<span style="color:red">*</span></label>
-        <select class="form-control" id="" name="supplier_id">
-        @foreach ($suppliers as $suppliers)
-            <option value="{{ $suppliers['id'] }}">{{ $suppliers['nombre'] }}</option>
-        @endforeach
-        </select>
+        <label class="alinear">Stock minimo<span style="color:red">*</span></label>
+        {{ Form::text('stock_min', null, ['class' => "form-control $errors->has('stock_min') ? ' is-invalid' : ''", 'id' => 'stock_min', 'maxlength' => 10, 'placeholder' => 'Introduzca el stock minimo segun el tipo de medida']) }}
+
     </div>
+
 </div>
+<div class="row">
+   
+    <div class="col mt-3">
+        <label class="alinear">Stock maximo<span style="color:red">*</span></label>
+        {{ Form::text('stock_max', null, ['class' => "form-control $errors->has('stock_max') ? ' is-invalid' : ''", 'id' => 'stock_max', 'maxlength' => 10, 'placeholder' => 'Introduzca el stock maximo segun el tipo de medida']) }}
+
+    </div>
+
+</div>
+
 
 
 <center>

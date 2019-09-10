@@ -49,8 +49,8 @@ class MaterialController extends Controller
         $materials->nombre = $request->nombre;
         $materials->medida = $request->medida;
         $materials->stock_actual = $request->stock_actual;
-        $materials->stock_min = 10;
-        $materials->stock_max= 50;
+        $materials->stock_min = $request->stock_min;
+        $materials->stock_max= $request->stock_max;
 
         $materials->save();
 
@@ -95,6 +95,8 @@ class MaterialController extends Controller
         $materialsUpdate->nombre = $request->nombre;
         $materialsUpdate->medida = $request->medida;
         $materialsUpdate->stock_actual = $request->stock_actual;
+        $materialsUpdate->stock_min = $request->stock_min;
+        $materialsUpdate->stock_max= $request->stock_max;
 
         $materialsUpdate->save();
 

@@ -63,23 +63,27 @@
                                                             <tr>
                                                                 <th>#</th>
                                                                 <th>Nombre</th>
-                                                            <th>Medida</th>
-                                                            <th>Cantidad</th>
-                                                            
+                                                                <th>Medida</th>
+                                                                <th>Cantidad</th>
+                                                                <th>Stock minimo</th>
+                                                                <th>Stock maximo</th>
+
 
                                                                 <th>Opciones</th>
 
                                                             </tr>
                                                         </thead>
                                                         <tbody class="text-center">
-    @foreach($materials as $materials)
-    <tr>
-        <td><b>{{ $i++ }}</b></td>
+                                                            @foreach($materials as $materials)
+                                                            <tr>
+                                                                <td><b>{{ $i++ }}</b></td>
 
-                <td>{{ $materials->nombre}}</td>
-                <td>{{ $materials->medida}}</td>
-               <td>{{ $materials->stock_actual}} disponibles</td>
-               
+                                                                <td>{{ $materials->nombre}}</td>
+                                                                <td>{{ $materials->medida}}</td>
+                                                                <td>{{ $materials->stock_actual}} disponibles</td>
+                                                                <td>{{ $materials->stock_min}}</td>
+                                                                <td>{{ $materials->stock_max}}</td>
+
 
                                                                 <td class="text-center">
 
@@ -98,7 +102,8 @@
                                                                     </a>
 
                                                                     <!--//Con este formulario se manda a la funcion destroy para borrar -->
-                                                                    {!! Form::open(['route' => ['materias-primas.destroy',
+                                                                    {!! Form::open(['route' =>
+                                                                    ['materias-primas.destroy',
                                                                     $materials->id], 'method' => 'DELETE', 'id' =>
                                                                     'confirm-delete']) !!}
 

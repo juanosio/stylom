@@ -17,8 +17,8 @@ class CreateMaterialsTable extends Migration
             $table->bigIncrements('id');
 
             $table->string('nombre');
-            $table->integer('stock_min')->nullable();
-            $table->integer('stock_max')->nullable();
+            $table->integer('stock_min');
+            $table->integer('stock_max');
             $table->integer('stock_actual');
             $table->enum('medida',['UNITARIO','METROS','CENTIMETROS','PULGADAS']);
 
