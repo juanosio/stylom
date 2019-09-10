@@ -23,7 +23,7 @@
                                         <li class="breadcrumb-item"><a
                                                 href="{{ route('productos.index') }}">Productos</a>
                                         </li>
-                                        <li class="breadcrumb-item"><a href="#!">Listado de productos</a>
+                                        <li class="breadcrumb-item"><a href="#!">Listado de ordenes de compra</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -41,13 +41,13 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="float-right">
-                                            <a href="{{ route('productos.create') }}" class="btn btn-primary"
+                                            <a href="{{ route('materia-proveedores.create') }}" class="btn btn-primary"
                                                 data-toggle="tooltip" data-placement="left"
-                                                title="Registrar un nuevo producto"> <i class="feather icon-plus-circle"
-                                                    style="font-size: 20px"></i> Registrar</a>
+                                                title="Realizar un nuevo pedido de materia prima"> <i class="feather icon-plus-circle"
+                                                    style="font-size: 20px"></i> Realizar pedido</a>
                                         </div>
                                         <center>
-                                            <h4 class="box-title">Lista de Productos</h4>
+                                            <h4 class="box-title">Listado de ordenes de compra</h4>
 
 
                                         </center>
@@ -71,35 +71,36 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody class="text-center">
-                                                            @foreach($matesupp as $matesupp)
+                                                            @foreach($materialSupplier as $item)
                                                             <tr>
                                                                 <td><b>{{ $i++ }}</b></td>
                                                               
-                                                           
-                                                                <td>{{ $matesupp->suppliers}}</td>
+                                                           <td>{{ $item->materialNombre}}</td>
+
+                                                                <td>{{ $item->supplierNombre}}</td>
                                                        
-                                                                <td>{{ $matesupp->materials}}</td>
-                                                                <td>{{ $matesupp->cantidad}}</td>
-                                                                <td>{{ $matesupp->precio}}</td>
+                                                                
+                                                                <td>{{ $item->cantidad}}</td>
+                                                                <td>{{ $item->precio}}</td>
 
 
 
-                                                                <td class="text-center">
-                                                                    <a href="javascript:destroy();" class="text-danger">
-                                                                        <i class="feather icon-trash-2"
-                                                                            style="font-size: 20px"
-                                                                            data-toggle="tooltip" data-placement="top"
-                                                                            title="Eliminar producto"></i>
-                                                                    </a>
+    <td class="text-center">
+        <a href="javascript:destroy();" class="text-danger">
+            <i class="feather icon-trash-2"
+                style="font-size: 20px"
+                data-toggle="tooltip" data-placement="top"
+                title="Eliminar producto"></i>
+        </a>
 
-                                                                    <!--//Con este formulario se manda a la funcion destroy para borrar -->
-                                                                    {!! Form::open(['route' => ['materia-proveedores.destroy',
-                                                                    $matesupp->id], 'method' => 'DELETE', 'id' =>
-                                                                    'confirm-delete']) !!}
+        <!--//Con este formulario se manda a la funcion destroy para borrar -->
+        {!! Form::open(['route' => ['materia-proveedores.destroy',
+        $item->id], 'method' => 'DELETE', 'id' =>
+        'confirm-delete']) !!}
 
-                                                                    {!! Form::close() !!}
-                                                                </td>
-                                                            </tr>
+        {!! Form::close() !!}
+    </td>
+                    </tr>
                                                             @endforeach
                                                         </tbody>
                                                     </table>

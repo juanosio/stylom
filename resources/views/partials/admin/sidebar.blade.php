@@ -27,12 +27,12 @@
                                             </a>
                                         </li>
                                         <li class=" ">
-                                            <a href="{{ route('materias-primas.create') }}">
+                                            <a href="{{ route('materia-proveedores.create') }}">
                                                 <span class="pcoded-mtext">Realizar pedido de materia prima</span>
                                             </a>
                                         </li>
                                         <li class=" ">
-                                            <a href="{{ route('materias-primas.index') }}">
+                                            <a href="{{ route('materia-proveedores.index') }}">
                                                 <span class="pcoded-mtext">Ordenes de compra de materia Prima</span>
                                             </a>
                                         </li>
@@ -64,7 +64,8 @@
                                 </li>
                                    <li class="pcoded-hasmenu">
                                     <a href="#">
-                                        <span class="pcoded-micon"><i class="feather icon-layers"></i></span>
+                                        <span class="pcoded-micon"><i class="feather icon-layers"></i>
+                                        </span>
                                         <span class="pcoded-mtext">Proveedores</span>
                                         
                                     </a>
@@ -115,7 +116,7 @@
 
                                  <li class="pcoded-hasmenu">
                                     <a href="#">
-                                        <span class="pcoded-micon"><i class="feather icon-user"></i></span>
+                                        <span class="pcoded-micon"><i class="feather icon-settings"></i></span>
                                         <span class="pcoded-mtext">Mantenimiento</span>
                                     </a>
                                     <ul class="pcoded-submenu">
