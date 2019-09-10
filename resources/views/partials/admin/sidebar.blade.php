@@ -64,7 +64,8 @@
                                 </li>
                                    <li class="pcoded-hasmenu">
                                     <a href="#">
-                                        <span class="pcoded-micon"><i class="feather icon-layers"></i></span>
+                                        <span class="pcoded-micon"><i class="feather icon-layers"></i>
+                                        </span>
                                         <span class="pcoded-mtext">Proveedores</span>
                                         
                                     </a>
@@ -115,7 +116,7 @@
 
                                  <li class="pcoded-hasmenu">
                                     <a href="#">
-                                        <span class="pcoded-micon"><i class="feather icon-user"></i></span>
+                                        <span class="pcoded-micon"><i class="feather icon-settings"></i></span>
                                         <span class="pcoded-mtext">Mantenimiento</span>
                                     </a>
                                     <ul class="pcoded-submenu">

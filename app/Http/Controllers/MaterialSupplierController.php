@@ -24,15 +24,14 @@ class MaterialSupplierController extends Controller
     public function index()
     { 
 
+        $materialSupplier = \DB::select('SELECT materials.nombre AS materialNombre, suppliers.nombre AS supplierNombre, material_supplier.id,  material_supplier.precio, material_supplier.cantidad 
 
-        $materials = DB::table('materials')->get();
-        $suppliers= DB::table('suppliers')->get();
-        
+            FROM material_supplier, materials, suppliers
 
-        $matesupp = MaterialSupplier::orderBy('id', 'DESC')->get();
-        // dd($matesupp->toArray());
+            WHERE material_supplier.material_id = materials.id AND material_supplier.supplier_id = suppliers.id');
+
         $i = 1;
-        return view ('materials_suppliers/index')->with( compact('matesupp', 'i'),['materials' => $materials],['suppliers' => $suppliers]);
+        return view ('materials_suppliers/index', compact('materialSupplier', 'i'));
     }
 
     /**
