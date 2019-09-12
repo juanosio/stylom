@@ -2,6 +2,48 @@
 
 
 @section('content')
+
+<?php 
+$resultado =  \DB::select('SELECT * FROM users');
+// var_dump($resultado);
+$num=0;
+
+ foreach($resultado as $res): ?>
+<?php  $num++?>               
+<?php endforeach ?>
+
+<?php 
+$resultado2 =  \DB::select('SELECT * FROM materials');
+// var_dump($resultado);
+$num2=0;
+
+ foreach($resultado2 as $res): ?>
+<?php  $num2++?>               
+<?php endforeach ?>
+
+<?php 
+$resultado3 =  \DB::select('SELECT * FROM products');
+// var_dump($resultado);
+$num3=0;
+
+ foreach($resultado3 as $res): ?>
+<?php  $num3++?>               
+<?php endforeach ?>
+
+<?php 
+$resultado4 =  \DB::select('SELECT * FROM suppliers');
+// var_dump($resultado);
+$num4=0;
+
+ foreach($resultado4 as $res): ?>
+<?php  $num4++?>               
+<?php endforeach ?>
+
+
+
+
+
+
 <div class="pcoded-content">
                         <div class="pcoded-inner-content">
                             <div class="main-body">
@@ -17,8 +59,8 @@
                                                     <div class="card-block">
                                                         <div class="row align-items-end">
                                                             <div class="col-8">
-                                                                <h4 class="text-white">$30200</h4>
-                                                                <h6 class="text-white m-b-0">All Earnings</h6>
+                                                                <h4 class="text-white">{{ $num }}</h4>
+                                                                <h6 class="text-white m-b-0">Usuarios</h6>
                                                             </div>
                                                             
                                                         </div>
@@ -33,8 +75,8 @@
                                                     <div class="card-block">
                                                         <div class="row align-items-end">
                                                             <div class="col-8">
-                                                                <h4 class="text-white">290+</h4>
-                                                                <h6 class="text-white m-b-0">Page Views</h6>
+                                                                <h4 class="text-white">{{ $num2 }}</h4>
+                                                                <h6 class="text-white m-b-0">Materia Prima</h6>
                                                             </div>
                                                             
                                                         </div>
@@ -49,8 +91,8 @@
                                                     <div class="card-block">
                                                         <div class="row align-items-end">
                                                             <div class="col-8">
-                                                                <h4 class="text-white">145</h4>
-                                                                <h6 class="text-white m-b-0">Task Completed</h6>
+                                                                <h4 class="text-white">{{ $num3 }}</h4>
+                                                                <h6 class="text-white m-b-0">Productos</h6>
                                                             </div>
                                                             
                                                         </div>
@@ -65,8 +107,8 @@
                                                     <div class="card-block">
                                                         <div class="row align-items-end">
                                                             <div class="col-8">
-                                                                <h4 class="text-white">500</h4>
-                                                                <h6 class="text-white m-b-0">Downloads</h6>
+                                                                <h4 class="text-white">{{$num4}}</h4>
+                                                                <h6 class="text-white m-b-0">Proveedores</h6>
                                                             </div>
                                                             
                                                         </div>
@@ -77,6 +119,25 @@
                                                 </div>
                                             </div>
                                             <!-- task, page, download counter  end -->
+
+                                            <div class="col-xl-9 col-md-12">
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <h5>Sales Analytics</h5>
+                                                        <span class="text-muted">For more details about usage, please refer <a href="https://www.amcharts.com/online-store/" target="_blank">amCharts</a> licences.</span>
+                                                        <div class="card-header-right">
+                                                            <ul class="list-unstyled card-option">
+                                                                <li><i class="feather icon-maximize full-card"></i></li>
+                                                                <li><i class="feather icon-minus minimize-card"></i></li>
+                                                                <li><i class="feather icon-trash-2 close-card"></i></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-block">
+                                                        <div id="sales-analytics" style="height: 265px;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
      
 
                                         </div>

@@ -47,6 +47,11 @@ Route::get('/admin/usuarios', function () {
 })->name('consult');
 
 
+Route::get('/profile', function () {
+    return view('profile');
+})->name('profile');
+
+
 //Rutas con controller
 //proveedores
 
@@ -71,7 +76,12 @@ Route::get('/admin/usuarios', function () {
 
 Auth::routes();
 
+Route::get('backup', 'BackupController@index');
+Route::get('backup/create', 'BackupController@create');
+Route::get('backup/download/{file_name}', 'BackupController@download');
+Route::get('backup/delete/{file_name}', 'BackupController@delete');
 Route::get('/home', 'HomeController@index')->name('home');
+
 
 Route::resource('empleados','WorkerController');
 Route::resource('productos','ProductController');

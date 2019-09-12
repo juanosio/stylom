@@ -19,6 +19,9 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/bower_components/bootstrap/css/bootstrap.min.css') }}">
     <!-- feather Awesome -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/icon/feather/css/feather.css') }}">
+
+        <!-- Chartlist chart css -->
+        <link rel="stylesheet" href="{{ asset('assets/admin/bower_components/chartist/css/chartist.css')}}" type="text/css" media="all">
     
          <!-- Data Table Css -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/bower_components/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}">
@@ -129,14 +132,27 @@
 <script type="text/javascript" src="{{ asset('assets\admin\bower_components\jquery-i18next\js\jquery-i18next.min.js') }}"></script>
 <!-- Custom js -->
 <script src="{{ asset('assets\admin\assets\pages\data-table\js\data-table-custom.js') }}"></script>
+    <!-- Chart js -->
+<script type="text/javascript" src="{{ asset('assets\admin\bower_components\chart.js\js\Chart.js') }}"></script>
+
+  <!-- amchart js -->
+  <script src="{{ asset('assets\admin\assets\pages\widget\amchart\amcharts.js') }}"></script>
+    <script src="{{ asset('assets\admin\assets\pages\widget\amchart\serial.js') }}"></script>
+    <script src="{{ asset('assets\admin\assets\pages\widget\amchart\light.js') }}"></script>
+    <script src="{{ asset('assets\admin\assets\js\jquery.mCustomScrollbar.concat.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets\admin\assets\js\SmoothScroll.js') }}"></script>
+
+
 
 
 
 <script src="{{ asset('assets\admin\assets\js\pcoded.min.js') }}"></script>
 <script src="{{ asset('assets\admin\assets\js\vartical-layout.min.js') }}"></script>
-<script src="{{ asset('assets\admin\assets\js\jquery.mCustomScrollbar.concat.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets\admin\assets\js\script.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets\admin\sweet_alert.js') }}"></script>
+
+
+
 
 <script>
   window.dataLayer = window.dataLayer || [];
