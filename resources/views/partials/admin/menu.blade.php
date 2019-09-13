@@ -21,15 +21,7 @@
 
                     <div class="navbar-container container-fluid">
                         <ul class="nav-left">
-                            <li class="header-search">
-                                <div class="main-search morphsearch-search">
-                                    <div class="input-group">
-                                        <span class="input-group-addon search-close"><i class="feather icon-x"></i></span>
-                                        <input type="text" class="form-control">
-                                        <span class="input-group-addon search-btn"><i class="feather icon-search"></i></span>
-                                    </div>
-                                </div>
-                            </li>
+                            
                             <li>
                                 <a href="#" onclick="javascript:toggleFullScreen()">
                                     <i class="feather icon-maximize full-screen"></i>
@@ -81,15 +73,7 @@
                                     </ul>
                                 </div>
                             </li>
-                           
-                            <li class="header-notification">
-                                <div class="dropdown-primary dropdown">
-                                    <div class="displayChatbox dropdown-toggle" data-toggle="dropdown">
-                                        <i class="feather icon-message-square"></i>
-                                        <span class="badge bg-c-green">3</span>
-                                    </div>
-                                </div>
-                            </li>
+                         
                             <li class="user-profile header-notification">
                                 <div class="dropdown-primary dropdown">
                                     <div class="dropdown-toggle" data-toggle="dropdown">
@@ -100,7 +84,7 @@
                                     <ul class="show-notification profile-notification dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
                                         
                                         <li>
-                                            <a href="user-profile.htm">
+                                            <a href="{{ route('profile') }}">
                                                 <i class="feather icon-user"></i> Perfil
                                             </a>
                                         </li>

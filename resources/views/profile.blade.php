@@ -15,8 +15,8 @@
                                         <div class="col-lg-8">
                                             <div class="page-header-title">
                                                 <div class="d-inline">
-                                                    <h4>Perfil del usuario</h4>
-                                                    <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
+                                              
+                                         
                                                 </div>
                                             </div>
                                         </div>
@@ -55,16 +55,11 @@
                                                                 <div class="media-body row">
                                                                     <div class="col-lg-12">
                                                                         <div class="user-title">
-                                                                            <h2>Josephin Villa</h2>
+                                                                            <h2>{{ Auth::user()->name }} {{ Auth::user()->lastname }}</h2>
                                                                             <span class="text-white">Web designer</span>
                                                                         </div>
                                                                     </div>
-                                                                    <div>
-                                                                        <div class="pull-right cover-btn">
-                                                                            <button type="button" class="btn btn-primary m-r-10 m-b-5"><i class="icofont icofont-plus"></i> Follow</button>
-                                                                            <button type="button" class="btn btn-primary"><i class="icofont icofont-ui-messaging"></i> Message</button>
-                                                                        </div>
-                                                                    </div>
+                                                                   
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -82,10 +77,8 @@
                                                             <a class="nav-link active" data-toggle="tab" href="#personal" role="tab">Información personal</a>
                                                             <div class="slide"></div>
                                                         </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" data-toggle="tab" href="#binfo" role="tab">Servicios del usuario</a>
-                                                            <div class="slide"></div>
-                                                        </li>
+                                                     
+                                                       
                                                        
                                                         
                                                     </ul>
@@ -115,24 +108,18 @@
                                                                                                 <tbody>
                                                                                                     <tr>
                                                                                                         <th scope="row">Nombre Completo</th>
-                                                                                                        <td>Josephine Villa</td>
+                                                                                                        <td>{{ Auth::user()->name }} {{ Auth::user()->lastname }}</td>
                                                                                                     </tr>
                                                                                                     <tr>
-                                                                                                        <th scope="row">Genero</th>
-                                                                                                        <td>Female</td>
+                                                                                                        <th scope="row">Rol</th>
+                                                                                                        <td>{{ Auth::user()->role }}</td>
                                                                                                     </tr>
+                                                                                                    
                                                                                                     <tr>
-                                                                                                        <th scope="row">Fecha de nacimiento</th>
-                                                                                                        <td>October 25th, 1990</td>
+                                                                                                        <th scope="row">Correo</th>
+                                                                                                        <td>{{ Auth::user()->email }} </td>
                                                                                                     </tr>
-                                                                                                    <tr>
-                                                                                                        <th scope="row">Estado civil</th>
-                                                                                                        <td>Single</td>
-                                                                                                    </tr>
-                                                                                                    <tr>
-                                                                                                        <th scope="row">Ubicación</th>
-                                                                                                        <td>New York, USA</td>
-                                                                                                    </tr>
+                                                                                                 
                                                                                                 </tbody>
                                                                                             </table>
                                                                                         </div>
@@ -142,26 +129,22 @@
                                                                                         <div class="table-responsive">
                                                                                             <table class="table">
                                                                                                 <tbody>
-                                                                                                    <tr>
-                                                                                                        <th scope="row">Correo</th>
-                                                                                                        <td><a href="#!"><span class="__cf_email__" data-cfemail="4206272f2d02273a232f322e276c212d2f">[email&#160;protected]</span></a></td>
+
+                                                                                                <tr>
+                                                                                                        <th scope="row">Fecha de nacimiento</th>
+                                                                                                        <td>{{ Auth::user()->birthday }}</td>
                                                                                                     </tr>
+                                                                                                 
                                                                                                     <tr>
                                                                                                         <th scope="row">Numero de Telefono</th>
-                                                                                                        <td>(0123) - 4567891</td>
+                                                                                                        <td>{{ Auth::user()->telephone }}</td>
                                                                                                     </tr>
                                                                                                     <tr>
-                                                                                                        <th scope="row">Twitter</th>
-                                                                                                        <td>@xyz</td>
+                                                                                                        <th scope="row">Ubicación</th>
+                                                                                                        <td>{{ Auth::user()->direction }}</td>
                                                                                                     </tr>
-                                                                                                    <tr>
-                                                                                                        <th scope="row">Skype</th>
-                                                                                                        <td>demo.skype</td>
-                                                                                                    </tr>
-                                                                                                    <tr>
-                                                                                                        <th scope="row">Website</th>
-                                                                                                        <td><a href="#!">www.demo.com</a></td>
-                                                                                                    </tr>
+                                                                                                    
+                                                                                                    
                                                                                                 </tbody>
                                                                                             </table>
                                                                                         </div>
@@ -333,199 +316,7 @@
                                                     </div>
                                                     <!-- tab pane personal end -->
                                                     <!-- tab pane info start -->
-                                                    <div class="tab-pane" id="binfo" role="tabpanel">
-                                                        <!-- info card start -->
-                                                        <div class="card">
-                                                            <div class="card-header">
-                                                                <h5 class="card-header-text">Servicios del usuario</h5>
-                                                            </div>
-                                                            <div class="card-block">
-                                                                <div class="row">
-                                                                    <div class="col-md-6">
-                                                                        <div class="card b-l-success business-info services m-b-20">
-                                                                            <div class="card-header">
-                                                                                <div class="service-header">
-                                                                                    <a href="#">
-                                                                                        <h5 class="card-header-text">Shivani Hero</h5>
-                                                                                    </a>
-                                                                                </div>
-                                                                                <span class="dropdown-toggle addon-btn text-muted f-right service-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" role="tooltip">
-                                         </span>
-                                                                                <div class="dropdown-menu dropdown-menu-right b-none services-list">
-                                                                                    <a class="dropdown-item" href="#!"><i class="icofont icofont-edit"></i> Edit</a>
-                                                                                    <a class="dropdown-item" href="#!"><i class="icofont icofont-ui-delete"></i> Delete</a>
-                                                                                    <a class="dropdown-item" href="#!"><i class="icofont icofont-eye-alt"></i> View</a>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="card-block">
-                                                                                <div class="row">
-                                                                                    <div class="col-sm-12">
-                                                                                        <p class="task-detail">Lorem ipsum dolor sit amet, consectet ur adipisicing elit, sed do eiusmod temp or incidi dunt ut labore et.Lorem ipsum dolor sit amet, consecte.</p>
-                                                                                    </div>
-                                                                                    <!-- end of col-sm-8 -->
-                                                                                </div>
-                                                                                <!-- end of row -->
-                                                                            </div>
-                                                                            <!-- end of card-block -->
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <div class="card b-l-danger business-info services">
-                                                                            <div class="card-header">
-                                                                                <div class="service-header">
-                                                                                    <a href="#">
-                                                                                        <h5 class="card-header-text">Dress and Sarees</h5>
-                                                                                    </a>
-                                                                                </div>
-                                                                                <span class="dropdown-toggle addon-btn text-muted f-right service-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" role="tooltip">
-                                         </span>
-                                                                                <div class="dropdown-menu dropdown-menu-right b-none services-list">
-                                                                                    <a class="dropdown-item" href="#!"><i class="icofont icofont-edit"></i> Edit</a>
-                                                                                    <a class="dropdown-item" href="#!"><i class="icofont icofont-ui-delete"></i> Delete</a>
-                                                                                    <a class="dropdown-item" href="#!"><i class="icofont icofont-eye-alt"></i> View</a>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="card-block">
-                                                                                <div class="row">
-                                                                                    <div class="col-sm-12">
-                                                                                        <p class="task-detail">Lorem ipsum dolor sit amet, consectet ur adipisicing elit, sed do eiusmod temp or incidi dunt ut labore et.Lorem ipsum dolor sit amet, consecte.</p>
-                                                                                    </div>
-                                                                                    <!-- end of col-sm-8 -->
-                                                                                </div>
-                                                                                <!-- end of row -->
-                                                                            </div>
-                                                                            <!-- end of card-block -->
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <div class="card b-l-info business-info services">
-                                                                            <div class="card-header">
-                                                                                <div class="service-header">
-                                                                                    <a href="#">
-                                                                                        <h5 class="card-header-text">Shivani Auto Port</h5>
-                                                                                    </a>
-                                                                                </div>
-                                                                                <span class="dropdown-toggle addon-btn text-muted f-right service-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" role="tooltip">
-                                         </span>
-                                                                                <div class="dropdown-menu dropdown-menu-right b-none services-list">
-                                                                                    <a class="dropdown-item" href="#!"><i class="icofont icofont-edit"></i> Edit</a>
-                                                                                    <a class="dropdown-item" href="#!"><i class="icofont icofont-ui-delete"></i> Delete</a>
-                                                                                    <a class="dropdown-item" href="#!"><i class="icofont icofont-eye-alt"></i> View</a>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="card-block">
-                                                                                <div class="row">
-                                                                                    <div class="col-sm-12">
-                                                                                        <p class="task-detail">Lorem ipsum dolor sit amet, consectet ur adipisicing elit, sed do eiusmod temp or incidi dunt ut labore et.Lorem ipsum dolor sit amet, consecte.</p>
-                                                                                    </div>
-                                                                                    <!-- end of col-sm-8 -->
-                                                                                </div>
-                                                                                <!-- end of row -->
-                                                                            </div>
-                                                                            <!-- end of card-block -->
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <div class="card b-l-warning business-info services">
-                                                                            <div class="card-header">
-                                                                                <div class="service-header">
-                                                                                    <a href="#">
-                                                                                        <h5 class="card-header-text">Hair stylist</h5>
-                                                                                    </a>
-                                                                                </div>
-                                                                                <span class="dropdown-toggle addon-btn text-muted f-right service-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" role="tooltip">
-                                         </span>
-                                                                                <div class="dropdown-menu dropdown-menu-right b-none services-list">
-                                                                                    <a class="dropdown-item" href="#!"><i class="icofont icofont-edit"></i> Edit</a>
-                                                                                    <a class="dropdown-item" href="#!"><i class="icofont icofont-ui-delete"></i> Delete</a>
-                                                                                    <a class="dropdown-item" href="#!"><i class="icofont icofont-eye-alt"></i> View</a>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="card-block">
-                                                                                <div class="row">
-                                                                                    <div class="col-sm-12">
-                                                                                        <p class="task-detail">Lorem ipsum dolor sit amet, consectet ur adipisicing elit, sed do eiusmod temp or incidi dunt ut labore et.Lorem ipsum dolor sit amet, consecte.</p>
-                                                                                    </div>
-                                                                                    <!-- end of col-sm-8 -->
-                                                                                </div>
-                                                                                <!-- end of row -->
-                                                                            </div>
-                                                                            <!-- end of card-block -->
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <div class="card b-l-danger business-info services">
-                                                                            <div class="card-header">
-                                                                                <div class="service-header">
-                                                                                    <a href="#">
-                                                                                        <h5 class="card-header-text">BMW India</h5>
-                                                                                    </a>
-                                                                                </div>
-                                                                                <span class="dropdown-toggle addon-btn text-muted f-right service-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" role="tooltip">
-                                         </span>
-                                                                                <div class="dropdown-menu dropdown-menu-right b-none services-list">
-                                                                                    <a class="dropdown-item" href="#!"><i class="icofont icofont-edit"></i> Edit</a>
-                                                                                    <a class="dropdown-item" href="#!"><i class="icofont icofont-ui-delete"></i> Delete</a>
-                                                                                    <a class="dropdown-item" href="#!"><i class="icofont icofont-eye-alt"></i> View</a>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="card-block">
-                                                                                <div class="row">
-                                                                                    <div class="col-sm-12">
-                                                                                        <p class="task-detail">Lorem ipsum dolor sit amet, consectet ur adipisicing elit, sed do eiusmod temp or incidi dunt ut labore et.Lorem ipsum dolor sit amet, consecte.</p>
-                                                                                    </div>
-                                                                                    <!-- end of col-sm-8 -->
-                                                                                </div>
-                                                                                <!-- end of row -->
-                                                                            </div>
-                                                                            <!-- end of card-block -->
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <div class="card b-l-success business-info services">
-                                                                            <div class="card-header">
-                                                                                <div class="service-header">
-                                                                                    <a href="#">
-                                                                                        <h5 class="card-header-text">Shivani Hero</h5>
-                                                                                    </a>
-                                                                                </div>
-                                                                                <span class="dropdown-toggle addon-btn text-muted f-right service-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" role="tooltip">
-                                         </span>
-                                                                                <div class="dropdown-menu dropdown-menu-right b-none services-list">
-                                                                                    <a class="dropdown-item" href="#!"><i class="icofont icofont-edit"></i> Edit</a>
-                                                                                    <a class="dropdown-item" href="#!"><i class="icofont icofont-ui-delete"></i> Delete</a>
-                                                                                    <a class="dropdown-item" href="#!"><i class="icofont icofont-eye-alt"></i> View</a>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="card-block">
-                                                                                <div class="row">
-                                                                                    <div class="col-sm-12">
-                                                                                        <p class="task-detail">Lorem ipsum dolor sit amet, consectet ur adipisicing elit, sed do eiusmod temp or incidi dunt ut labore et.Lorem ipsum dolor sit amet, consecte.</p>
-                                                                                    </div>
-                                                                                    <!-- end of col-sm-8 -->
-                                                                                </div>
-                                                                                <!-- end of row -->
-                                                                            </div>
-                                                                            <!-- end of card-block -->
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-lg-12">
-                                                                <div class="card">
-                                                                    <div class="card-header">
-                                                                        <h5 class="card-header-text">Profit</h5>
-                                                                    </div>
-                                                                    <div class="card-block">
-                                                                        <div id="main" style="height:300px;width: 100%;"></div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!-- info card end -->
-                                                    </div>
+                                                    
                                                   
                                             </div>
                                         </div>
@@ -534,9 +325,7 @@
                                 </div>
                             </div>
                             <!-- Main body end -->
-                            <div id="styleSelector">
-
-                            </div>
+                           
                         </div>
                     </div>
 

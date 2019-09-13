@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use App;
 Use App\Supplier;
-use Illuminate\Database\Query\Builder;
-use Illuminate\Support\Collection;
+use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Support\Facades\DB;
 
 Use App\Material;
@@ -104,6 +103,25 @@ class MaterialSupplierController extends Controller
     {
         //
     }
+
+    public function pdf()
+
+    {
+        $materialSupplier = \DB::select('SELECT materials.nombre AS materialNombre, suppliers.nombre AS supplierNombre, material_supplier.id,  material_supplier.precio, material_supplier.cantidad,  material_supplier.medida
+
+        FROM material_supplier, materials, suppliers
+
+        WHERE material_supplier.material_id = materials.id AND material_supplier.supplier_id = suppliers.id');
+         $i = 1;
+        $dompdf = PDF::loadView('pdf.materiaproveedor', compact('materialSupplier', 'i'));
+     
+
+
+
+        return $dompdf->stream('materialsupplier.pdf');
+    }
+
+
 
     /**
      * Show the form for editing the specified resource.

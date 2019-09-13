@@ -81,11 +81,13 @@ Route::get('backup/create', 'BackupController@create');
 Route::get('backup/download/{file_name}', 'BackupController@download');
 Route::get('backup/delete/{file_name}', 'BackupController@delete');
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('materia-proveedores/pdf', 'MaterialSupplierController@pdf')->name('materialsupplier.pdf');
 
 
 Route::resource('empleados','WorkerController');
 Route::resource('productos','ProductController');
 Route::resource('proveedores','SupplierController');
+
 Route::resource('materias-primas','MaterialController');
 Route::resource('materia-proveedores','MaterialSupplierController');
 Route::resource('categorias','CategoryController');

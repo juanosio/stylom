@@ -48,7 +48,8 @@
                                         </div>
                                         <center>
                                             <h4 class="box-title">Listado de ordenes de compra</h4>
-
+      
+                                            <a href="{{ route('materialsupplier.pdf') }}">PDF</a>
 
                                         </center>
                                     </div>
