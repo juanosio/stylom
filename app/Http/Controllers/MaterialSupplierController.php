@@ -113,7 +113,9 @@ class MaterialSupplierController extends Controller
 
         WHERE material_supplier.material_id = materials.id AND material_supplier.supplier_id = suppliers.id');
          $i = 1;
-        $dompdf = PDF::loadView('pdf.materiaproveedor', compact('materialSupplier', 'i'));
+
+         $date = date('d-m-Y');
+        $dompdf = PDF::loadView('pdf.materiaproveedor', compact('materialSupplier', 'i','date'));
      
 
 
