@@ -27,7 +27,7 @@ class ProductStoreRequest extends FormRequest
             'nombre' => 'required|max:30',
             'cantidad' => 'required|max:5',
             'talla'  => 'required',
-            'genero'  => 'required',
+          
             'envio'  => 'required',
         ];
     }

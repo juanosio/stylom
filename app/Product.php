@@ -7,12 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     protected $fillable = [
-        'nombre', 'cantidad', 'stock_min', 'stock_max', 'descripcion', 'foto', 'talla', 'genero', 'envio',
+        'nombre', 'cantidad', 'stock_min', 'stock_max', 'descripcion', 'foto', 'talla', 'envio','category_id','estado','precio'
     ];
 
-    protected $hidden = [
-       'category_id',
-    ];
 
 
     public function materials(){

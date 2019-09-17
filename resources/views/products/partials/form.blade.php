@@ -34,8 +34,8 @@
 
   <div class="row">                          
   <div class="col mt-3">
-          <label class="alinear">Descripción<span style="color:red">*</span></label>
-          {{ Form::text('descripcion', null, ['class' => "form-control $errors->has('descripcion') ? ' is-invalid' : ''", 'id' => 'descripcion', 'maxlength' => 100, 'placeholder' => 'Introduzca una breve descripcion del producto']) }}
+          <label class="alinear">Precio<span style="color:red">*</span></label>
+          {{ Form::text('precio', null, ['class' => "form-control $errors->has('precio') ? ' is-invalid' : ''", 'id' => 'precio', 'maxlength' => 20, 'placeholder' => 'Introduzca el precio de venta del producto']) }}
           
       </div>
       <div class="col mt-3">
@@ -54,14 +54,13 @@
   </div>
 
   <div class="row">
-    
   <div class="col mt-3">
-              <label class="alinear">Género<span style="color:red">*</span></label>
-              <select class="form-control" id="" name="genero">
-                    <option value="FEMENINO" >Femenino</option>
-                    <option value="MASCULINO" >Masculino</option>
-              </select>
-          </div>
+          <label class="alinear">Descripción<span style="color:red">*</span></label>
+          {{ Form::text('descripcion', null, ['class' => "form-control $errors->has('descripcion') ? ' is-invalid' : ''", 'id' => 'descripcion', 'maxlength' => 100, 'placeholder' => 'Introduzca una breve descripcion del producto']) }}
+          
+      </div>
+    
+
           <div class="col mt-3">
               <label class="alinear">Método de envío<span style="color:red">*</span></label>
               <select class="form-control" id="" name="envio">
@@ -72,6 +71,41 @@
               </select>
           </div>
   </div>
+  <div class="row">
+  <div class="col mt-3">
+              <label class="alinear">Categoria<span style="color:red">*</span></label>
+              <select class="form-control" id="" name="category_id">
+              @foreach ($category as $item)
+            <option value="{{ $item->id }}">{{ $item->nombre }}</option>
+        @endforeach
+              </select>
+          </div>
+          <div class="col mt-3">
+              <label class="alinear">Estado<span style="color:red">*</span></label>
+              <select class="form-control" id="" name="estado">
+                    <option value="HABILIDADO" >HABILIDADO</option>
+                    <option value="INHABILITADO" >INHABILITADO</option>
+              </select>
+          </div>
+  </div>
+
+  <div class="row">
+   
+   <div class="col mt-3">
+       <label class="alinear">Stock maximo<span style="color:red">*</span></label>
+       {{ Form::text('stock_max', null, ['class' => "form-control $errors->has('stock_max') ? ' is-invalid' : ''", 'id' => 'stock_max', 'maxlength' => 10, 'placeholder' => 'Introduzca el stock maximo segun el tipo de medida']) }}
+
+   </div>
+   <div class="col mt-3">
+       <label class="alinear">Stock minimo<span style="color:red">*</span></label>
+       {{ Form::text('stock_min', null, ['class' => "form-control $errors->has('stock_min') ? ' is-invalid' : ''", 'id' => 'stock_min', 'maxlength' => 10, 'placeholder' => 'Introduzca el stock maximo segun el tipo de medida']) }}
+
+   </div>
+
+</div>
+
+
+  
   
   <div class="form-group" class="row">
 <label class="mt-3">Foto del producto</label>

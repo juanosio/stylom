@@ -13,7 +13,7 @@
             </li>
 
             <li>
-                <a href="{{ route('products') }}">Articulos</a>
+                <a href="{{ route('all.filter') }}">Articulos</a>
             </li>
 
             <li>

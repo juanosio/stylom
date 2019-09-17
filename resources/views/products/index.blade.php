@@ -65,7 +65,7 @@
                                                                 <th>Foto</th>
                                                                 <th>Nombre</th>
                                                                 <th>Cantidad disponible</th>
-                                                                <th>Genero</th>
+                                                                <th>Categoria</th>
                                                                 <th>Talla</th>
                                                                 <th>Envio</th>
 
@@ -83,7 +83,7 @@
 
                                                                 <td>{{ $products->nombre}}</td>
                                                                 <td>{{ $products->cantidad}} disponibles</td>
-                                                                <td>{{ $products->genero}}</td>
+                                                                <td>{{ $products->categoryNombre}}</td>
                                                                 <td>{{ $products->talla}}</td>
                                                                 <td>{{ $products->envio}}</td>
 

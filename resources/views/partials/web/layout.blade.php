@@ -70,21 +70,7 @@
 
    @include('partials.web.menu')
 
-                <!-- Header Icon -->
-                <div class="header-icons">
-                    
-
-                    <span class="linedivide1"></span>
-
-                    <div class="header-wrapicon2">
-                        <img src="{{ asset('assets/web/images/icons/icon-header-02.png') }}"
-                            class="header-icon1 js-show-header-dropdown" alt="ICON">
-                        <span class="header-icons-noti">0</span>
-
-                      
-
-                    </div>
-                </div>
+               
 
                 @include('partials/web/mobile')
     </header>
@@ -150,6 +136,31 @@
             });
         });
     </script>
+
+<script type="text/javascript" src="{{ asset('assets/web/vendor/noui/nouislider.min.js') }}"></script>
+	<script type="text/javascript">
+		/*[ No ui ]
+	    ===========================================================*/
+	    var filterBar = document.getElementById('filter-bar');
+
+	    noUiSlider.create(filterBar, {
+	        start: [ 50, 200 ],
+	        connect: true,
+	        range: {
+	            'min': 50,
+	            'max': 200
+	        }
+	    });
+
+	    var skipValues = [
+	    document.getElementById('value-lower'),
+	    document.getElementById('value-upper')
+	    ];
+
+	    filterBar.noUiSlider.on('update', function( values, handle ) {
+	        skipValues[handle].innerHTML = Math.round(values[handle]) ;
+	    });
+	</script>
 
     <!--===============================================================================================-->
     <script src="{{ asset('assets/web/js/main.js') }}"></script>

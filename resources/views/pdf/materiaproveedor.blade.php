@@ -46,6 +46,12 @@
             border-collapse: separate;
 
         }
+ 
+        #tabla {
+
+           margin-top: -150px;
+
+        }
 
     </style>
 </head>
@@ -58,7 +64,7 @@
             Fecha:<br>
             <div id="fecha"> {{ $date }} </div>
 
-        </div>
+        </div> 
         <br>
 
         <div id="membrete">
@@ -72,7 +78,7 @@
 
     </div>
 
-
+<div id="tabla">
     <div class="row">
         <div class="dt-responsive table-responsive">
             <h2 class="text-center">Listado de ordenes de compra</h2> <br>
@@ -81,7 +87,6 @@
                 <thead class=>
                     <tr>
                         <th>#</th>
-
                         <th>Materia P.</th>
                         <th>Proveedor</th>
                         <th>Medida</th>
@@ -109,8 +114,9 @@
         </div>
 
     </div>
+    </div>
 
-
+ 
 
 
 </body>

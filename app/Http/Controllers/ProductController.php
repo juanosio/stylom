@@ -5,6 +5,7 @@ use App;
 use App\Product;
 use App\MaterialProduct;
 use App\Material;
+use App\Category;
 use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -19,9 +20,18 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::orderBy('id', 'DESC')->get();
+        
+
+        $products = \DB::select('SELECT categories.nombre AS categoryNombre, products.id, products.nombre,  products.precio, products.cantidad,  products.stock_min, products.stock_max, products.descripcion , products.foto, products.talla, products.envio, products.estado
+
+        FROM products, categories
+
+        WHERE products.category_id = categories.id');
+
+
+        // $products = Product::orderBy('id', 'DESC')->get();
         $i = 1;
-        return view ('products/index', compact('products', 'i'));
+        return view ('products/index', compact('products','Products2', 'i'));
         
     }
 
@@ -33,7 +43,8 @@ class ProductController extends Controller
     public function create()
     {
         $material = Material::all();
-        return view ('products/create', compact('material'));
+        $category = Category::all();
+        return view ('products/create', compact('material'),compact('category'));
     
     }
 
@@ -52,10 +63,11 @@ class ProductController extends Controller
           $products->nombre = $request->nombre;
           $products->cantidad = $request->cantidad;
           $products->descripcion = $request->descripcion;
-          $products->stock_min = 10;
-          $products->stock_max= 50;
+          $products->stock_min = $request->stock_min;
+          $products->stock_max = $request->stock_max; 
+          $products->precio = $request->precio; 
+          $products->category_id = $request->category_id; 
           $products->talla = $request->talla;
-          $products->genero = $request->genero;
           $products->envio = $request->envio;
   
           $products->save();
@@ -83,18 +95,6 @@ $materialProducts = new MaterialProduct;
             
 }
 
-$cantidadMateria2 = count($request->medida);
-$inventario = \DB::select('SELECT * FROM  materials');
-
-for($i=0; $i<$cantidadMateria2; $i++){
-    
-    $restarAlInventario = $inventario->stock_actual - $request->cantidadMateria;
-
-    $actualizarInventario = Material::find($request->material);
-    $actualizarInventario->stock_actual = $restarAlInventario;
-    $actualizarInventario->save();
-                
-    }
 
 
 
@@ -142,12 +142,13 @@ for($i=0; $i<$cantidadMateria2; $i++){
 
           $productsUpdate->nombre = $request->nombre;
           $productsUpdate->cantidad = $request->cantidad;
+          $productsUpdate->category = $request->category;
           $productsUpdate->descripcion = $request->descripcion;
-          $productsUpdate->stock_min = 10;
-          $productsUpdate->stock_max= 50;
+          $productsUpdate->stock_min = $request->stock_min;
+          $productsUpdate->stock_max= $request->stock_max;
           $productsUpdate->foto = $request->foto;
+          $productsUpdate->precio = $request->precio;
           $productsUpdate->talla = $request->talla;
-          $productsUpdate->genero = $request->genero;
           $productsUpdate->envio = $request->envio;
 
           $productsUpdate->save();

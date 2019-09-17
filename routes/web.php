@@ -16,9 +16,6 @@ Route::get('/', function () {
     return view('welcome');
 })->name('index');
 
-Route::get('/articulos', function () {
-    return view('products');
-})->name('products');
 
 Route::get('/acerca-de', function () {
     return view('about');
@@ -81,7 +78,24 @@ Route::get('backup/create', 'BackupController@create');
 Route::get('backup/download/{file_name}', 'BackupController@download');
 Route::get('backup/delete/{file_name}', 'BackupController@delete');
 Route::get('/home', 'HomeController@index')->name('home');
+
+//PDF
 Route::get('materia-proveedores/pdf', 'MaterialSupplierController@pdf')->name('materialsupplier.pdf');
+
+//Filtros
+Route::get('articulos', 'FilterController@index')->name('all.filter');
+Route::get('articulos/filtro/mujer', 'FilterController@women')->name('women.filter');
+Route::get('articulos/filtro/hombre', 'FilterController@men')->name('men.filter');
+Route::get('articulos/filtro/niños', 'FilterController@kids')->name('kids.filter');
+Route::get('articulos/filtro/menor', 'FilterController@lowertohigher')->name('lowertohigher.filter');
+
+Route::get('articulos/filtro/mayor', 'FilterController@highertolower')->name('highertolower.filter');
+Route::get('articulos/filtro/rango1', 'FilterController@range1')->name('range1.filter');
+Route::get('articulos/filtro/rango2', 'FilterController@range2')->name('range2.filter');
+Route::get('articulos/filtro/rango3', 'FilterController@range3')->name('range3.filter');
+Route::get('articulos/filtro/rango4', 'FilterController@range4')->name('range4.filter');
+
+
 
 
 Route::resource('empleados','WorkerController');

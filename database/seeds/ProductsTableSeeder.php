@@ -17,10 +17,12 @@ class ProductsTableSeeder extends Seeder
             'cantidad'  => '18',
             'stock_min'  => '5',
             'stock_max' => '20',
+            'precio' => '3000',
             'descripcion' => 'Camisa de alta calidad',
             'talla' => 'S',
             'foto' =>'http://127.0.0.1:8000/img/camisa.jpg',
-            'genero' => 'FEMENINO',
+            'category_id' => '1',
+            'estado' =>  'HABILITADO',
             'envio' => 'DOMESA'
             
         ));
@@ -31,10 +33,12 @@ class ProductsTableSeeder extends Seeder
             'cantidad'  => '14',
             'stock_min'  => '5',
             'stock_max' => '20',
+            'precio' => '23000',
             'descripcion' => 'Pantalon de vestir',
             'talla' => 'M',
             'foto' =>'http://127.0.0.1:8000/img/pantalon.jpg',
-            'genero' => 'MASCULINO',
+            'category_id' => '1',
+            'estado' => 'HABILITADO',
             'envio' => 'DOMESA'
             
         ));
@@ -45,10 +49,12 @@ class ProductsTableSeeder extends Seeder
             'cantidad'  => '19',
             'stock_min'  => '5',
             'stock_max' => '20',
+            'precio' => '50000',
             'descripcion' => 'Franelilla color azul de algodon',
             'talla' => 'L',
             'foto' =>'http://127.0.0.1:8000/img/franelilla.png',
-            'genero' => 'FEMENINO',
+            'category_id' => '2',
+            'estado' => 'HABILITADO',
             'envio' => 'MRW'
             
         ));
@@ -59,10 +65,12 @@ class ProductsTableSeeder extends Seeder
             'cantidad'  => '3',
             'stock_min'  => '5',
             'stock_max' => '20',
+            'precio' => '1500',
             'descripcion' => 'Mono flexible para hacer deporte',
             'talla' => 'M',
             'foto' =>'http://127.0.0.1:8000/img/monosdeportivos.jpg',
-            'genero' => 'MASCULINO',
+            'category_id' => '3',
+            'estado' => 'HABILITADO',
             'envio' => 'ZOOM'
             
         ));
