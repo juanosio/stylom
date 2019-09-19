@@ -27,6 +27,8 @@
 							Categorias
 						</h4>
 
+						
+
 						<ul class="p-b-54">
 							<li class="p-t-4">
 								<a href="{{ route('all.filter')}}" class="s-text13 active1">
@@ -52,45 +54,43 @@
 								</a>
 							</li>
 
+
 						</ul>
 
 						<!--  -->
-						<h4 class="m-text14 p-b-32">
+						<h4 class="m-text14 p-b-7">
 							Filtros
 						</h4>
+				
 
-						<div class="filter-price p-t-22 p-b-50 bo3">
-							<div class="m-text15 p-b-17">
-								Precio
-							</div>
+							<li class="p-t-4">
+								<a href="{{ route('vestidos.filter')}}" class="s-text13">
+									Vestidos
+								</a>
+							</li>
 
-							<div class="wra-filter-bar">
-								<div id="filter-bar"></div>
-							</div>
+							<li class="p-t-4">
+								<a href="{{ route('pantalones.filter')}}" class="s-text13">
+									Pantalones
+								</a>
+							</li>
 
-							<div class="flex-sb-m flex-w p-t-16">
-								<div class="w-size11">
-									<!-- Button -->
-									<button class="flex-c-m size4 bg7 bo-rad-15 hov1 s-text14 trans-0-4">
-										Filtro
-									</button>
-								</div>
+							<li class="p-t-4">
+								<a href="{{ route('camisas.filter')}}" class="s-text13">
+									Camisas
+								</a>
+							</li>
 
-								<div class="s-text3 p-t-10 p-b-10">
-									Range: $<span id="value-lower">610</span> - $<span id="value-upper">980</span>
-								</div>
-							</div>
-						</div>
+							<li class="p-t-4">
+								<a href="{{ route('kids.filter')}}" class="s-text13">
+									Niños
+								</a>
+							</li>
 
-						
+						</ul>
 
-						<div class="search-product pos-relative bo4 of-hidden">
-							<input class="s-text7 size6 p-l-23 p-r-50" type="text" name="search-product" placeholder="Buscar productos...">
 
-							<button class="flex-c-m size5 ab-r-m color2 color0-hov trans-0-4">
-								<i class="fs-12 fa fa-search" aria-hidden="true"></i>
-							</button>
-						</div>
+					
 					</div>
 				</div>
 

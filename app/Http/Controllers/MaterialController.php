@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App;
 use App\Material;
 use App\Supplier;
+use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 use Alert;
 
@@ -104,6 +105,23 @@ class MaterialController extends Controller
 
         return redirect()->route('materias-primas.index');
     }
+
+    public function pdf()
+
+    {
+        $materials = Material::all();
+
+         $i = 1;
+
+         $date = date('d-m-Y');
+        $dompdf = PDF::loadView('pdf.materiaprima', compact('materials', 'i','date'));
+     
+
+
+
+        return $dompdf->stream('products.pdf');
+    }
+
 
     /**
      * Remove the specified resource from storage.

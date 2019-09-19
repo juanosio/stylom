@@ -12,9 +12,7 @@
 */
 
 // Rutas estaticas de momento
-Route::get('/', function () {
-    return view('welcome');
-})->name('index');
+
 
 
 Route::get('/acerca-de', function () {
@@ -81,12 +79,18 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //PDF
 Route::get('materia-proveedores/pdf', 'MaterialSupplierController@pdf')->name('materialsupplier.pdf');
+Route::get('productos/pdf', 'ProductController@pdf')->name('products.pdf');
+Route::get('materias-primas/pdf', 'MaterialController@pdf')->name('material.pdf');
 
 //Filtros
+Route::get('/', 'FilterController@welcome')->name('welcome.filter');
 Route::get('articulos', 'FilterController@index')->name('all.filter');
 Route::get('articulos/filtro/mujer', 'FilterController@women')->name('women.filter');
 Route::get('articulos/filtro/hombre', 'FilterController@men')->name('men.filter');
 Route::get('articulos/filtro/niños', 'FilterController@kids')->name('kids.filter');
+Route::get('articulos/filtro/vestidos', 'FilterController@vestidos')->name('vestidos.filter');
+Route::get('articulos/filtro/pantalones', 'FilterController@pantalones')->name('pantalones.filter');
+Route::get('articulos/filtro/camisas', 'FilterController@camisas')->name('camisas.filter');
 Route::get('articulos/filtro/menor', 'FilterController@lowertohigher')->name('lowertohigher.filter');
 
 Route::get('articulos/filtro/mayor', 'FilterController@highertolower')->name('highertolower.filter');

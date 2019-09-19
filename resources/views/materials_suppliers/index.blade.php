@@ -45,11 +45,19 @@
                                                 data-toggle="tooltip" data-placement="left"
                                                 title="Realizar un nuevo pedido de materia prima"> <i class="feather icon-plus-circle"
                                                     style="font-size: 20px"></i> Realizar pedido</a>
+                                        </div> <br><br>
+
+                                    
+                                        <div class="float-right" >
+                                            <a href="{{ route('materialsupplier.pdf') }}" class="btn btn-primary mt-2"
+                                                data-toggle="tooltip" data-placement="left"
+                                                title="Generar pdf"> <i class="feather icon-file-text"
+                                                    style="font-size: 20px"></i> Generar PDF</a>
                                         </div>
                                         <center>
                                             <h4 class="box-title">Listado de ordenes de compra</h4>
       
-                                            <a href="{{ route('materialsupplier.pdf') }}">PDF</a>
+                                          
 
                                         </center>
                                     </div>

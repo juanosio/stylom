@@ -21,9 +21,9 @@
                                             <a href="index-1.htm"> <i class="feather icon-home"></i> </a>
                                         </li>
                                         <li class="breadcrumb-item"><a
-                                                href="{{ route('materias-primas.index') }}">Productos</a>
+                                                href="{{ route('materias-primas.index') }}">Materias Primas</a>
                                         </li>
-                                        <li class="breadcrumb-item"><a href="#!">Listado de productos</a>
+                                        <li class="breadcrumb-item"><a href="#!">Listado de Materias primas</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -45,6 +45,12 @@
                                                 data-toggle="tooltip" data-placement="left"
                                                 title="Registrar un nuevo producto"> <i class="feather icon-plus-circle"
                                                     style="font-size: 20px"></i> Registrar</a>
+                                        </div>><br><br>
+                                        <div class="float-right" >
+                                            <a href="{{ route('material.pdf') }}" class="btn btn-primary mt-2"
+                                                data-toggle="tooltip" data-placement="left"
+                                                title="Generar pdf"> <i class="feather icon-file-text"
+                                                    style="font-size: 20px"></i> Generar PDF</a>
                                         </div>
                                         <center>
                                             <h4 class="box-title">Lista de Materias Primas en stock</h4>

@@ -19,6 +19,16 @@ class FilterController extends Controller
         
     }
 
+    public function welcome()
+    {
+        $filter = Product::orderBy('id', 'ASC')->where('estado', 'HABILITADO');
+     
+
+       
+        return view ('welcome', compact('filter'));
+        
+    }
+
     public function women()
     {
         $filter = Product::where('category_id', 2)->where('estado', 'HABILITADO')->paginate(9);;
@@ -42,6 +52,32 @@ class FilterController extends Controller
         return view ('products', compact('filter'));
         
     }
+
+    public function camisas()
+    {
+        $filter = Product::where('category_id', 4)->where('estado', 'HABILITADO')->paginate(9);;
+       
+        return view ('products', compact('filter'));
+        
+    }
+
+    public function vestidos()
+    {
+        $filter = Product::where('category_id', 5)->where('estado', 'HABILITADO')->paginate(9);;
+       
+        return view ('products', compact('filter'));
+        
+    }
+
+    public function pantalones()
+    {
+        $filter = Product::where('category_id', 6)->where('estado', 'HABILITADO')->paginate(9);;
+       
+        return view ('products', compact('filter'));
+        
+    }
+
+
 
     public function lowertohigher()
     {

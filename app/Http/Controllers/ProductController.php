@@ -8,6 +8,7 @@ use App\Material;
 use App\Category;
 use DB;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Support\Facades\Storage;
 use Alert;
 
@@ -166,6 +167,28 @@ $materialProducts = new MaterialProduct;
         return redirect()->route('productos.index');
 
     }
+
+    
+    public function pdf()
+
+    {
+        $products = \DB::select('SELECT categories.nombre AS categoryNombre, products.id, products.nombre,  products.precio, products.cantidad,  products.stock_min, products.stock_max, products.descripcion , products.foto, products.talla, products.envio, products.estado
+
+        FROM products, categories
+
+        WHERE products.category_id = categories.id');
+
+         $i = 1;
+
+         $date = date('d-m-Y');
+        $dompdf = PDF::loadView('pdf.productos', compact('products', 'i','date'));
+     
+
+
+
+        return $dompdf->stream('products.pdf');
+    }
+
 
     /**
      * Remove the specified resource from storage.
