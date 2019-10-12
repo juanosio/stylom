@@ -6,6 +6,7 @@ use App\Material;
 use App\Supplier;
 use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Alert;
 
 class MaterialController extends Controller
@@ -45,13 +46,45 @@ class MaterialController extends Controller
     public function store(\App\Http\Requests\MaterialStoreRequest $request)
     {
         //  return $request->all();
-        $materials = new App\Material;
 
-        $materials->nombre = $request->nombre;
-        $materials->medida = $request->medida;
-        $materials->stock_actual = $request->stock_actual;
-        $materials->stock_min = $request->stock_min;
-        $materials->stock_max= $request->stock_max;
+ if($request){
+
+    $materials = new App\Material;
+
+    $materials->nombre = $request->nombre;
+    $materials->medida = $request->medida;
+    $materials->stock_actual = $request->stock_actual;
+    $materials->stock_min = $request->stock_min;
+    $materials->stock_max= $request->stock_max;
+
+
+ 
+    $vmaterial = \DB::select('SELECT * FROM materials WHERE nombre = ?' , [$request->nombre]);
+            
+
+    if ($vmaterial) {
+        Alert::error('Esta materia prima ya existe','¡Error en el registro!');
+
+        return redirect()->route('materias-primas.create');
+        die();
+ }
+
+
+ 
+ $vmaterial2 = \DB::select('SELECT materials.stock_min, materials.stock_max FROM materials WHERE materials.stock_min = ? <= materials.stock_max = ?', [$request->stock_min, $request->stock_max]);
+
+ 
+
+ if ($vmaterial2) {
+     Alert::error('El stock minimo no puede ser mayor al maximo','¡Error en el registro!');
+
+     return redirect()->route('materias-primas.create');
+     die();
+}
+
+
+
+       
 
         $materials->save();
 
@@ -59,6 +92,7 @@ class MaterialController extends Controller
 
         return redirect()->route('materias-primas.index');
     }
+}
 
     /**
      * Display the spemedidaied resource.
@@ -99,11 +133,14 @@ class MaterialController extends Controller
         $materialsUpdate->stock_min = $request->stock_min;
         $materialsUpdate->stock_max= $request->stock_max;
 
-        $materialsUpdate->save();
 
-        Alert::success('Operación realizada con éxito','¡Materia Prima editada!');
 
-        return redirect()->route('materias-primas.index');
+
+        // $materialsUpdate->save();
+
+        // Alert::success('Operación realizada con éxito','¡Materia Prima editada!');
+
+        // return redirect()->route('materias-primas.index');
     }
 
     public function pdf()

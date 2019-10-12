@@ -25,6 +25,7 @@
 
         {{ Form::text('nombre', null, ['class' => "form-control $errors->has('nombre') ? ' is-invalid' : ''", 'id' => 'nombre', 'maxlength' => 50, 'placeholder' => 'Introduzca de la materia prima. Ej: Tela de seda']) }}
     </div>
+  
     <div class="col mt-3">
         <label class="alinear">Cantidad<span style="color:red">*</span></label>
         {{ Form::text('stock_actual', null, ['class' => "form-control $errors->has('stock_actual') ? ' is-invalid' : ''", 'id' => 'stock_actual', 'maxlength' => 9, 'placeholder' => 'Introduzca la cantidad disponible']) }}

@@ -16,6 +16,15 @@ class MaterialUpdateRequest extends FormRequest
         return true;
     }
 
+    public function messages()
+{
+    return [
+        'nombre.required' => 'El nombre es obligatorio',
+        'nombre.unique' => 'Ya existe una materia prima con este nombre',
+        'body.required'  => 'A message is required',
+    ];
+}
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -23,11 +32,17 @@ class MaterialUpdateRequest extends FormRequest
      */
     public function rules()
     {
+    
+
         return [
-            'nombre' => 'required|max:20',
+            
+            'nombre' => 'required|max:20|unique:materials,nombre,'. $this->nombre,
+        
             'medida' => 'required',
             'stock_actual'  => 'required',
-
         ];
+      
+      
     }
+   
 }
