@@ -52,6 +52,8 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'identification' => ['required', 'integer', 'min:6', 'max:9'],
+            'telephone' => ['required', 'integer', 'min:11', 'max:11'],
         ]);
     }
 
@@ -67,6 +69,77 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'lastname' => $data['lastname'],
+            'identification' => $data['identification'],
+            'telephone' => $data['telephone'],
+
+
         ]);
     }
+
+    public function store(Request $request)
+    {
+
+        $user = new User;
+
+        $user->email            = $request->correo;
+        $user->password         = bcrypt($request->password);
+        $user->name             = $request->nombre;
+        $user->lastname         = $request->apellido;
+        $user->identification   = $request->cedula;
+        $user->telephone        = $request->telefono;
+
+
+        $vusers = \DB::select('SELECT * FROM users WHERE email = ?' , [$request->correo]);
+            
+
+        if ($vusers) {
+            Alert::error('Este correo esta afiliado a un trabajador existente','¡Error en el registro!');
+    
+            return redirect()->route('login');
+            die();
+     }
+
+     $vusers2 = \DB::select('SELECT * FROM users WHERE identification = ?' , [$request->cedula]);
+            
+
+     if ($vusers2) {
+         Alert::error('Esta cedula esta afiliada a un trabajador existente','¡Error en el registro!');
+ 
+         return redirect()->route('login');
+         die();
+  }
+
+  $vusers3 = \DB::select('SELECT * FROM users WHERE telephone = ?' , [$request->telefono]);
+            
+
+  if ($vusers3) {
+      Alert::error('Este telefono esta afiliado a un trabajador existente','¡Error en el registro!');
+
+      return redirect()->route('login');
+      die();
+}
+
+
+
+
+
+
+
+        $user->save();
+
+        
+
+
+
+       
+
+        
+        
+
+        Alert::success('Operación realizada con éxito','¡Empleado registrado!');
+
+        return redirect()->route('empleados.index');
+    }
+
 }

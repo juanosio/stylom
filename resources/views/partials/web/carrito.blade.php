@@ -1,4 +1,4 @@
-
+<script>
  $('.block2-btn-addcart').each(function () {
   var nameProduct = $(this).parent().parent().parent().find('#nombre').html();
   $(this).on('click', function () {
@@ -11,8 +11,7 @@
 $('.block2-btn-addcart').each(function () {
 var nameProduct = $(this).parent().parent().parent().find('#nombre').html();
 var namePrecio = $(this).parent().parent().parent().find('#precio').html();
-
-var nameFoto =  document.getElementById('foto');
+var nameFoto = $(this).parent().parent().parent().find('#foto').html();
 
 $(this).on('click', function () {
   
@@ -97,14 +96,13 @@ const CrearItem = (nombre, precio, foto) => {
 // 
     
     }else{
-var precioTotal = 0;
+let precioTotal = 0;
       listaArticulos.forEach(element => {
 
         listaNombreUI.innerHTML += `<ul class="header-cart-wrapitem">
         <li class="header-cart-item">
           <div class="header-cart-item-img">
-            <img src="{{asset('${element.foto})}}" alt="IMG" >
-          
+            <img src="{{asset('${element.foto}'})}" alt="IMG" >
           </div>
           <div class="header-cart-item-txt">
             <a href="#" class="header-cart-item-name">
@@ -117,13 +115,8 @@ var precioTotal = 0;
           </div>
         </li>        
       </ul>     
-
 `
-
-
-parseInt(precioTotal+=element.precio);
-// precioTotal = precioTotal += element.precio
-console.log(precioTotal);
+precioTotal += element.precio
       });
 
 
@@ -154,3 +147,4 @@ console.log(precioTotal);
 
  document.addEventListener('DOMContentLoaded', PintarDB);
 
+ </script>

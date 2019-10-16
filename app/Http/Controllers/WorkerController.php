@@ -52,7 +52,7 @@ class WorkerController extends Controller
         $user->telephone        = $request->telefono;
         $user->birthday         = $request->fecha_nacimiento;
         $user->direction        = $request->direccion;
-        $user->role             = 'SECRETARIA'
+        $user->role             = 'SECRETARIA';
 
 
         $vusers = \DB::select('SELECT * FROM users WHERE email = ?' , [$request->correo]);

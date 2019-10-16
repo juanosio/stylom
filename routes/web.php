@@ -119,6 +119,10 @@ Route::resource('empleados','WorkerController');
 Route::resource('productos','ProductController');
 Route::resource('proveedores','SupplierController');
 
+Route::get('login', 'BackupController@create');
+
+
+
 Route::resource('materias-primas','MaterialController');
 Route::resource('materia-proveedores','MaterialSupplierController');
 Route::resource('categorias','CategoryController');

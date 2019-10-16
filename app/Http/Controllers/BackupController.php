@@ -14,7 +14,7 @@ class BackupController extends Controller
         //Se debe crear la carpeta backups en el storage por que el no la crea 
         $backups = Storage::allFiles('public/backups');
         //dd($backups);
-        return view('admin.security.backups.index')->with(compact('backups'));
+        return view('backup/index')->with(compact('backups'));
 
     }
 
