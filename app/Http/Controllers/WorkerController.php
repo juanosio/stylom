@@ -6,6 +6,7 @@ use App\Worker;
 use App\User;
 use Illuminate\Http\Request;
 
+use Alert;
 
 class WorkerController extends Controller
 {
@@ -51,12 +52,58 @@ class WorkerController extends Controller
         $user->telephone        = $request->telefono;
         $user->birthday         = $request->fecha_nacimiento;
         $user->direction          = $request->direccion;
+
+
+        $vusers = \DB::select('SELECT * FROM users WHERE email = ?' , [$request->correo]);
+            
+
+        if ($vusers) {
+            Alert::error('Este correo esta afiliado a un trabajador existente','¡Error en el registro!');
+    
+            return redirect()->route('empleados.create');
+            die();
+     }
+
+     $vusers2 = \DB::select('SELECT * FROM users WHERE identification = ?' , [$request->cedula]);
+            
+
+     if ($vusers2) {
+         Alert::error('Esta cedula esta afiliada a un trabajador existente','¡Error en el registro!');
+ 
+         return redirect()->route('empleados.create');
+         die();
+  }
+
+  $vusers3 = \DB::select('SELECT * FROM users WHERE telephone = ?' , [$request->telefono]);
+            
+
+  if ($vusers3) {
+      Alert::error('Este telefono esta afiliado a un trabajador existente','¡Error en el registro!');
+
+      return redirect()->route('empleados.create');
+      die();
+}
+
+
+
+
+
+
+
         $user->save();
 
         
 
-       // return redirect()->route('users.index')
-        //->with('info', 'Secretaria registrada con éxito');
+
+
+       
+
+        
+        
+
+        Alert::success('Operación realizada con éxito','¡Empleado registrado!');
+
+        return redirect()->route('empleados.index');
     }
 
 

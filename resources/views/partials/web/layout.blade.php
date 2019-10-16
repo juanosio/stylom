@@ -122,19 +122,7 @@
     <!--===============================================================================================-->
     <script type="text/javascript" src="{{ asset('assets/web/vendor/sweetalert/sweetalert.min.js') }}"></script>
     <script type="text/javascript">
-        $('.block2-btn-addcart').each(function () {
-            var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
-            $(this).on('click', function () {
-                swal(nameProduct, "is added to cart !", "success");
-            });
-        });
-
-        $('.block2-btn-addwishlist').each(function () {
-            var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
-            $(this).on('click', function () {
-                swal(nameProduct, "is added to wishlist !", "success");
-            });
-        });
+       
     </script>
 
 <script type="text/javascript" src="{{ asset('assets/web/vendor/noui/nouislider.min.js') }}"></script>
@@ -164,6 +152,7 @@
 
     <!--===============================================================================================-->
     <script src="{{ asset('assets/web/js/main.js') }}"></script>
+       <script src="{{ asset('assets/web/js/app.js') }}"></script>
 
 </body>
 

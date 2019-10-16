@@ -37,11 +37,25 @@
                         <div class="col-sm-12">
                             <!-- Zero config.table start -->
                             <div class="card">
-                                <div class="card-header">
-                                    <h5>Lista de usuarios registrados en el sistema</h5>
-                                   
+                            <div class="card-body">
+                                        <div class="float-right">
+                                            <a href="{{ route('empleados.create') }}" class="btn btn-primary"
+                                                data-toggle="tooltip" data-placement="left"
+                                                title="Registrar un nuevo producto"> <i class="feather icon-plus-circle"
+                                                    style="font-size: 20px"></i> Registrar</a>
+                                        </div><br><br>
+                                        <div class="float-right" >
+                                            <a href="{{ route('material.pdf') }}" class="btn btn-primary mt-2"
+                                                data-toggle="tooltip" data-placement="left"
+                                                title="Generar pdf"> <i class="feather icon-file-text"
+                                                    style="font-size: 20px"></i> Generar PDF</a>
+                                        </div>
+                                        <center>
+                                            <h4 class="box-title">Lista de empleados registrados</h4>
 
-                                </div>
+
+                                        </center>
+                                    </div>
                                 <div class="card-block">
                                     <div class="dt-responsive table-responsive">
                                         <table id="simpletable" class="table table-striped table-bordered nowrap">

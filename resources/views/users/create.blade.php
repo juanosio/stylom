@@ -42,7 +42,9 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="float-left">
-                                            <a href="{{ route('empleados.index') }}" class="btn btn-info">Volver</a>
+                                        <a href="{{ route('empleados.index') }}" class="btn btn-sm btn-secondary"
+                                                data-toggle="tooltip" data-placement="right" title="Volver"><i
+                                                    class="feather icon-arrow-left" style="font-size: 20px"></i></a>
                                         </div>
                                         <center>
                                             <h4 class="box-title">Registro de secretarias</h4>
@@ -74,7 +76,7 @@
             </div>
         </div>
         <!-- Main-body end -->
-        <div id="styleSelector">
+
 
         </div>
     </div>

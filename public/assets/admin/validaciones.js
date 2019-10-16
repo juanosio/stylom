@@ -29,7 +29,6 @@ $.validator.setDefaults({
 
            nombre:{
                 required: true, 
-                lettersonly: true,
                 minlength: 3
            },
            rif:{
@@ -70,7 +69,7 @@ $.validator.setDefaults({
            },
            telefono:{
              required: 'Por favor ingresa la cantidad de materia prima',
-             minlength: 'Por favor ingresa al menos 1 digito',
+             minlength: 'Por favor ingresa un numero de telefono valido (11 digitos)',
              number: 'Solo se permiten números'
            },
            correo:{
@@ -226,3 +225,105 @@ $.validator.setDefaults({
 
 
 });
+
+$("#formulario_registro_usuarios").validate({
+  
+  rules:{
+
+
+      correo:{
+           required: true, 
+           email: true,
+           minlength: 1
+      }, 
+      nombre:{
+        required: true,
+        minlength: 3,
+      },
+
+      apellido:{
+        required: true,
+        minlength: 3,
+      },
+      cedula:{
+        required: true,
+        number: true,
+        minlength: 7
+        
+     
+      },
+      password:{
+        required: true,
+        minlength: 5,
+     
+      },
+      
+      
+      telefono:{
+        required: true,
+        number: true,
+        minlength: 11,
+     
+      },
+      fecha_nacimiento:{
+        required: true,
+        
+      },
+      direccion:{
+        required: true,
+        minlength: 1,
+      },
+  },
+
+  messages:{
+
+
+
+      correo:{
+        required: 'Por favor ingresa un correo valido',
+        minlength: 'Por favor ingresa al menos 1 caracter',
+        email: 'Por favor ingresa un correo valido'
+      },
+      nombre:{
+        required: 'Por favor ingresa un nombre',
+        minlength: 'Por favor ingresa al menos 3 caracteres',
+      },
+
+      cedula:{
+        required: 'Por favor ingresa una cedula',
+        minlength: 'Por favor ingresa una cedula valida de al menos 8 digitos',
+        number: 'Solo se permiten numeros'
+     
+      },
+
+      password:{
+        required: 'Por favor ingresa un contraseña',
+        minlength: 'Por favor ingresa una contraseña de 5 caracteres o superior'
+     
+      },
+      telefono:{
+        required: 'Por favor ingresa un numero de telefono  ',
+        number: 'Solo se permiten numeros ',
+        minlength: 'Por favor ingresa un numero de telefono valido de 11 digitos',
+     
+      },
+      apellido:{
+        required: 'Por favor ingresa un apellido',
+        minlength: 'Por favor ingresa al menos 3 caracteres',
+      },
+      fecha_nacimiento:{
+        required: 'Por favor ingresa una fecha de nacimiento',
+
+      },
+      direccion:{
+        required: 'Por favor ingresa una direccion',
+        minlength: 'Por favor ingresa al menos 1 caracter'
+      },
+    },
+     
+
+
+
+
+});
+

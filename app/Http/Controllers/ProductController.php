@@ -70,6 +70,30 @@ class ProductController extends Controller
           $products->category_id = $request->category_id; 
           $products->talla = $request->talla;
           $products->envio = $request->envio;
+
+
+          $vproduct = \DB::select('SELECT * FROM products WHERE nombre = ? AND talla = ? AND category_id = ?' , [$request->nombre, $request->talla, $request->category_id]);
+            
+
+            if ($vproduct) {
+                Alert::error('Este producto ya existe','¡Error en el registro!');
+        
+                return redirect()->route('productos.create');
+                die();
+         }
+
+         $vproduct2 = \DB::select('SELECT products.stock_min, products.stock_max FROM products WHERE products.stock_min = ? <= products.stock_max = ?', [$request->stock_min, $request->stock_max]);
+
+ 
+
+ if ($vproduct2) {
+     Alert::error('El stock minimo no puede ser mayor al maximo','¡Error en el registro!');
+
+     return redirect()->route('productos.create');
+     die();
+}
+
+
   
           $products->save();
 

@@ -60,14 +60,14 @@
         </div>
         <div class="col mt-3">
         {{ Form::label('telefono', 'Número telefónico') }}<span class="text-danger"> *</span>
-            {{ Form::text('telefono', null, ['class' => "form-control $errors->has('telefono') ? ' is-invalid' : ''", 'id' => 'telefono', 'maxlength' => 16, 'placeholder' => 'Introduzca el número teléfónico']) }}
+            {{ Form::text('telefono', null, ['class' => "form-control $errors->has('telefono') ? ' is-invalid' : ''", 'id' => 'telefono', 'maxlength' => 11, 'placeholder' => 'Introduzca el número teléfónico']) }}
         </div>
     </div>
 
     <div class="row">
         <div class="col mt-3">
         {{ Form::label('cedula', 'Cédula') }}<span class="text-danger"> *</span>
-            {{ Form::text('cedula', null, ['class' => "form-control $errors->has('cedula') ? ' is-invalid' : ''", 'id' => 'cedula', 'maxlength' => 16, 'placeholder' => 'Introduzca la cédula']) }}
+            {{ Form::text('cedula', null, ['class' => "form-control $errors->has('cedula') ? ' is-invalid' : ''", 'id' => 'cedula', 'maxlength' => 9, 'placeholder' => 'Introduzca la cédula']) }}
         </div>
         <div class="col mt-3">
             {{ Form::label('direccion', 'Dirección') }}<span class="text-danger"> *</span>

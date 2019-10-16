@@ -42,19 +42,64 @@ class SupplierController extends Controller
     {
 
         // return $request->all();
-         $suppliers = new App\Supplier;
 
-        $suppliers->nombre = $request->nombre;
-        $suppliers->rif = $request->rif;
-        $suppliers->direccion = $request->direccion;
-        $suppliers->telefono = $request->telefono;
-        $suppliers->correo = $request->correo;
+        if ($request) {
+            $suppliers = new App\Supplier;
 
-        $suppliers->save();
+            $suppliers->nombre = $request->nombre;
+            $suppliers->rif = $request->rif;
+            $suppliers->direccion = $request->direccion;
+            $suppliers->telefono = $request->telefono;
+            $suppliers->correo = $request->correo;
 
-        Alert::success('Operación realizada con éxito','¡Proveedor registrado!');
 
-        return redirect()->route('proveedores.index');
+
+            $vsupplier = \DB::select('SELECT * FROM suppliers WHERE nombre = ? OR rif = ?' , [$request->nombre, $request->rif]);
+            
+
+            if ($vsupplier) {
+                Alert::error('Este proveedor ya existe','¡Error en el registro!');
+        
+                return redirect()->route('proveedores.create');
+                die();
+         }
+
+
+         $vsupplier2 = \DB::select('SELECT * FROM suppliers WHERE telefono = ?' , [$request->telefono]);
+            
+
+         if ($vsupplier2) {
+             Alert::error('Este telefono ya esta afiliado a un proveedor registrado','¡Error en el registro!');
+         
+             return redirect()->route('proveedores.create');
+             die();
+         }
+
+
+        
+$vsupplier3 = \DB::select('SELECT * FROM suppliers WHERE correo = ?' , [$request->correo]);
+            
+
+if ($vsupplier3) {
+    Alert::error('Este correo ya esta afiliado a un proveedor registrado','¡Error en el registro!');
+
+    return redirect()->route('proveedores.create');
+    die();
+}
+
+
+
+
+
+            $suppliers->save();
+
+            Alert::success('Operación realizada con éxito','¡Proveedor registrado!');
+    
+            return redirect()->route('proveedores.index');
+        }
+     
+
+       
     }
 
     /**
