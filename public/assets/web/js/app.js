@@ -23,6 +23,17 @@ $(this).on('click', function () {
 });
 
 
+$('.header-cart-item-img').each(function () {
+
+  
+  $(this).on('click', function () {
+    
+    console.log('holaaa');
+  });
+  });
+  
+
+
 
 
 
@@ -99,7 +110,7 @@ const CrearItem = (nombre) => {
         listaNombreUI.innerHTML += `<ul class="header-cart-wrapitem">
         <li class="header-cart-item">
           <div class="header-cart-item-img">
-            <img src="assets/web/images/item-cart-01.jpg" alt="IMG">
+            <img src="assets/web/images/item-cart-01.jpg" alt="IMG" >
           </div>
           <div class="header-cart-item-txt">
             <a href="#" class="header-cart-item-name">

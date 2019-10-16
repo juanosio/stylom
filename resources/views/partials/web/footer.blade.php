@@ -80,20 +80,5 @@
        
     </div>
 
-    <div class="t-center p-l-15 p-r-15">
-        <a href="#">
-            <img class="h-size2" src="assets/web/images/icons/paypal.png" alt="IMG-PAYPAL">
-        </a>
-
-        <a href="#">
-            <img class="h-size2" src="assets/web/images/icons/visa.png" alt="IMG-VISA">
-        </a>
-
-        <a href="#">
-            <img class="h-size2" src="assets/web/images/icons/mastercard.png" alt="IMG-MASTERCARD">
-        </a>
-
- 
-
-    </div>
+   
 </footer>
