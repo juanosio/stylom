@@ -1,4 +1,5 @@
-$('.block2-btn-addcart').each(function () {
+<script>
+ $('.block2-btn-addcart').each(function () {
   var nameProduct = $(this).parent().parent().parent().find('#nombre').html();
   $(this).on('click', function () {
       swal(nameProduct, "El producto fue añadido al carrito!", "success");
@@ -10,8 +11,7 @@ $('.block2-btn-addcart').each(function () {
 $('.block2-btn-addcart').each(function () {
 var nameProduct = $(this).parent().parent().parent().find('#nombre').html();
 var namePrecio = $(this).parent().parent().parent().find('#precio').html();
-
-var nameFoto =  document.getElementById('foto');
+var nameFoto = $(this).parent().parent().parent().find('#foto').html();
 
 $(this).on('click', function () {
   
@@ -96,38 +96,27 @@ const CrearItem = (nombre, precio, foto) => {
 // 
     
     }else{
-var precioTotal = 0;
+let precioTotal = 0;
       listaArticulos.forEach(element => {
 
         listaNombreUI.innerHTML += `<ul class="header-cart-wrapitem">
         <li class="header-cart-item">
           <div class="header-cart-item-img">
-            <img src="{{asset('${element.foto})}}" alt="IMG" >
-          
+            <img src="{{asset('${element.foto}'})}" alt="IMG" >
           </div>
           <div class="header-cart-item-txt">
             <a href="#" class="header-cart-item-name">
              ${element.nombre}
             </a>
+
             <span class="header-cart-item-info">
             ${element.precio}
             </span>
           </div>
         </li>        
       </ul>     
-<<<<<<< HEAD
 `
-
-
-=======
-
-`
-
-
->>>>>>> 9623e5ca95195f6ce046764d6ec44167e06bb404
-parseInt(precioTotal+=element.precio);
-// precioTotal = precioTotal += element.precio
-console.log(precioTotal);
+precioTotal += element.precio
       });
 
 
@@ -149,6 +138,7 @@ console.log(precioTotal);
       </div>
       
     </div>
+
     
   </div>`
 
@@ -156,3 +146,5 @@ console.log(precioTotal);
 
 
  document.addEventListener('DOMContentLoaded', PintarDB);
+
+ </script>

@@ -134,7 +134,7 @@
 							<div class="block2">
 								<div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
 								<img src="{{ $item->foto}}" width="50px"
-                                                                        height="320px">
+                                                                        height="320px" id="foto">
 
 									<div class="block2-overlay trans-0-4">
 										<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -148,7 +148,7 @@
 									</div>
 								</div>
 
-								<div id="carritos"><div class="block2-txt p-t-20"><a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5 carrito"    id="nombre">{{ $item->nombre}}</a><span class="block2-price m-text6 p-r-5 carrito"   id="precio">{{ $item->precio}} Bs</span></div></div>
+								<div class="block2-txt p-t-20"><a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5 carrito"  id="nombre">{{ $item->nombre}}</a><span class="block2-price m-text6 p-r-5 carrito" id="precio">{{ $item->precio}} Bs</span></div>
 							</div></div>
 						<?php endforeach ?>
 					</div>

@@ -871,6 +871,7 @@
         },
         {
             "name": "league/flysystem",
+<<<<<<< HEAD
             "version": "1.0.57",
             "source": {
                 "type": "git",
@@ -881,6 +882,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/0e9db7f0b96b9f12dcf6f65bc34b72b1a30ea55a",
                 "reference": "0e9db7f0b96b9f12dcf6f65bc34b72b1a30ea55a",
+=======
+            "version": "1.0.56",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/flysystem.git",
+                "reference": "90e3f83cb10ef6b058d70f95267030e7a6236518"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/90e3f83cb10ef6b058d70f95267030e7a6236518",
+                "reference": "90e3f83cb10ef6b058d70f95267030e7a6236518",
+>>>>>>> 9623e5ca95195f6ce046764d6ec44167e06bb404
                 "shasum": ""
             },
             "require": {
@@ -951,7 +964,11 @@
                 "sftp",
                 "storage"
             ],
+<<<<<<< HEAD
             "time": "2019-10-16T21:01:05+00:00"
+=======
+            "time": "2019-10-12T13:05:59+00:00"
+>>>>>>> 9623e5ca95195f6ce046764d6ec44167e06bb404
         },
         {
             "name": "monolog/monolog",
@@ -1779,6 +1796,7 @@
         },
         {
             "name": "spatie/laravel-backup",
+<<<<<<< HEAD
             "version": "6.7.1",
             "source": {
                 "type": "git",
@@ -1789,6 +1807,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/spatie/laravel-backup/zipball/f5b7078a3bfe983900c393fb51eeed4fc0b6b6d1",
                 "reference": "f5b7078a3bfe983900c393fb51eeed4fc0b6b6d1",
+=======
+            "version": "6.6.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-backup.git",
+                "reference": "1a41b1320733a5f4b960613d2349b09ae77e061d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-backup/zipball/1a41b1320733a5f4b960613d2349b09ae77e061d",
+                "reference": "1a41b1320733a5f4b960613d2349b09ae77e061d",
+>>>>>>> 9623e5ca95195f6ce046764d6ec44167e06bb404
                 "shasum": ""
             },
             "require": {
@@ -1850,7 +1880,11 @@
                 "laravel-backup",
                 "spatie"
             ],
+<<<<<<< HEAD
             "time": "2019-10-16T14:55:55+00:00"
+=======
+            "time": "2019-10-09T16:16:55+00:00"
+>>>>>>> 9623e5ca95195f6ce046764d6ec44167e06bb404
         },
         {
             "name": "spatie/temporary-directory",
