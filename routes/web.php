@@ -65,6 +65,19 @@ Route::get('/profile', function () {
 //Route::get('/admin/productos', 'ProductController@index')->name('products.index');
 //Route::get('/admin/productos/registrar', 'ProductController@create')->name('products.create');
 //Route::post('/admin/productos/store', 'ProductController@store')->name('products.store');
+//
+/**************************************************************\
+*           RESPALDO Y RESTAURACION DE LA BASE DE DATOS        *
+/**************************************************************/
+Route::get("backup", "BackupController@index")->name("backup.index");
+
+Route::get('backup/create', 'BackupController@create')->name('backup.create');
+
+Route::get('backup/restore/{filename}', 'BackupController@restore')->name('backup.restore');
+
+Route::get('backup/download/{filename}', 'BackupController@download')->name('backup.download');
+
+Route::get('backup/delete/{filename}', 'BackupController@delete')->name('backup.delete');
 
 
 

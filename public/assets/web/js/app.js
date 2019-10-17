@@ -15,13 +15,12 @@ var namePrecio = $(this).parent().parent().parent().find('#precio').html();
 
 $(this).on('click', function () {
   
-  CrearItem(nameProduct);
-  CrearItem2(namePrecio);
-  GuardarDB();
-  GuardarDB2();
-});
-});
+  CrearItem(nameProduct, namePrecio);
 
+  GuardarDB();
+
+});
+});
 
 
 
@@ -32,74 +31,65 @@ $(this).on('click', function () {
 
 const listaNombreUI = document.getElementById('carrito');
 
-
-
-let arrayNombre = [];
-let arrayPrecio = [];
+const cantidadProductos = document.getElementById('cantidad');
 
 
 
-const CrearItem = (nombre) => {
+let listaArticulos = [];
+
+
+//Funcion crear item
+const CrearItem = (nombre, precio) => {
 
     let item = {
-      nombre: nombre
-   
+      nombre: nombre, 
+      precio: precio
     }
   
-    arrayNombre.push(item);
+    listaArticulos.push(item);
   
+
     return item;
   
   }
 
-  const CrearItem2 = (precio) => {
 
-    let item2 = {
-      precio: precio
-   
-    }
-  
-    arrayPrecio.push(item2);
-  
-    return item2;
-  
-  }
 
   const GuardarDB = () => {
 
-    localStorage.setItem('nombre', JSON.stringify(arrayNombre));
+   localStorage.setItem('carrito', JSON.stringify(listaArticulos));
+
+//Muestra la cantidad de productos
+    cantidadProductos.innerHTML = listaArticulos.length;
+
+   PintarDB();
 
   }
 
-  const GuardarDB2 = () => {
-
-    localStorage.setItem('precio', JSON.stringify(arrayPrecio));
-
-  }
 
   const PintarDB = () => {
 
     listaNombreUI.innerHTML = '';
 
-    arrayNombre = JSON.parse(localStorage.getItem('nombre'));
-    arrayPrecio = JSON.parse(localStorage.getItem('precio'));
+    listaArticulos = JSON.parse(localStorage.getItem('carrito'));
 
+    //Muestra la cantidad de productos
+    
 
+    if (listaArticulos === null) {
+      listaArticulos = [];
 
-
-    if (arrayNombre === null) {
-      arrayNombre = [];
-      arrayPrecio = [];
 
 
     
     }else{
+let precioTotal = 0;
+      listaArticulos.forEach(element => {
 
-      arrayPrecio.forEach(element => {
         listaNombreUI.innerHTML += `<ul class="header-cart-wrapitem">
         <li class="header-cart-item">
           <div class="header-cart-item-img">
-            <img src="assets/web/images/item-cart-01.jpg" alt="IMG">
+            <img src="#">
           </div>
           <div class="header-cart-item-txt">
             <a href="#" class="header-cart-item-name">
@@ -110,28 +100,30 @@ const CrearItem = (nombre) => {
             ${element.precio}
             </span>
           </div>
-        </li>
-
-        
-      </ul>
-
-      <div class="header-cart-total">
-        Total: $75.00
-      </div>
+        </li>        
+      </ul>     
 `
+precioTotal += element.precio
       });
+
+
 
       
 
      
 
     }
-    listaNombreUI.innerHTML += `  <div class="header-cart-buttons">
+    listaNombreUI.innerHTML += `<div class="header-cart-total">
+        Total: 700
+      </div><div class="header-cart-buttons">
     <div class="header-cart-wrapbtn">
       <!-- Button -->
-      <a href="cart.html" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-        View Cart
+      <div class="text-center">
+<a href="#DeboColocarRuta" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+        Ver carrito
       </a>
+      </div>
+      
     </div>
 
     
