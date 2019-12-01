@@ -117,8 +117,7 @@ var precioTotal = 0;
         listaNombreUI.innerHTML += `<ul class="header-cart-wrapitem">
         <li class="header-cart-item">
           <div class="header-cart-item-img">
-            <img src="{{asset('${element.foto})}}" alt="IMG" >
-            
+            <img src="{{ URL::asset('${element.foto}') }}" alt="IMG" >
           </div>
           <div class="header-cart-item-txt">
             <a href="#" class="header-cart-item-name">

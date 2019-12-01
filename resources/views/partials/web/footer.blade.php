@@ -3,7 +3,7 @@
     <div class="flex-w p-b-90">
         <div class="w-size6 p-t-30 p-l-15 p-r-15 respon3">
             <h4 class="s-text12 p-b-30">
-                GET IN TOUCH
+                MANTENTE EN CONTACTO
             </h4>
 
             <div>
@@ -11,13 +11,7 @@
                    Alguna duda?  Dejanoslo saber en nuestra tienda en la Av. Las delicias, al lado del liceo Andres Bello
                 </p>
 
-                <div class="flex-m p-t-30">
-                    <a href="#" class="fs-18 color1 p-r-20 fa fa-facebook"></a>
-                    <a href="#" class="fs-18 color1 p-r-20 fa fa-instagram"></a>
-                    <a href="#" class="fs-18 color1 p-r-20 fa fa-pinterest-p"></a>
-                    <a href="#" class="fs-18 color1 p-r-20 fa fa-snapchat-ghost"></a>
-                    <a href="#" class="fs-18 color1 p-r-20 fa fa-youtube-play"></a>
-                </div>
+               
             </div>
         </div>
 
