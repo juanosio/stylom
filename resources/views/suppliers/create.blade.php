@@ -19,11 +19,11 @@
                                 <div class="page-header-breadcrumb">
                                     <ul class="breadcrumb-title">
                                         <li class="breadcrumb-item">
-                                            <a href="index-1.htm"> <i class="feather icon-home"></i> </a>
+                                            <a href="{{ route('home') }}"> <i class="feather icon-home"></i> </a>
                                         </li>
-                                        <li class="breadcrumb-item"><a href="#!">Proveedores</a>
+                                        <li class="breadcrumb-item"><a href="{{ route('proveedores.index') }}">Proveedores</a>
                                         </li>
-                                        <li class="breadcrumb-item"><a href="#!">Registro de Proveedores</a>
+                                        <li class="breadcrumb-item"><a href="{{ route('proveedores.create') }}">Registro de proveedores</a>
                                         </li>
                                     </ul>
                                 </div>

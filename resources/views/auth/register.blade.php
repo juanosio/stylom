@@ -37,7 +37,8 @@
                     data-toggle="tooltip" data-placement="right" title="Volver">Volver</a>
                             
                             <h5 class="card-title text-center">Registro de usuarios</h5>
-                            <form method="GET" action="{{route('clientes.store')}}" class="form-signin">
+                            <form method="POST" class="form-signin">
+
                             @csrf
                                 <div class="stepwizard">
                                     <div class="stepwizard-row setup-panel">

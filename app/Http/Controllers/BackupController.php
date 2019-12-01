@@ -20,7 +20,7 @@ class BackupController extends Controller
 
     public function create()
     {
-        $filename = "CESICA-".date("d-m-Y-H-i-s").".sql";
+        $filename = "StyloM-".date("d-m-Y-H-i-s").".sql";
         //Se debe hacer referencia al PATH del MYSQLDUMP CON EL \\ 
         $mysqlPath = "C:\\xampp\mysql\bin/mysqldump";
         //$mysqlPath = "C:\\wamp64/bin/mysql/mysql5.7.21/bin/mysqldump";

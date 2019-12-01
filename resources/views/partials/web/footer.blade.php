@@ -67,11 +67,7 @@
                     </a>
                 </li>
 
-                <li class="p-b-9">
-                    <a href="{{ route('contact')}}" class="s-text7">
-                        Contactanos
-                    </a>
-                </li>
+            
 
               
             </ul>

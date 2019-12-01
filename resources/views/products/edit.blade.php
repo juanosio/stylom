@@ -19,11 +19,11 @@
                                 <div class="page-header-breadcrumb">
                                     <ul class="breadcrumb-title">
                                         <li class="breadcrumb-item">
-                                            <a href="index-1.htm"> <i class="feather icon-home"></i> </a>
+                                            <a href="{{ route('home') }}"> <i class="feather icon-home"></i> </a>
                                         </li>
-                                        <li class="breadcrumb-item"><a href="#!">Productos</a>
+                                        <li class="breadcrumb-item"><a href="{{ route('productos.index') }}">Productos</a>
                                         </li>
-                                        <li class="breadcrumb-item"><a href="#!">Editar Producto</a>
+                                        <li class="breadcrumb-item"><a href="{{ route('productos.create') }}">Editar producto</a>
                                         </li>
                                     </ul>
                                 </div>

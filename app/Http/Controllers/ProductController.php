@@ -32,7 +32,7 @@ class ProductController extends Controller
 
         // $products = Product::orderBy('id', 'DESC')->get();
         $i = 1;
-        return view ('products/index', compact('products','Products2', 'i'));
+        return view ('products/index', compact('products', 'i'));
         
     }
 

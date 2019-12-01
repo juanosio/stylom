@@ -129,7 +129,7 @@
 
 							<div class="w-size2 p-t-25">
 								<!-- Button -->
-								<a href="#" class="flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4">
+								<a href="{{ route('register') }}" class="flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4">
 									Registrate
 								</a>
 							</div>

@@ -114,29 +114,12 @@
                                     </ul>
                                 </li>
 
-                                 <li class="pcoded-hasmenu">
-                                    <a href="#">
+                                 <li class="pcoded-trigger active">
+                                    <a href="{{ route('backup.index') }}">
                                         <span class="pcoded-micon"><i class="feather icon-settings"></i></span>
                                         <span class="pcoded-mtext">Mantenimiento</span>
                                     </a>
-                                    <ul class="pcoded-submenu">
-                                        <li>
-                                            <a href="{{ route('empleados.index') }}">
-                                                <span class="pcoded-mtext">Repaldar base de datos</span>
-                                            </a>
-                                            
-                                        </li>
-                                        <li>
-                                            <a href="{{ route('empleados.create') }}">
-                                                <span class="pcoded-mtext">Restaurar base de datos</span>
-                                            </a>
-                                            
-                                        </li>
-                                       
-                                        
-                                    
-                                       
-                                    </ul>
+                                   
                                 </li>
 
 

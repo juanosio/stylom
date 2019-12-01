@@ -133,8 +133,9 @@
 
 							<div class="block2">
 								<div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-								<img src="{{ $item->foto}}" width="50px"
-                                                                        height="320px" id="foto">
+								<img src="{{ $item->foto}}" width="50px" height="320px" id="foto">
+
+								<!-- <input type="text" value="{{ $item->foto }}" id="fotoProducto"> -->
 
 									<div class="block2-overlay trans-0-4">
 										<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">

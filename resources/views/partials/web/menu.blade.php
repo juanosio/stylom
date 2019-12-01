@@ -17,12 +17,14 @@
             </li>
 
             <li>
-                <a href="{{ route('about') }}">Sobre nosotros</a>
+                <a href="{{ route('carrito') }}">Carrito</a>
             </li>
 
             <li>
-                <a href="{{ route('contact') }}">Contacto</a>
+                <a href="{{ route('about') }}">Sobre nosotros</a>
             </li>
+
+            
         </ul>
     </nav>
 </div>

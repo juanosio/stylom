@@ -18,12 +18,12 @@
                                 <div class="page-header-breadcrumb">
                                     <ul class="breadcrumb-title">
                                         <li class="breadcrumb-item">
-                                            <a href="index-1.htm"> <i class="feather icon-home"></i> </a>
+                                            <a href="{{ route('home') }}"> <i class="feather icon-home"></i> </a>
                                         </li>
                                         <li class="breadcrumb-item"><a
                                                 href="{{ route('productos.index') }}">Productos</a>
                                         </li>
-                                        <li class="breadcrumb-item"><a href="#!">Listado de productos</a>
+                                        <li class="breadcrumb-item"><a href="{{ route('productos.create') }}">Listado de productos</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -48,7 +48,7 @@
                                         </div><br><br>
                                         <div class="float-right" >
                                             <a href="{{ route('products.pdf') }}" class="btn btn-primary mt-2"
-                                                data-toggle="tooltip" data-placement="left"
+                                                data-toggle="tooltip" 
                                                 title="Generar pdf"> <i class="feather icon-file-text"
                                                     style="font-size: 20px"></i> Generar PDF</a>
                                         </div>

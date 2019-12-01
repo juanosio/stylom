@@ -139,6 +139,12 @@ class FilterController extends Controller
         return view ('products', compact('filter'));
         
     }
+
+    public function filtrosYuca($precio=null) {
+
+        dd($precio);
+
+    }
     
     
     

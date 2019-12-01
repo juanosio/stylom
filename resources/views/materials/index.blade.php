@@ -23,7 +23,7 @@
                                         <li class="breadcrumb-item"><a
                                                 href="{{ route('materias-primas.index') }}">Materias Primas</a>
                                         </li>
-                                        <li class="breadcrumb-item"><a href="#!">Listado de Materias primas</a>
+                                        <li class="breadcrumb-item"><a href="{{ route('materias-primas.index') }}">Listado de materias primas</a>
                                         </li>
                                     </ul>
                                 </div>

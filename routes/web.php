@@ -19,9 +19,7 @@ Route::get('/acerca-de', function () {
     return view('about');
 })->name('about');
 
-Route::get('/contacto', function () {
-    return view('contact');
-})->name('contact');
+
 
 //Rutas admin
 
@@ -84,19 +82,19 @@ Route::get('backup/delete/{filename}', 'BackupController@delete')->name('backup.
 
 Auth::routes();
 
-Route::get('backup', 'BackupController@index');
-Route::get('backup/create', 'BackupController@create');
-Route::get('backup/download/{file_name}', 'BackupController@download');
-Route::get('backup/delete/{file_name}', 'BackupController@delete');
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('carrito', 'CartShopController@index')->name('carrito');
+
 
 //PDF
 Route::get('materia-proveedores/pdf', 'MaterialSupplierController@pdf')->name('materialsupplier.pdf');
 Route::get('productos/pdf', 'ProductController@pdf')->name('products.pdf');
 Route::get('materias-primas/pdf', 'MaterialController@pdf')->name('material.pdf');
 
+
 //Filtros
 Route::get('/', 'FilterController@welcome')->name('welcome.filter');
+
 Route::get('articulos', 'FilterController@index')->name('all.filter');
 Route::get('articulos/filtro/mujer', 'FilterController@women')->name('women.filter');
 Route::get('articulos/filtro/hombre', 'FilterController@men')->name('men.filter');
@@ -113,13 +111,13 @@ Route::get('articulos/filtro/rango3', 'FilterController@range3')->name('range3.f
 Route::get('articulos/filtro/rango4', 'FilterController@range4')->name('range4.filter');
 
 
-
+Route::get('backup/restore/{precio?}', 'BackupController@restore')->name('filter.yuca');
 
 Route::resource('empleados','WorkerController');
 Route::resource('productos','ProductController');
 Route::resource('proveedores','SupplierController');
 
-Route::get('login', 'BackupController@create');
+
 
 
 

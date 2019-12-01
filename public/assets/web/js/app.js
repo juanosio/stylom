@@ -7,9 +7,15 @@ $('.block2-btn-addcart').each(function () {
 
 
 
+
 $('.block2-btn-addcart').each(function () {
 var nameProduct = $(this).parent().parent().parent().find('#nombre').html();
 var namePrecio = $(this).parent().parent().parent().find('#precio').html();
+
+
+let fotoProducto = document.getElementById('fotoProducto');
+console.log(fotoProducto.value);
+
 
 var nameFoto =  document.getElementById('foto');
 
@@ -86,6 +92,15 @@ const CrearItem = (nombre, precio, foto) => {
 
     listaArticulos = JSON.parse(localStorage.getItem('carrito'));
 
+
+    //Muestra la cantidad de productos
+    if (listaArticulos == null){
+      cantidadProductos.innerHTML = '0';
+    }else{
+      cantidadProductos.innerHTML = listaArticulos.length;
+    }
+   
+
     //Muestra la cantidad de productos
     
 
@@ -115,16 +130,9 @@ var precioTotal = 0;
           </div>
         </li>        
       </ul>     
-<<<<<<< HEAD
 `
 
 
-=======
-
-`
-
-
->>>>>>> 9623e5ca95195f6ce046764d6ec44167e06bb404
 parseInt(precioTotal+=element.precio);
 // precioTotal = precioTotal += element.precio
 console.log(precioTotal);

@@ -23,7 +23,7 @@
                                         </li>
                                         <li class="breadcrumb-item"><a href="#!">Materias Primas</a>
                                         </li>
-                                        <li class="breadcrumb-item"><a href="#!">Registro de Materias Primas</a>
+                                        <li class="breadcrumb-item"><a href="#!">Registro de materias primas</a>
                                         </li>
                                     </ul>
                                 </div>
