@@ -21,9 +21,9 @@
                                             <a href="{{ route('home') }}"> <i class="feather icon-home"></i> </a>
                                         </li>
                                         <li class="breadcrumb-item"><a
-                                                href="{{ route('productos.index') }}">Productos</a>
+                                                href="{{ route('productos.create') }}">Registro de producto</a>
                                         </li>
-                                        <li class="breadcrumb-item"><a href="{{ route('productos.create') }}">Listado de productos</a>
+                                        <li class="breadcrumb-item"><a href="{{ route('productos.index') }}">Stock de productos</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -53,7 +53,7 @@
                                                     style="font-size: 20px"></i> Generar PDF</a>
                                         </div>
                                         <center>
-                                            <h4 class="box-title">Lista de Productos</h4>
+                                            <h4 class="box-title">Lista de productos</h4>
 
 
                                         </center>

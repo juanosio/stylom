@@ -83,7 +83,7 @@
           <div class="col mt-3">
               <label class="alinear">Estado<span style="color:red">*</span></label>
               <select class="form-control" id="" name="estado">
-                    <option value="HABILIDADO" >HABILIDADO</option>
+                    <option value="HABILITADO" >HABILITADO</option>
                     <option value="INHABILITADO" >INHABILITADO</option>
               </select>
           </div>

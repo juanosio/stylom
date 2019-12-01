@@ -46,7 +46,7 @@
                                         </div><br><br>
                                         
                                         <center>
-                                            <h4 class="box-title">Lista de empleados registrados</h4>
+                                            <h4 class="box-title">Listado de usuarios registrados</h4>
 
 
                                         </center>
@@ -61,6 +61,7 @@
                                                 <th>Apellido</th>
                                                 <th>Correo</th>
                                                 <th>Cédula</th>
+                                                <th>Rol</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -71,6 +72,7 @@
                                                     <td>{{ $item->lastname }}</td>
                                                     <td>{{ $item->email }}</td>
                                                     <td>{{ $item->identification }}</td>
+                                                    <td>{{ $item->role }}</td>
                                                     
                                                 </tr>
                                                @endforeach

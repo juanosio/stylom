@@ -18,12 +18,12 @@
                                 <div class="page-header-breadcrumb">
                                     <ul class="breadcrumb-title">
                                         <li class="breadcrumb-item">
-                                            <a href="index-1.htm"> <i class="feather icon-home"></i> </a>
+                                            <a href="{{ route('home') }}"> <i class="feather icon-home"></i> </a>
                                         </li>
                                         <li class="breadcrumb-item"><a
-                                                href="{{ route('productos.index') }}">Productos</a>
+                                                href="{{ route('materia-proveedores.create') }}">Pedido de materia prima</a>
                                         </li>
-                                        <li class="breadcrumb-item"><a href="#!">Listado de ordenes de compra</a>
+                                        <li class="breadcrumb-item"><a href="{{ route('materia-proveedores.index') }}">Ordenes de compra de materia prima</a>
                                         </li>
                                     </ul>
                                 </div>

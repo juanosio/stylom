@@ -14,7 +14,7 @@ var namePrecio = $(this).parent().parent().parent().find('#precio').html();
 
 
 let fotoProducto = document.getElementById('fotoProducto');
-console.log(fotoProducto.value);
+// console.log(fotoProducto.value);
 
 
 var nameFoto =  document.getElementById('foto');
@@ -118,7 +118,7 @@ var precioTotal = 0;
         <li class="header-cart-item">
           <div class="header-cart-item-img">
             <img src="{{asset('${element.foto})}}" alt="IMG" >
-          
+            
           </div>
           <div class="header-cart-item-txt">
             <a href="#" class="header-cart-item-name">
@@ -130,7 +130,7 @@ var precioTotal = 0;
           </div>
         </li>        
       </ul>     
-`
+      `
 
 
 parseInt(precioTotal+=element.precio);
@@ -151,7 +151,7 @@ console.log(precioTotal);
     <div class="header-cart-wrapbtn">
       <!-- Button -->
       <div class="text-center">
-<a href="#DeboColocarRuta" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+<a href="{{ route('women.filter')}}" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
         Ver carrito
       </a>
       </div>

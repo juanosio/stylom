@@ -18,12 +18,12 @@
                                 <div class="page-header-breadcrumb">
                                     <ul class="breadcrumb-title">
                                         <li class="breadcrumb-item">
-                                            <a href="index-1.htm"> <i class="feather icon-home"></i> </a>
+                                            <a href="{{ route('home') }}"> <i class="feather icon-home"></i> </a>
                                         </li>
                                         <li class="breadcrumb-item"><a
-                                                href="{{ route('materias-primas.index') }}">Materias Primas</a>
+                                                href="{{ route('materias-primas.create') }}">Registro materia prima</a>
                                         </li>
-                                        <li class="breadcrumb-item"><a href="{{ route('materias-primas.index') }}">Listado de materias primas</a>
+                                        <li class="breadcrumb-item"><a href="{{ route('materias-primas.index') }}">Stock de materia prima</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -53,7 +53,7 @@
                                                     style="font-size: 20px"></i> Generar PDF</a>
                                         </div>
                                         <center>
-                                            <h4 class="box-title">Lista de Materias Primas en stock</h4>
+                                            <h4 class="box-title">Lista de materias prima en stock</h4>
 
 
                                         </center>

@@ -21,9 +21,9 @@
                                         <li class="breadcrumb-item">
                                             <a href="{{ route('home') }}"> <i class="feather icon-home"></i> </a>
                                         </li>
-                                        <li class="breadcrumb-item"><a href="{{ route('proveedores.index') }}">Proveedores</a>
+                                        <li class="breadcrumb-item"><a href="{{ route('proveedores.index') }}">Listado de proveedores</a>
                                         </li>
-                                        <li class="breadcrumb-item"><a href="{{ route('proveedores.create') }}">Registro de Proveedores</a>
+                                        <li class="breadcrumb-item"><a href="{{ route('#') }}">Editar proveedor</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -46,7 +46,7 @@
                                                     class="feather icon-arrow-left" style="font-size: 20px"></i></a>
                                         </div>
                                         <center>
-                                            <h4 class="box-title">Editar Proveedor</h4>
+                                            <h4 class="box-title">Editar proveedor</h4>
                                             <p>Los campos que contengan (<span style="color:red">*</span>) son
                                                 obligatorios</p>
 

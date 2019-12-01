@@ -21,7 +21,7 @@
                                         <li class="breadcrumb-item">
                                             <a href="{{ route('home') }}"> <i class="feather icon-home"></i> </a>
                                         </li>
-                                        <li class="breadcrumb-item"><a href="{{ route('productos.index') }}">Productos</a>
+                                        <li class="breadcrumb-item"><a href="{{ route('productos.index') }}">Stock de productos</a>
                                         </li>
                                         <li class="breadcrumb-item"><a href="{{ route('productos.create') }}">Registro de productos</a>
                                         </li>
@@ -46,7 +46,7 @@
                                                     class="feather icon-arrow-left" style="font-size: 20px"></i></a>
                                         </div>
                                         <center>
-                                            <h4 class="box-title">Registro de Producto</h4>
+                                            <h4 class="box-title">Registro de producto</h4>
                                             <p>Los campos que contengan (<span style="color:red">*</span>) son
                                                 obligatorios</p>
 

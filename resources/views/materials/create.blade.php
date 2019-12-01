@@ -19,11 +19,11 @@
                                 <div class="page-header-breadcrumb">
                                     <ul class="breadcrumb-title">
                                         <li class="breadcrumb-item">
-                                            <a href="index-1.htm"> <i class="feather icon-home"></i> </a>
+                                            <a href="{{ route('home') }}"> <i class="feather icon-home"></i> </a>
                                         </li>
-                                        <li class="breadcrumb-item"><a href="#!">Materias Primas</a>
+                                        <li class="breadcrumb-item"><a href="{{ route('materias-primas.index') }}">Stock de materia prima</a>
                                         </li>
-                                        <li class="breadcrumb-item"><a href="#!">Registro de materias primas</a>
+                                        <li class="breadcrumb-item"><a href="{{ route('materias-primas.create') }}">Registro de materia prima</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -46,7 +46,7 @@
                                                     class="feather icon-arrow-left" style="font-size: 20px"></i></a>
                                         </div>
                                         <center>
-                                            <h4 class="box-title">Registro de Materia Prima</h4>
+                                            <h4 class="box-title">Registro de materia prima</h4>
                                             <p>Los campos que contengan (<span style="color:red">*</span>) son
                                                 obligatorios</p>
 

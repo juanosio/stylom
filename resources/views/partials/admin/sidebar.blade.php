@@ -17,13 +17,18 @@
                                 <li class="pcoded-hasmenu">
                                     <a href="#">
                                         <span class="pcoded-micon"><i class="feather icon-layers"></i></span>
-                                        <span class="pcoded-mtext">Materias primas</span>
+                                        <span class="pcoded-mtext">Materias Primas</span>
                                         
                                     </a>
                                     <ul class="pcoded-submenu">
                                         <li class=" ">
                                             <a href="{{ route('materias-primas.index') }}">
-                                                <span class="pcoded-mtext">Materia Prima en stock</span>
+                                                <span class="pcoded-mtext">Stock de Materia Prima</span>
+                                            </a>
+                                        </li>
+                                        <li class=" ">
+                                            <a href="{{ route('materias-primas.create') }}">
+                                                <span class="pcoded-mtext">Registro Materia Prima</span>
                                             </a>
                                         </li>
                                         <li class=" ">
@@ -49,12 +54,12 @@
                                     <ul class="pcoded-submenu">
                                         <li class=" ">
                                             <a href="{{ route('productos.index') }}">
-                                                <span class="pcoded-mtext">Ver Productos</span>
+                                                <span class="pcoded-mtext">Stock de productos</span>
                                             </a>
                                         </li>
                                         <li class=" ">
                                             <a href="{{ route('productos.create') }}">
-                                                <span class="pcoded-mtext">Registrar Productos</span>
+                                                <span class="pcoded-mtext">Registrar productos</span>
                                             </a>
                                         </li>
                                         
@@ -72,12 +77,12 @@
                                     <ul class="pcoded-submenu">
                                         <li class=" ">
                                             <a href="{{ route('proveedores.index') }}">
-                                                <span class="pcoded-mtext">Ver Proveedores</span>
+                                                <span class="pcoded-mtext">Listado de proveedores</span>
                                             </a>
                                         </li>
                                         <li class=" ">
                                             <a href="{{ route('proveedores.create') }}">
-                                                <span class="pcoded-mtext">Registrar Proveedores</span>
+                                                <span class="pcoded-mtext">Registrar proveedores</span>
                                             </a>
                                         </li>     
 
@@ -102,19 +107,13 @@
                                             </a>
                                             
                                         </li>
-                                        <li>
-                                            <a href="{{ route('empleados.index') }}">
-                                                <span class="pcoded-mtext">Ver trabajadores</span>
-                                            </a>
-                                            
-                                        </li>
                                         
                                     
                                        
                                     </ul>
                                 </li>
 
-                                 <li class="pcoded-trigger active">
+                                 <li class="pcoded ">
                                     <a href="{{ route('backup.index') }}">
                                         <span class="pcoded-micon"><i class="feather icon-settings"></i></span>
                                         <span class="pcoded-mtext">Mantenimiento</span>

@@ -21,9 +21,9 @@
                                         <li class="breadcrumb-item">
                                             <a href="{{ route('home') }}"> <i class="feather icon-home"></i> </a>
                                         </li>
-                                        <li class="breadcrumb-item"><a href="{{ route('productos.index') }}">Productos</a>
+                                        <li class="breadcrumb-item"><a href="{{ route('productos.index') }}">Stock de productos</a>
                                         </li>
-                                        <li class="breadcrumb-item"><a href="{{ route('productos.create') }}">Editar producto</a>
+                                        <li class="breadcrumb-item"><a href="{{ route('#') }}">Editar producto</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -44,7 +44,7 @@
                     <a  href="{{ route('productos.index') }}" class="btn btn-sm btn-secondary" data-toggle="tooltip" data-placement="right" title="Volver"><i class="feather icon-arrow-left" style="font-size: 20px"></i></a>
                 </div>
                 <center>
-                    <h4 class="box-title">Registro de Producto</h4>
+                    <h4 class="box-title">Registro de producto</h4>
                     <p>Los campos que contengan (<span style="color:red">*</span>) son obligatorios</p>
 
                 </center>

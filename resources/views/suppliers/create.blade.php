@@ -21,7 +21,7 @@
                                         <li class="breadcrumb-item">
                                             <a href="{{ route('home') }}"> <i class="feather icon-home"></i> </a>
                                         </li>
-                                        <li class="breadcrumb-item"><a href="{{ route('proveedores.index') }}">Proveedores</a>
+                                        <li class="breadcrumb-item"><a href="{{ route('proveedores.index') }}">Listado de proveedores</a>
                                         </li>
                                         <li class="breadcrumb-item"><a href="{{ route('proveedores.create') }}">Registro de proveedores</a>
                                         </li>
