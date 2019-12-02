@@ -1,4 +1,3 @@
-<?php session_start();?>
 <!-- Menu -->
 <div class="wrap_menu">
     <nav class="menu">
@@ -31,10 +30,44 @@
     </nav>
 </div>
 
-	<div class="header-icons">
+	
   
-    
+    @if (Auth::guest())
+    <div class="header-icons">
+					<a href="{{ route('login') }}" class="header-wrapicon1 dis-block">
+                        Iniciar Sesión
+						<!-- <img src="assets/web/images/icons/icon-header-01.png" class="header-icon1" alt="ICON"> -->
+                    </a>
+                    <a href="{{ route('register') }}" class="header-wrapicon1 dis-block ml-4">
+                        Regístrate
+						<!-- <img src="assets/web/images/icons/icon-header-01.png" class="header-icon1" alt="ICON"> -->
+					</a>
 
+					<span class="linedivide1"></span>
+
+					<div class="header-wrapicon2">
+						<img src="assets/web/images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
+						<span class="header-icons-noti" id="cantidad">
+                                    
+
+                        </span>
+
+						<!-- Header cart noti -->
+						<div class="header-cart header-dropdown" id="carrito">
+							
+
+							
+
+							
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+@else
+<div class="header-icons">
 
         <div class="dropdown"  data-toggle="dropdown">
         <img src="{{ asset('assets\admin\images\avatar-4.jpg')}}" class="img-radius" width="" height="55px" alt="User-Profile-Image">
@@ -85,6 +118,8 @@
 
 					</div>
 				</div>
+@endif
+
 			</div>
 		</div>
 
