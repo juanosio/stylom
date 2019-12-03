@@ -117,14 +117,16 @@ var precioTotal = 0;
         listaNombreUI.innerHTML += `<ul class="header-cart-wrapitem">
         <li class="header-cart-item">
           <div class="header-cart-item-img">
-            <img src="{{ URL::asset('${element.foto}') }}" alt="IMG" >
+            <img src="${element.foto}" alt="IMG" >
           </div>
+          
           <div class="header-cart-item-txt">
             <a href="#" class="header-cart-item-name">
              ${element.nombre}
             </a>
             <span class="header-cart-item-info">
             ${element.precio}
+            ${console.log(element.foto)}
             </span>
           </div>
         </li>        
@@ -150,7 +152,7 @@ console.log(precioTotal);
     <div class="header-cart-wrapbtn">
       <!-- Button -->
       <div class="text-center">
-<a href="{{ route('women.filter')}}" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+<a href="/carrito" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
         Ver carrito
       </a>
       </div>

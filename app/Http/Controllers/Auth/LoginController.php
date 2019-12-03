@@ -28,9 +28,11 @@ class LoginController extends Controller
     
     public function authenticated($request, $user){
         if(\Auth::user()->role == 'ADMINISTRADOR' || \Auth::user()->role == 'SECRETARIA'){
-             return  view ('home');
-            }else{
-                return  view ('welcome');
+            //dd(\Auth::user()->role);
+            return redirect()->route('home');
+        }else{
+            //dd(\Auth::user()->role);
+            return redirect()->route('welcome');
          }
      }
     //protected $redirectTo = '/home';

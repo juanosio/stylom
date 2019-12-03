@@ -37,7 +37,7 @@
                     data-toggle="tooltip" data-placement="right" title="Volver">Volver</a>
                             
                             <h5 class="card-title text-center">Registro de usuarios</h5>
-                            <form method="POST" class="form-signin">
+                            <form method="POST" action="{{ route('user.store') }}" class="form-signin">
 
                             @csrf
                                 <div class="stepwizard">

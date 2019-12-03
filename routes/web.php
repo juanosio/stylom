@@ -15,11 +15,13 @@
 
 
 
-Route::get('/acerca-de', function () {
+Route::get('/about', function () {
     return view('about');
 })->name('about');
 
-
+//Route::get('/', function () {
+  //  return view('welcome');
+//})->name('welcome');
 
 //Rutas admin
 
@@ -81,8 +83,11 @@ Route::get('backup/delete/{filename}', 'BackupController@delete')->name('backup.
 
 
 Auth::routes();
+Route::post('registro', 'UserController@store')->name('user.store');
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@welcome')->name('inicio');
+Route::get('/welcome', 'HomeController@welcome')->name('welcome');
 Route::get('carrito', 'CartShopController@index')->name('carrito');
 
 
@@ -93,7 +98,7 @@ Route::get('materias-primas/pdf', 'MaterialController@pdf')->name('material.pdf'
 
 
 //Filtros
-Route::get('/', 'FilterController@welcome')->name('welcome.filter');
+Route::get('/articulos-productos', 'FilterController@welcome')->name('welcome.filter');
 
 Route::get('articulos', 'FilterController@index')->name('all.filter');
 Route::get('articulos/filtro/mujer', 'FilterController@women')->name('women.filter');

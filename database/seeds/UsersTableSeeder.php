@@ -28,7 +28,7 @@ class UsersTableSeeder extends Seeder
         \DB::table('users')->insert(array(
             'name'      => 'Adolfo',
             'lastname'  => 'Prince',
-            'identification'  => '27589083',
+            'identification'  => '2758083',
             'email'     => 'cliente@cliente.com',
             'email_verified_at' => now(),
             'password'  => bcrypt('cliente1234'),
@@ -39,6 +39,33 @@ class UsersTableSeeder extends Seeder
             'role' => "CLIENTE",
         ));
 
+        \DB::table('users')->insert(array(
+            'name'      => 'Adolfo',
+            'lastname'  => 'Prince',
+            'identification'  => '279083',
+            'email'     => 'cliente3@cliente.com',
+            'email_verified_at' => now(),
+            'password'  => bcrypt('cliente1234'),
+            'telephone' => '0416-3458921',
+            'direction' => 'Maracay - Barrio Peligroso - Calle 04 - Apartamento 08 - Bloque 9',
+            'remember_token' => Str::random(10),
+            'created_at' => now(),
+            'role' => "CLIENTE",
+        ));
+
+        \DB::table('users')->insert(array(
+            'name'      => 'Adolfo',
+            'lastname'  => 'Prince',
+            'identification'  => '258903',
+            'email'     => 'cliente2@cliente.com',
+            'email_verified_at' => now(),
+            'password'  => bcrypt('cliente1234'),
+            'telephone' => '0416-3458921',
+            'direction' => 'Maracay - Barrio Peligroso - Calle 04 - Apartamento 08 - Bloque 9',
+            'remember_token' => Str::random(10),
+            'created_at' => now(),
+            'role' => "CLIENTE",
+        ));
         factory(App\User::class, 20)->create(); 
     }
 }
