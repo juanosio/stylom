@@ -70,7 +70,7 @@
 <div class="header-icons">
 
         <div class="dropdown"  data-toggle="dropdown">
-        <img src="{{ asset('assets\admin\images\avatar-4.jpg')}}" class="img-radius" width="" height="55px" alt="User-Profile-Image">
+        <img src="{{ asset('assets\admin\images\avatar-4.jpg')}}" class="img-radius" width="" height="45px" alt="User-Profile-Image">
  <button class="">
 {{ Auth::user()->name }} {{ Auth::user()->lastname }}
  </button>
@@ -100,21 +100,20 @@
 					<span class="linedivide1"></span>
 
 					<div class="header-wrapicon2">
-						<img src="assets/web/images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
+						<img src="assets/web/images/icons/icon-header-02.png"  class="header-icon1 js-show-header-dropdown" alt="ICON">
 						<span class="header-icons-noti" id="cantidad">
                                     
 
                         </span>
 
 						<!-- Header cart noti -->
-						<div class="header-cart header-dropdown" id="carrito">
+						<div class="header-cart header-dropdown" class="overflow-auto" id="carrito">
 							
 
 							
 
 							
 						</div>
-
 
 					</div>
 				</div>
@@ -215,3 +214,11 @@
     <!-- Style.css -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/assets/css/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/assets/css/jquery.mCustomScrollbar.css') }}">
+
+    <style>
+#carrito {
+    width: 325px;
+  height: 500px;
+     overflow: auto !important;
+}
+</style>

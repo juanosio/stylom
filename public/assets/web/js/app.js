@@ -11,13 +11,14 @@ $('.block2-btn-addcart').each(function () {
 $('.block2-btn-addcart').each(function () {
 var nameProduct = $(this).parent().parent().parent().find('#nombre').html();
 var namePrecio = $(this).parent().parent().parent().find('#precio').html();
+var nameFoto = $(this).parent().parent().parent().find('#fotoV').val();
 
 
-let fotoProducto = document.getElementById('fotoProducto');
-// console.log(fotoProducto.value);
 
 
-var nameFoto =  document.getElementById('foto');
+
+
+
 
 $(this).on('click', function () {
   
@@ -57,12 +58,12 @@ let listaArticulos = [];
 
 
 //Funcion crear item
-const CrearItem = (nombre, precio, foto) => {
+const CrearItem = (nombre, precio, fotoV) => {
 
     let item = {
       nombre: nombre, 
       precio: precio,
-      foto: foto
+      fotoV: fotoV
     }
   
     listaArticulos.push(item);
@@ -111,13 +112,14 @@ const CrearItem = (nombre, precio, foto) => {
 // 
     
     }else{
-var precioTotal = 0;
       listaArticulos.forEach(element => {
 
-        listaNombreUI.innerHTML += `<ul class="header-cart-wrapitem">
+        listaNombreUI.innerHTML += `
+      <ul class="header-cart-wrapitem">
         <li class="header-cart-item">
           <div class="header-cart-item-img">
-            <img src="${element.foto}" alt="IMG" >
+            <img src="${element.fotoV}" class="img-radius" alt="IMG" >
+            
           </div>
           
           <div class="header-cart-item-txt">
@@ -126,17 +128,14 @@ var precioTotal = 0;
             </a>
             <span class="header-cart-item-info">
             ${element.precio}
-            ${console.log(element.foto)}
             </span>
           </div>
         </li>        
-      </ul>     
+      </ul>  
+  
       `
 
 
-parseInt(precioTotal+=element.precio);
-// precioTotal = precioTotal += element.precio
-console.log(precioTotal);
       });
 
 
@@ -147,7 +146,7 @@ console.log(precioTotal);
 
     }
     listaNombreUI.innerHTML += `<div class="header-cart-total">
-        Total: 700
+     
       </div><div class="header-cart-buttons">
     <div class="header-cart-wrapbtn">
       <!-- Button -->
