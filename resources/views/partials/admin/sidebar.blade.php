@@ -112,6 +112,13 @@
                                        
                                     </ul>
                                 </li>
+                                <li class="pcoded ">
+                                    <a href="{{ route('bitacoras.index') }}">
+                                        <span class="pcoded-micon"><i class="feather icon-settings"></i></span>
+                                        <span class="pcoded-mtext">Bitacora</span>
+                                    </a>
+                                   
+                                </li>
 
                                  <li class="pcoded ">
                                     <a href="{{ route('backup.index') }}">

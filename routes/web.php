@@ -121,7 +121,7 @@ Route::get('backup/restore/{precio?}', 'BackupController@restore')->name('filter
 Route::resource('empleados','WorkerController');
 Route::resource('productos','ProductController');
 Route::resource('proveedores','SupplierController');
-
+Route::resource('bitacoras','BitacoraController');
 
 
 

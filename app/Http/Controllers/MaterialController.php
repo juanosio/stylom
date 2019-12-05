@@ -8,6 +8,8 @@ use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Alert;
+use Illuminate\Support\Facades\Auth;
+use Bitacora;
 
 class MaterialController extends Controller
 {
@@ -83,7 +85,11 @@ class MaterialController extends Controller
 }
 
 
+$bitacoras = new App\Bitacora;
 
+$bitacoras->user =  Auth::user()->name;
+$bitacoras->action = 'Ha registrado una nueva materia prima';
+$bitacoras->save();
        
 
         $materials->save();
@@ -136,6 +142,11 @@ class MaterialController extends Controller
 
 
 
+        $bitacorasUpdate = new App\Bitacora;
+
+        $bitacorasUpdate->user =  Auth::user()->name;
+        $bitacorasUpdate->action = 'Ha editado una  materia prima';
+        $bitacorasUpdate->save();
         // $materialsUpdate->save();
 
         // Alert::success('Operación realizada con éxito','¡Materia Prima editada!');
@@ -169,6 +180,12 @@ class MaterialController extends Controller
     public function destroy($id)
     {
         $materialsDelete = App\Material::findOrFail($id);
+        
+$bitacorasDelete = new App\Bitacora;
+
+$bitacorasDelete->user =  Auth::user()->name;
+$bitacorasDelete->action = 'Ha eliminado una materia prima';
+$bitacorasDelete->save();
         $materialsDelete->delete();
         Alert::success('Operación realizada con éxito','¡Materia Prima eliminada!');
 

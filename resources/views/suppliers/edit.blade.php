@@ -23,7 +23,7 @@
                                         </li>
                                         <li class="breadcrumb-item"><a href="{{ route('proveedores.index') }}">Listado de proveedores</a>
                                         </li>
-                                        <li class="breadcrumb-item"><a href="{{ route('#') }}">Editar proveedor</a>
+                                        <li class="breadcrumb-item"><a href="#">Editar proveedor</a>
                                         </li>
                                     </ul>
                                 </div>

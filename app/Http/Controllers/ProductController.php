@@ -11,6 +11,8 @@ use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Support\Facades\Storage;
 use Alert;
+use Illuminate\Support\Facades\Auth;
+use Bitacora;
 
 class ProductController extends Controller
 {
@@ -94,6 +96,11 @@ class ProductController extends Controller
 }
 
 
+$bitacoras = new App\Bitacora;
+
+$bitacoras->user =  Auth::user()->name;
+$bitacoras->action = 'Ha registrado un producto';
+$bitacoras->save();
   
           $products->save();
 
@@ -176,6 +183,14 @@ $materialProducts = new MaterialProduct;
           $productsUpdate->talla = $request->talla;
           $productsUpdate->envio = $request->envio;
 
+          
+
+$bitacorasUpdate = new App\Bitacora;
+
+$bitacorasUpdate->user =  Auth::user()->name;
+$bitacorasUpdate->action = 'Ha editado un producto';
+$bitacorasUpdate->save();
+
           $productsUpdate->save();
 
           //IMAGEN
@@ -223,6 +238,13 @@ $materialProducts = new MaterialProduct;
     public function destroy($id)
     {
         $productsDelete = App\Product::findOrFail($id);
+        
+
+$bitacorasDelete = new App\Bitacora;
+
+$bitacorasDelete->user =  Auth::user()->name;
+$bitacorasDelete->action = 'Ha eliminado un producto';
+$bitacorasDelete->save();
         $productsDelete->delete();
         Alert::success('Operación realizada con éxito','¡Producto eliminado!');
 

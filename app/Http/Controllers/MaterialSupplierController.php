@@ -11,6 +11,8 @@ Use App\Material;
 use App\MaterialSupplier;
 use Illuminate\Http\Request;
 use Alert;
+use Illuminate\Support\Facades\Auth;
+use Bitacora;
 
 
 class MaterialSupplierController extends Controller
@@ -63,6 +65,12 @@ class MaterialSupplierController extends Controller
         $matesupp->medida = $request->medida;
         $matesupp->cantidad = $request->cantidad;
         $matesupp->precio = $request->precio;
+
+        $bitacoras = new App\Bitacora;
+
+$bitacoras->user =  Auth::user()->name;
+$bitacoras->action = 'Ha creado  una  orden de compra';
+$bitacoras->save();
   
         $matesupp->save();
 

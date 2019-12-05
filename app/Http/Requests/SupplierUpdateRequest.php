@@ -13,7 +13,7 @@ class SupplierUpdateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,8 +25,7 @@ class SupplierUpdateRequest extends FormRequest
     {
         return [
             'nombre'          => 'required|max:20',
-            'rif'          => 'required|integer|max:11|unique:suppliers,rif',
-            'telefono'        => 'required|integer|max:11',
+            'telefono'        => 'required',
             'direccion'        => 'required|string|max:80',    
             'correo'          => 'required|email|max:40', 
         ];

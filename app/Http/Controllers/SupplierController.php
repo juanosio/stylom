@@ -6,7 +6,11 @@ use App\Supplier;
 use App\Http\Request\SupplierStoreRequest;
 use App\Http\Request\SupplierUpdateRequest;
 
+
 use Alert;
+
+use Illuminate\Support\Facades\Auth;
+use Bitacora;
 class SupplierController extends Controller
 {
     /**
@@ -88,10 +92,19 @@ if ($vsupplier3) {
 }
 
 
+$bitacoras = new App\Bitacora;
+
+$bitacoras->user =  Auth::user()->name;
+$bitacoras->action = 'Ha registrado un nuevo proveedor';
 
 
 
+
+
+            $bitacoras->save();
             $suppliers->save();
+
+           
 
             Alert::success('Operación realizada con éxito','¡Proveedor registrado!');
     
@@ -143,6 +156,18 @@ if ($vsupplier3) {
         $suppliersUpdate->telefono = $request->telefono;
         $suppliersUpdate->correo = $request->correo;
 
+        
+$bitacorasUpdate = new App\Bitacora;
+
+$bitacorasUpdate->user =  Auth::user()->name;
+$bitacorasUpdate->action = 'Ha editado un proveedor';
+
+
+
+
+
+            $bitacorasUpdate->save();
+
         $suppliersUpdate->save();
 
         Alert::success('Operación realizada con éxito','¡Proveedor editado!');
@@ -159,6 +184,12 @@ if ($vsupplier3) {
     public function destroy($id)
     {
         $suppliersDelete = App\Supplier::findOrFail($id);
+
+        $bitacorasDelete = new App\Bitacora;
+
+$bitacorasDelete->user =  Auth::user()->name;
+$bitacorasDelete->action = 'Ha eliminado un proveedor';
+$bitacorasDelete->save();
         $suppliersDelete->delete();
         Alert::success('Operación realizada con éxito','¡Proveedor eliminado!');
 

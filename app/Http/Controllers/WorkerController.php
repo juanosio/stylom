@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Worker;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Bitacora;
 
 use Alert;
 
@@ -90,6 +92,12 @@ class WorkerController extends Controller
 
 
 
+
+$bitacoras = new App\Bitacora;
+
+$bitacoras->user =  Auth::user()->name;
+$bitacoras->action = 'Ha registrado un nuevo trabajador';
+$bitacoras->save();
 
         $user->save();
 
