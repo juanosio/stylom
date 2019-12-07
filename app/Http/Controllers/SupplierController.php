@@ -95,6 +95,8 @@ if ($vsupplier3) {
 $bitacoras = new App\Bitacora;
 
 $bitacoras->user =  Auth::user()->name;
+$bitacoras->lastname =  Auth::user()->lastname;
+$bitacoras->role =  Auth::user()->role;
 $bitacoras->action = 'Ha registrado un nuevo proveedor';
 
 
@@ -160,6 +162,8 @@ $bitacoras->action = 'Ha registrado un nuevo proveedor';
 $bitacorasUpdate = new App\Bitacora;
 
 $bitacorasUpdate->user =  Auth::user()->name;
+$bitacorasUpdate->lastname =  Auth::user()->lastname;
+$bitacorasUpdate->role =  Auth::user()->role;
 $bitacorasUpdate->action = 'Ha editado un proveedor';
 
 
@@ -188,6 +192,8 @@ $bitacorasUpdate->action = 'Ha editado un proveedor';
         $bitacorasDelete = new App\Bitacora;
 
 $bitacorasDelete->user =  Auth::user()->name;
+$bitacorasDelete->lastname =  Auth::user()->lastname;
+$bitacorasDelete->role =  Auth::user()->role;
 $bitacorasDelete->action = 'Ha eliminado un proveedor';
 $bitacorasDelete->save();
         $suppliersDelete->delete();

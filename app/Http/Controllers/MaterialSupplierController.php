@@ -69,6 +69,8 @@ class MaterialSupplierController extends Controller
         $bitacoras = new App\Bitacora;
 
 $bitacoras->user =  Auth::user()->name;
+$bitacoras->lastname =  Auth::user()->lastname;
+$bitacoras->role =  Auth::user()->role;
 $bitacoras->action = 'Ha creado  una  orden de compra';
 $bitacoras->save();
   

@@ -10,8 +10,18 @@
                                         <span class="pcoded-micon"><i class="feather icon-home"></i></span>
                                         <span class="pcoded-mtext">Inicio</span>
                                     </a>
+                                   
                                     
                                 </li>
+                                <li class=" ">
+                                  
+                                    <a href="{{ route('welcome') }}">
+                                        <span class="pcoded-micon"><i class="feather icon-home"></i></span>
+                                        <span class="pcoded-mtext">Ir a la web</span>
+                                    </a>
+                                    
+                                </li>
+                                
                                 
                                
                                 <li class="pcoded-hasmenu">

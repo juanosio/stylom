@@ -3,7 +3,7 @@
     <nav class="menu">
         <ul class="main_menu">
             <li>
-                <a href="{{ route('welcome.filter') }}">Inicio</a>
+                <a href="{{ route('welcome') }}">Inicio</a>
                 <!-- <ul class="sub_menu">
                     <li><a href="index.html">Homepage V1</a></li>
                     <li><a href="home-02.html">Homepage V2</a></li>
@@ -23,8 +23,12 @@
                 <a href="{{ route('about') }}">Sobre nosotros</a>
             </li>
 
-            <li></li>
-
+            @if (Auth::user()->role == 'ADMINISTRADOR' || Auth::user()->role == 'SECRETARIA')
+            <li>
+                <a href="{{ route('home') }}">Panel de admin</a>
+            </li>
+            @else
+@endif
             
         </ul>
     </nav>

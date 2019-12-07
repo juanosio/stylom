@@ -50,7 +50,9 @@
                                             <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Usuario</th>
+                                                <th>Nombre</th>
+                                                <th>Apellido</th>
+                                                <th>Rol</th>
                                                 <th>Acción</th>
                                                 <th>Fecha y hora</th>
                                                
@@ -62,6 +64,8 @@
                                                 
                                                     <td>{{ $i++ }}</td>
                                                     <td>{{ $item->user }}</td>
+                                                    <td>{{ $item->lastname }}</td>
+                                                    <td>{{ $item->role }}</td>
                                                     <td>{{ $item->action }}</td>
                                                  
                                                     <td>{{ date('d-M-Y \a\ \l\a\s H:i:s:A' , strtotime($item->created_at)) }}</td>

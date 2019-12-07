@@ -96,6 +96,8 @@ class WorkerController extends Controller
 $bitacoras = new App\Bitacora;
 
 $bitacoras->user =  Auth::user()->name;
+$bitacoras->lastname =  Auth::user()->lastname;
+$bitacoras->role =  Auth::user()->role;
 $bitacoras->action = 'Ha registrado un nuevo trabajador';
 $bitacoras->save();
 

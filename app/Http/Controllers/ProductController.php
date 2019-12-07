@@ -99,6 +99,8 @@ class ProductController extends Controller
 $bitacoras = new App\Bitacora;
 
 $bitacoras->user =  Auth::user()->name;
+$bitacoras->lastname =  Auth::user()->lastname;
+$bitacoras->role =  Auth::user()->role;
 $bitacoras->action = 'Ha registrado un producto';
 $bitacoras->save();
   
@@ -188,6 +190,8 @@ $materialProducts = new MaterialProduct;
 $bitacorasUpdate = new App\Bitacora;
 
 $bitacorasUpdate->user =  Auth::user()->name;
+$bitacorasUpdate->lastname =  Auth::user()->lastname;
+$bitacorasUpdate->role =  Auth::user()->role;
 $bitacorasUpdate->action = 'Ha editado un producto';
 $bitacorasUpdate->save();
 
@@ -243,6 +247,8 @@ $bitacorasUpdate->save();
 $bitacorasDelete = new App\Bitacora;
 
 $bitacorasDelete->user =  Auth::user()->name;
+$bitacorasDelete->lastname =  Auth::user()->lastname;
+$bitacorasDelete->role =  Auth::user()->role;
 $bitacorasDelete->action = 'Ha eliminado un producto';
 $bitacorasDelete->save();
         $productsDelete->delete();

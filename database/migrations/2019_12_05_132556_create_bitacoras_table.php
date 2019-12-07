@@ -17,6 +17,8 @@ class CreateBitacorasTable extends Migration
             $table->bigIncrements('id');
             
             $table->string('user');
+            $table->string('lastname');
+            $table->string('role');
             $table->string('action');
         
             $table->timestamps();
