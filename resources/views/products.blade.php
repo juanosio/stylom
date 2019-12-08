@@ -136,6 +136,7 @@
 								<img src="{{ $item->foto}}" width="50px" height="320px" id="foto">
 
 								<input type="hidden" value="{{ $item->foto }}" id="fotoV">
+								<input type="hidden" value="{{ $item->id }}" id="id">
 
 									<div class="block2-overlay trans-0-4">
 										<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">

@@ -129,4 +129,5 @@ Route::resource('bitacoras','BitacoraController');
 Route::resource('materias-primas','MaterialController');
 Route::resource('materia-proveedores','MaterialSupplierController');
 Route::resource('categorias','CategoryController');
+Route::resource('compra','CompraController');
 

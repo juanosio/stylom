@@ -12,6 +12,7 @@ $('.block2-btn-addcart').each(function () {
 var nameProduct = $(this).parent().parent().parent().find('#nombre').html();
 var namePrecio = $(this).parent().parent().parent().find('#precio').html();
 var nameFoto = $(this).parent().parent().parent().find('#fotoV').val();
+var nameID = $(this).parent().parent().parent().find('#id').val();
 
 
 
@@ -23,7 +24,7 @@ var nameFoto = $(this).parent().parent().parent().find('#fotoV').val();
 $(this).on('click', function () {
   
   console.log(nameFoto);
-  CrearItem(nameProduct, namePrecio, nameFoto);
+  CrearItem(nameProduct, namePrecio, nameFoto, nameID);
 
   GuardarDB();
 
@@ -58,12 +59,13 @@ let listaArticulos = [];
 
 
 //Funcion crear item
-const CrearItem = (nombre, precio, fotoV) => {
+const CrearItem = (nombre, precio, fotoV, ID) => {
 
     let item = {
       nombre: nombre, 
       precio: precio,
-      fotoV: fotoV
+      fotoV: fotoV,
+      ID: ID
     }
   
     listaArticulos.push(item);

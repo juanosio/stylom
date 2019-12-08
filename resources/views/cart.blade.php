@@ -37,91 +37,98 @@
     </div>
 
     <!-- Total -->
-    <div class="bo9 w-size18 p-l-40 p-r-40 p-t-30 p-b-38 m-t-30 m-r-0 m-l-auto p-lr-15-sm">
+    <div class="bo9 w-size18 p-l-40 p-r-40 p-t-30 p-b-38 m-t-30 m-r-0 m-l-152 p-lr-15-sm">
         <h5 class="m-text20 p-b-24">
             Total del carrito
         </h5>
 
-        <!--  -->
-        <div class="flex-w flex-sb-m p-b-12">
-            <span class="s-text18 w-size19 w-full-sm">
-                Subtotal:
-            </span>
-
-            <span class="m-text21 w-size20 w-full-sm">
-                $39.00
-            </span>
-        </div>
+       
 
         <!--  -->
-        <div class="flex-w flex-sb bo10 p-t-15 p-b-20">
-            <span class="s-text18 w-size19 w-full-sm">
-                Envio:
-            </span>
-
-            <div class="w-size20 w-full-sm">
-                <p class="s-text8 p-b-23">
-                    There are no shipping methods available. Please double check your address, or contact us if you need
-                    any help.
-                </p>
-
-
-
-                <div class="rs2-select2 rs3-select2 rs4-select2 bo4 of-hidden w-size21 m-t-8 m-b-12">
-                    <select class="selection-2" name="country">
-                        <option>Select a country...</option>
-                        <option>US</option>
-                        <option>UK</option>
-                        <option>Japan</option>
-                    </select>
-                </div>
-
-                <div class="size13 bo4 m-b-12">
-                    <input class="sizefull s-text7 p-l-15 p-r-15" type="text" name="state"
-                        placeholder="State /  country">
-                </div>
-
-                <div class="size13 bo4 m-b-22">
-                    <input class="sizefull s-text7 p-l-15 p-r-15" type="text" name="postcode"
-                        placeholder="Postcode / Zip">
-                </div>
-
-                <div class="size14 trans-0-4 m-b-10">
-                    <!-- Button -->
-                    <button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
-                        Update Totals
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!--  -->
-        <div class="flex-w flex-sb-m p-t-26 p-b-30">
+        <div class="flex-w flex-sb-m p-t-26 p-b-30" >
             <span class="m-text22 w-size19 w-full-sm">
-                Total:
+               <p id="total">Total:</p>
             </span>
 
-            <span class="m-text21 w-size20 w-full-sm">
+            <script>
+            document.getElementById('total').innerHTML = total;
+ 
+            </script>
 
-                <p id="totalis">
-
-
-                </p>
-                <script>
-                    totalis.innerHTML = total;
-
-                </script>
-            </span>
+          
         </div>
 
         <div class="size15 trans-0-4">
             <!-- Button -->
-            <button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
-                Proceed to Checkout
+            <button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4" data-toggle="modal" data-target="#exampleModalCenter">
+                Procesar pago
             </button>
         </div>
     </div>
     </div>
+
+
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Pago</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+      <h5 class="text-center">Cuentas bancarias</h5>
+      <p class="text-center mb-3">Banco Provincial - Ahorro: 0108-0081140200680636</p>
+
+       <form action="{{ route('compra.store')}}" method="POST">
+       @csrf
+<h5>Bancos</h5> <br>
+       <select name="banco_emisor" id="" class="browser-default custom-select">
+     <option value="BBVA">
+     BBVA
+     </option>
+
+       </select><br><br>
+
+
+       <h5>Número de referencia</h5><br>
+
+       <input type="text"  name="referencia" placeholder="Número de referencia" id="ref">
+
+
+       <input type="hidden" value="{{ Auth::user()->id }}" name="user_id" >
+       <input type="hidden" value="En espera" name="estado_de_compra" >
+
+      <div id="productosInfo">
+     
+
+
+       </div>
+
+<style>
+input {
+background: #d3d3d3;
+
+
+}
+
+</style>
+       
+      
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
 </section>
 
 <script>
@@ -172,6 +179,46 @@
     } //Cierre de funcion
 
     document.addEventListener('DOMContentLoaded', PintarCarrito);
+
+</script>
+
+<script>
+
+    const PintarCarrito2 = () => {
+
+        //Asigno el id a div que es donde voy a pintar toda la info
+        const productosInfo = document.getElementById('productosInfo');
+        productosInfo.innerHTML = '';
+
+        // Busco la informacion del carrito 
+        listaArticulos = JSON.parse(localStorage.getItem('carrito'));
+
+
+        if (listaArticulos === null) {
+            listaArticulos = [];
+
+            //Aqui deberia mostrar un mensaje de que no hay nada en el carrito
+            // y un boton para que busque
+
+
+        } else {
+            listaArticulos.forEach(element => {
+
+                //Pinto lo que esta en el localStorage en el carrito
+                productosInfo.innerHTML += `
+                <input type="hidden" value="${element.ID}" name="product_id" >
+                <input type="hidden" value="${element.precio}" name="precio_unitario" >
+         
+  `
+
+            });
+          
+
+        } //Cierre del if
+
+    } //Cierre de funcion
+
+    document.addEventListener('DOMContentLoaded', PintarCarrito2);
 
 </script>
 

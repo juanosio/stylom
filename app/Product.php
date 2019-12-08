@@ -19,4 +19,12 @@ class Product extends Model
     public function category(){
         return $this->belongTo(Category::class);
     }
+
+    public function detalles(){
+        return $this->belongToMany(Detalle::class);
+    }
+
+    public function compra(){
+        return $this->belongToMany(Compra::class);
+    }
 }
