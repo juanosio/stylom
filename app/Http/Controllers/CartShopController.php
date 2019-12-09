@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Bank;
 
 class CartShopController extends Controller
 {
@@ -13,7 +14,8 @@ class CartShopController extends Controller
      */
     public function index()
     {
-        return view('cart');
+        $bancos = Bank::orderBy('id', 'DESC')->get();
+        return view('cart', compact('bancos'));
     }
 
     /**

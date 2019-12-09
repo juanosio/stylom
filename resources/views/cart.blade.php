@@ -47,15 +47,9 @@
         <!--  -->
         <div class="flex-w flex-sb-m p-t-26 p-b-30" >
             <span class="m-text22 w-size19 w-full-sm">
-               <p id="total">Total:</p>
+               <p >Total: <span id="totalCompra"></span> BsS.</p>
             </span>
 
-            <script>
-            document.getElementById('total').innerHTML = total;
- 
-            </script>
-
-          
         </div>
 
         <div class="size15 trans-0-4">
@@ -72,30 +66,32 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Pago</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">Procesar pago</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
 
-      <h5 class="text-center">Cuentas bancarias</h5>
+      <h5 class="text-center">Cuenta bancaria</h5>
       <p class="text-center mb-3">Banco Provincial - Ahorro: 0108-0081140200680636</p>
 
        <form action="{{ route('compra.store')}}" method="POST">
        @csrf
-<h5>Bancos</h5> <br>
-       <select name="banco_emisor" id="" class="browser-default custom-select">
-     <option value="BBVA">
-     BBVA
+<h5>Banco Emisor</h5> <br>
+       <select name="banco_emisor" id="" class="browser-default custom-select form-control">
+    
+    @foreach($bancos as $banco)
+       <option value="{{ $banco->id }}">
+     {{$banco->name}}
      </option>
-
+@endforeach
        </select><br><br>
 
 
        <h5>Número de referencia</h5><br>
 
-       <input type="text"  name="referencia" placeholder="Número de referencia" id="ref">
+       <input type="text"  name="referencia" class="form-control" placeholder="Número de referencia" id="ref">
 
 
        <input type="hidden" value="{{ Auth::user()->id }}" name="user_id" >
@@ -120,7 +116,7 @@ background: #d3d3d3;
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <button type="submit" class="btn btn-primary">Enviar</button>
+        <button type="submit" class="btn btn-primary">Pagar</button>
       </div>
       </form>
     </div>
@@ -173,6 +169,7 @@ background: #d3d3d3;
                 total += parseInt(element.precio);
             });
             console.log(total);
+            document.getElementById('totalCompra').innerHTML = total;
 
         } //Cierre del if
 
