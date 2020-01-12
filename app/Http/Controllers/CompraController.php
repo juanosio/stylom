@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Compra;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Detalle;
+use App\User;
+use App\Bitacora;
+
 
 class CompraController extends Controller
 {
@@ -14,10 +18,24 @@ class CompraController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
+
     {
-        //
+            
+        $compra = \DB::select('SELECT users.name AS userNombre, users.lastname AS userApellido, users.identification AS userCedula, banks.name AS bankNombre, 
+        compras.id, compras.referencia,  compras.totalC, compras.estado_de_compra, compras.banco_emisor
+
+        FROM compras, users, banks
+
+        WHERE compras.user_id = users.id AND compras.banco_emisor = banks.id');
+
+
+
+       
+        $i = 1;
+       return view ('sales/index', compact('compra', 'i'));
     }
 
+ 
     /**
      * Show the form for creating a new resource.
      *
@@ -42,7 +60,7 @@ class CompraController extends Controller
 
         $compra->user_id = $request->user_id;
         $compra->referencia = $request->referencia;
-        $compra->total = $request->total;
+        $compra->totalC = $request->totalC;
         $compra->estado_de_compra = $request->estado_de_compra;
         $compra->banco_emisor = $request->banco_emisor;
         $compra->save();
@@ -57,9 +75,57 @@ class CompraController extends Controller
         
        
         $detalle->save();
+
+        return redirect()->route('purchase.index');
+
   
 
     }
+
+
+    public function aprobar(Request $request){
+
+        $compraUpdate = Compra::findOrFail($request->id_venta);
+
+        $compraUpdate->estado_de_compra = $request->estado_de_compra;
+        $compraUpdate->save();
+        
+      
+        $bitacoras = new Bitacora;
+
+        $bitacoras->user =  Auth::user()->name;
+        $bitacoras->lastname =  Auth::user()->lastname;
+        $bitacoras->role =  Auth::user()->role;
+        $bitacoras->action = 'Ha aprobado una venta';
+        $bitacoras->save();
+
+      return redirect()->route('compra.index');
+
+
+    }
+
+    public function rechazar(Request $request){
+        
+
+        $compraUpdate2 = Compra::findOrFail($request->id_venta2);
+
+        $compraUpdate2->estado_de_compra = $request->estado_de_compra;
+        $compraUpdate2->save();
+        
+      
+        $bitacoras = new Bitacora;
+
+        $bitacoras->user =  Auth::user()->name;
+        $bitacoras->lastname =  Auth::user()->lastname;
+        $bitacoras->role =  Auth::user()->role;
+        $bitacoras->action = 'Ha rechazado una venta';
+        $bitacoras->save();
+
+      return redirect()->route('compra.index');
+
+
+    }
+
 
     /**
      * Display the specified resource.
@@ -78,9 +144,10 @@ class CompraController extends Controller
      * @param  \App\Compra  $compra
      * @return \Illuminate\Http\Response
      */
-    public function edit(Compra $compra)
+    public function edit($id)
     {
-        //
+        $compra = App\Compra::findOrFail($id);
+        return view('sales/index', compact('compra'));
     }
 
     /**
@@ -90,9 +157,9 @@ class CompraController extends Controller
      * @param  \App\Compra  $compra
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Compra $compra)
+    public function update($request, $id)
     {
-        //
+       
     }
 
     /**

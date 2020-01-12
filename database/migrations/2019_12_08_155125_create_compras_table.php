@@ -19,7 +19,7 @@ class CreateComprasTable extends Migration
 
             $table->unsignedBigInteger('user_id');
             $table->integer('referencia');
-            $table->integer('total')->nullable();
+            $table->integer('totalC')->nullable();
             $table->enum('estado_de_compra',['En espera','Rechazada','Aprobada'])->nullable();;
             $table->string('banco_emisor')->nullable();
 

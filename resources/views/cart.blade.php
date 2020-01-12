@@ -96,6 +96,9 @@
 
        <input type="hidden" value="{{ Auth::user()->id }}" name="user_id" >
        <input type="hidden" value="En espera" name="estado_de_compra" >
+       <input type="text" id="total2" value="" name="totalC" >
+
+
 
       <div id="productosInfo">
      
@@ -171,6 +174,9 @@ background: #d3d3d3;
             console.log(total);
             document.getElementById('totalCompra').innerHTML = total;
 
+            document.getElementById("total2").value = total;
+
+
         } //Cierre del if
 
     } //Cierre de funcion
@@ -205,14 +211,15 @@ background: #d3d3d3;
                 productosInfo.innerHTML += `
                 <input type="hidden" value="${element.ID}" name="product_id" >
                 <input type="hidden" value="${element.precio}" name="precio_unitario" >
-         
+                <input type="hidden" value="${element.total}" name="total" >
+
+
   `
 
             });
           
 
         } //Cierre del if
-
     } //Cierre de funcion
 
     document.addEventListener('DOMContentLoaded', PintarCarrito2);

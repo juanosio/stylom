@@ -21,8 +21,13 @@
                                     </a>
                                     
                                 </li>
-                                
-                                
+                                <li class="pcoded">
+                                    <a href="{{ route('compra.index') }}">
+                                        <span class="pcoded-micon"><i class="feather icon-shopping-cart"></i></span>
+                                        <span class="pcoded-mtext">Ventas</span>
+                                        
+                                    </a>
+                                </li>
                                
                                 <li class="pcoded-hasmenu">
                                     <a href="#">
@@ -57,7 +62,7 @@
                                 </li>
                                 <li class="pcoded-hasmenu">
                                     <a href="#">
-                                        <span class="pcoded-micon"><i class="feather icon-shopping-cart"></i></span>
+                                        <span class="pcoded-micon"><i class="feather icon-layers"></i></span>
                                         <span class="pcoded-mtext">Productos</span>
                                         
                                     </a>
@@ -79,7 +84,7 @@
                                 </li>
                                    <li class="pcoded-hasmenu">
                                     <a href="#">
-                                        <span class="pcoded-micon"><i class="feather icon-layers"></i>
+                                        <span class="pcoded-micon"><i class="feather icon-user"></i>
                                         </span>
                                         <span class="pcoded-mtext">Proveedores</span>
                                         

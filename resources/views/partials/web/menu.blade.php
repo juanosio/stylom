@@ -18,6 +18,9 @@
             <li>
                 <a href="{{ route('carrito') }}">Carrito</a>
             </li>
+            <li>
+                <a href="{{ route('purchase.index') }}">Compras</a>
+            </li>
 
             <li>
                 <a href="{{ route('about') }}">Sobre nosotros</a>

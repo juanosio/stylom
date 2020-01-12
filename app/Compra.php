@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Compra extends Model
 {
     protected $fillable = [
-        'user_id', 'referencia', 'total', 'estado_de_compra', 'banco_emisor'
+        'user_id', 'referencia', 'totalC', 'estado_de_compra', 'banco_emisor'
     ];
 
 
@@ -22,5 +22,9 @@ class Compra extends Model
 
     public function users(){
         return $this->hasMany(User::class);//Mucho a muchos
+    }
+
+    public function banks(){
+        return $this->belongsTo(Bank::class);//Mucho a muchos
     }
 }

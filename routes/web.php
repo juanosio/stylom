@@ -91,6 +91,7 @@ Route::get('/welcome', 'HomeController@welcome')->name('welcome');
 Route::get('carrito', 'CartShopController@index')->name('carrito');
 
 
+
 //PDF
 Route::get('materia-proveedores/pdf', 'MaterialSupplierController@pdf')->name('materialsupplier.pdf');
 Route::get('productos/pdf', 'ProductController@pdf')->name('products.pdf');
@@ -130,4 +131,11 @@ Route::resource('materias-primas','MaterialController');
 Route::resource('materia-proveedores','MaterialSupplierController');
 Route::resource('categorias','CategoryController');
 Route::resource('compra','CompraController');
+Route::resource('purchase','PurchaseController');
+
+
+
+Route::post('/aprobar', 'CompraController@aprobar')->name('ventas.aprobar');
+Route::post('/rechazar', 'CompraController@rechazar')->name('ventas.rechazar');
+
 
