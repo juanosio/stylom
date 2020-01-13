@@ -14,6 +14,7 @@ $num=0;
 
 <?php 
 $resultado2 =  \DB::select('SELECT * FROM materials');
+$materials= \DB::select('SELECT nombre, stock_actual FROM materials');
 // var_dump($resultado);
 $num2=0;
 
@@ -119,6 +120,11 @@ $num4=0;
                             </div>
                         </div>
                         <!-- task, page, download counter  end -->
+
+
+        
+  
+
 
                         <div class="col-xl-12 col-md-12">
                             <div class="card">

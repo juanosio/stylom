@@ -92,6 +92,15 @@
                                                                 <td class="text-center">
 
                                                             
+                                                            
+                                                                <a href="javascript:info({{$item->id}});" 
+                                                                    class="text-gray">
+                                                                        <i class="feather icon-eye"
+                                                                            style="font-size: 20px"
+                                                                            data-toggle="tooltip" data-placement="top"
+                                                                            title="Ver mas"></i>
+                                                                    </a>
+
                                                                 <a href="javascript:update({{$item->id}});" 
                                                                     class="text-success">
                                                                         <i class="feather icon-check"
@@ -184,23 +193,106 @@
             });
     }
 
-    function update2(id_venta2) {
-        swal({
-                title: "¡Cuidado!",
-                text: "¿Estás seguro que deseas rechazar esta venta?",
-                icon: "warning",
-                buttons: ['Cancelar', 'Rechazar'],
+    // function update2(id_venta2) {
+    //     Swal.fire({
+    //             title: "¡Cuidado!",
+    //             text: "¿Estás seguro que deseas rechazar esta venta?",
+    //             icon: "warning",
+    //             buttons: ['Cancelar', 'Rechazar'],
                 
-                dangerMode: 'Rechazar',
+    //             dangerMode: 'Rechazar',
+    //         })
+    //         .then((willUpdate2) => {
+    //             if (willUpdate2) {
+    //                 $('#id_venta2').val(id_venta2);
+
+    //                 $('#confirm-update2').submit();
+
+    //             }
+    //         });
+
+            
+    // }
+    function update(id_venta) {
+        Swal.fire({
+    title: "¡Cuidado!",
+    text: "¿Estás seguro que deseas aprobar esta venta?",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Aprobar',
+  cancelButtonText: 'Cancelar'
+
+}).then((result) => {
+  if (result.value) {
+    
+        $('#id_venta').val(id_venta);
+             $('#confirm-update').submit();
+
+    
+  }
+})
+
+            
+    }
+
+    function update2(id_venta2) {
+        Swal.fire({
+            title: "¡Cuidado!",
+    text: "¿Estás seguro que deseas rechazar esta venta?",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Rechazar',
+  cancelButtonText: 'Cancelar'
+}).then((result) => {
+  if (result.value) {
+    
+        $('#id_venta2').val(id_venta2);
+             $('#confirm-update2').submit();
+
+    
+  }
+})
+
+            
+    }
+   
+
+
+
+
+    function info(info) {
+        Swal.fire({
+                title: "Información de la venta",
+                html: `<table id="simpletable"
+                                                        class="table table-striped table-bordered nowrap text-center">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Salary</th>
+                <th>Country</th>
+                <th>City</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($compra as $item):?>
+            <tr>
+                <td></td>
+                <td>{{$item->totalC}}</td>
+                <td>Niger</td>
+                <td>Oud-Turnhout</td>
+            </tr>
+        <?php endforeach; ?>
+</tbody>
+</table>`,
+
+
+                successMode: 'Ok',
             })
-            .then((willUpdate2) => {
-                if (willUpdate2) {
-                    $('#id_venta2').val(id_venta2);
-
-                    $('#confirm-update2').submit();
-
-                }
-            });
+            
     }
 
 </script>

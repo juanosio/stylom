@@ -150,6 +150,8 @@
 <script src="{{ asset('assets\admin\assets\js\vartical-layout.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets\admin\assets\js\script.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets\admin\sweet_alert.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets\admin\sweetalert2.all.min.js') }}"></script>
+
 
 
 
