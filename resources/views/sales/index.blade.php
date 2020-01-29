@@ -229,38 +229,34 @@ $.ajax ({
  data: {
      "compra_id": id_venta3
  },
+ dataType: 'html',
  type: 'get',
 
  success: function(response){
+     
      console.log(response);
   
-     $.each(response, function (index, value){
-     $("#products").empty();
+    var obj=JSON.parse(response);
+
+    console.log(obj.length);
+    $("#products").empty();
+     for (i = 0; i < obj.length; i++) {
+ 
+
+    
      $("#products").append(
-        ` <table id="simpletable"
-                                                        class="table table-striped table-bordered nowrap text-center">
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Precio unitario</th>
-               
-            </tr>
-        </thead>
-        <tbody>
-     
-            <tr>
-         <?foreach($response as $value):?>
+        `<tr>
+       
            
-                <td>${value.proNombre}</td>
-                <td>${value.precio_unitario}</td>
-    
-         <?endforeach;?>
-            </tr>
-    
-</tbody>
-</table> `
+       <td>${obj[i].proNombre}</td>
+       <td>${obj[i].precio_unitario}</td>
+
+
+   </tr>  `
+
      );
- } );
+     }
+    
      $("#AjaxM").modal("show");
 
  }
@@ -282,8 +278,23 @@ $.ajax ({
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body" id="products">
+      <div class="modal-body" >
+      <table id="simpletable"
+                                                        class="table table-striped table-bordered nowrap text-center">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Precio unitario</th>
+               
+            </tr>
+        </thead>
+        <tbody id="products">
      
+            
+       
+    
+</tbody>
+</table>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
