@@ -96,7 +96,7 @@
 
        <input type="hidden" value="{{ Auth::user()->id }}" name="user_id" >
        <input type="hidden" value="En espera" name="estado_de_compra" >
-       <input type="text" id="total2" value="" name="totalC" >
+       <input type="hidden" id="total2" value="" name="totalC" >
 
 
 
@@ -209,8 +209,8 @@ background: #d3d3d3;
 
                 //Pinto lo que esta en el localStorage en el carrito
                 productosInfo.innerHTML += `
-                <input type="hidden" value="${element.ID}" name="product_id" >
-                <input type="hidden" value="${element.precio}" name="precio_unitario" >
+                <input type="hidden" value="${element.ID}" name="product_id[]" >
+                <input type="hidden" value="${element.precio}" name="precio_unitario[]" >
                 <input type="hidden" value="${element.total}" name="total" >
 
 

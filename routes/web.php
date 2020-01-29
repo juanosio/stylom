@@ -96,6 +96,7 @@ Route::get('carrito', 'CartShopController@index')->name('carrito');
 Route::get('materia-proveedores/pdf', 'MaterialSupplierController@pdf')->name('materialsupplier.pdf');
 Route::get('productos/pdf', 'ProductController@pdf')->name('products.pdf');
 Route::get('materias-primas/pdf', 'MaterialController@pdf')->name('material.pdf');
+Route::get('compra/pdf', 'CompraController@pdf')->name('compra.pdf');
 
 
 //Filtros
@@ -137,5 +138,10 @@ Route::resource('purchase','PurchaseController');
 
 Route::post('/aprobar', 'CompraController@aprobar')->name('ventas.aprobar');
 Route::post('/rechazar', 'CompraController@rechazar')->name('ventas.rechazar');
+
+
+
+//AJAX
+Route::get('/getproducts', 'CompraController@getproducts')->name('compra.getproducts');
 
 

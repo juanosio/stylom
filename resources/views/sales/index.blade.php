@@ -42,7 +42,7 @@
                                     <div class="card-body">
                                 
                                         <div class="float-right" >
-                                            <a href="{{ route('material.pdf') }}" class="btn btn-primary mt-2"
+                                            <a href="{{ route('compra.pdf') }}" class="btn btn-primary mt-2"
                                                 data-toggle="tooltip" data-placement="left"
                                                 title="Generar pdf"> <i class="feather icon-file-text"
                                                     style="font-size: 20px"></i> Generar PDF</a>
@@ -93,7 +93,7 @@
 
                                                             
                                                             
-                                                                <a href="javascript:info({{$item->id}});" 
+                                                                <a href="javascript:getProducts({{$item->id}});" 
                                                                     class="text-gray">
                                                                         <i class="feather icon-eye"
                                                                             style="font-size: 20px"
@@ -173,46 +173,7 @@
 @section('script')
 
 <script type="text/javascript">
-    function update(id_venta) {
-        swal({
-                title: "¡Cuidado!",
-                text: "¿Estás seguro que deseas aprobar esta venta?",
-                icon: "warning",
-                buttons: ['Cancelar', 'Aprobar'],
-                
-                successMode: 'Aprobar',
-            })
-            .then((willUpdate) => {
 
-                if (willUpdate) {
-                    $('#id_venta').val(id_venta);
-
-                     $('#confirm-update').submit();
-
-                }
-            });
-    }
-
-    // function update2(id_venta2) {
-    //     Swal.fire({
-    //             title: "¡Cuidado!",
-    //             text: "¿Estás seguro que deseas rechazar esta venta?",
-    //             icon: "warning",
-    //             buttons: ['Cancelar', 'Rechazar'],
-                
-    //             dangerMode: 'Rechazar',
-    //         })
-    //         .then((willUpdate2) => {
-    //             if (willUpdate2) {
-    //                 $('#id_venta2').val(id_venta2);
-
-    //                 $('#confirm-update2').submit();
-
-    //             }
-    //         });
-
-            
-    // }
     function update(id_venta) {
         Swal.fire({
     title: "¡Cuidado!",
@@ -260,40 +221,75 @@
             
     }
    
+    function getProducts(id_venta3){
 
+$.ajax ({
 
+ url: "{{ route('compra.getproducts') }}",
+ data: {
+     "compra_id": id_venta3
+ },
+ type: 'get',
 
-
-    function info(info) {
-        Swal.fire({
-                title: "Información de la venta",
-                html: `<table id="simpletable"
+ success: function(response){
+     console.log(response);
+  
+     $.each(response, function (index, value){
+     $("#products").empty();
+     $("#products").append(
+        ` <table id="simpletable"
                                                         class="table table-striped table-bordered nowrap text-center">
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Salary</th>
-                <th>Country</th>
-                <th>City</th>
+                <th>Nombre</th>
+                <th>Precio unitario</th>
+               
             </tr>
         </thead>
         <tbody>
-        <?php foreach ($compra as $item):?>
+     
             <tr>
-                <td></td>
-                <td>{{$item->totalC}}</td>
-                <td>Niger</td>
-                <td>Oud-Turnhout</td>
+         <?foreach($response as $value):?>
+           
+                <td>${value.proNombre}</td>
+                <td>${value.precio_unitario}</td>
+    
+         <?endforeach;?>
             </tr>
-        <?php endforeach; ?>
+    
 </tbody>
-</table>`,
+</table> `
+     );
+ } );
+     $("#AjaxM").modal("show");
+
+ }
 
 
-                successMode: 'Ok',
-            })
-            
-    }
+
+})
+}
+
 
 </script>
+
+<div class="modal fade" id="AjaxM" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+      <center>  <h5 class="modal-title text-center" id="exampleModalLongTitle">Información de la venta</h5></center>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="products">
+     
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+
+      </div>
+    </div>
+  </div>
+</div>
 @endsection

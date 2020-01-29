@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Detalle;
 use App\User;
 use App\Bitacora;
+use PDF;
 
 
 class CompraController extends Controller
@@ -28,9 +29,10 @@ class CompraController extends Controller
 
         WHERE compras.user_id = users.id AND compras.banco_emisor = banks.id');
 
+            
 
 
-       
+        
         $i = 1;
        return view ('sales/index', compact('compra', 'i'));
     }
@@ -46,6 +48,22 @@ class CompraController extends Controller
         //
     }
 
+     public function getproducts(Request $request)
+    {
+        
+         if($request->ajax()){
+            $compra2= \DB::select('SELECT compras.id, products.id, products.nombre AS proNombre, detalles.precio_unitario
+
+FROM compras, detalles, products
+
+WHERE detalles.product_id = products.id AND detalles.compra_id = compras.id', [$request->compra_id]);
+
+         }
+
+            return response()->json($compra2);
+            
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -54,7 +72,6 @@ class CompraController extends Controller
      */
     public function store(Request $request)
     {
-
         //  return $request->all();
         $compra = new Compra;
 
@@ -65,22 +82,57 @@ class CompraController extends Controller
         $compra->banco_emisor = $request->banco_emisor;
         $compra->save();
 
-        
-        $detalle = new Detalle;
+    
 
-        $detalle->product_id = $request->product_id;
-        $detalle->compra_id = $compra->id;
-        $detalle->precio_unitario = $request->precio_unitario;
-
+      
+    
         
+
+$cantidadProductos = count($request->product_id);
+for($i=0; $i<$cantidadProductos; $i++){
+    $detalle = new Detalle;
+
+
+    $detalle->product_id = $request->product_id[$i];
+    $detalle->compra_id = $compra->id;
+    $detalle->precio_unitario = $request->precio_unitario[$i];
+    $detalle->save();
+         
+            
+}
+
        
-        $detalle->save();
+       
 
         return redirect()->route('purchase.index');
 
   
 
     }
+
+    
+	public function pdf()
+
+	{
+		       
+        $compra2 = \DB::select('SELECT users.name AS userNombre, users.lastname AS userApellido, users.identification AS userCedula, banks.name AS bankNombre, 
+        compras.id, compras.referencia,  compras.totalC, compras.estado_de_compra, compras.banco_emisor
+
+        FROM compras, users, banks
+
+        WHERE compras.user_id = users.id AND compras.banco_emisor = banks.id');
+
+		 $i = 1;
+
+		 $date = date('d-m-Y');
+		$dompdf = PDF::loadView('pdf.compra', compact('compra2', 'i','date'));
+	 
+
+
+
+		return $dompdf->stream('products.pdf');
+	}
+
 
 
     public function aprobar(Request $request){
