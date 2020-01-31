@@ -102,10 +102,9 @@
                                                                     </a>
 
                                                                     <!--//Con este formulario se manda a la funcion destroy para borrar -->
-                                                                    {!! Form::open(['route' => ['proveedores.destroy',
-                                                                    $suppliers->id], 'method' => 'DELETE', 'id' =>
-                                                                    'confirm-delete']) !!}
-
+                                                                    {!! Form::open(['route' =>['proveedores.destroy', $suppliers->id], 'method' => 'DELETE', 'id' =>'confirm-delete']) !!}
+                                                                     
+                                                                  
                                                                     {!! Form::close() !!}
                                                                 </td>
                                                             </tr>
@@ -152,21 +151,25 @@
 @section('script')
 
 <script type="text/javascript">
-    function destroy() {
-        swal({
-                title: "¡Cuidado!",
-                text: "¿Estás seguro que deseas eliminar este proveedor?",
-                icon: "warning",
-                buttons: ['Cancelar', 'Eliminar'],
-                dangerMode: 'Eliminar',
-            })
-            .then((willDelete) => {
-                if (willDelete) {
-                    $('#confirm-delete').submit();
 
-                }
-            });
-    }
+function destroy() {
+        Swal.fire({
+            title: "¡Cuidado!",
+    text: "¿Estás seguro que deseas eliminar este proveedor?",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Aceptar',
+  cancelButtonText: 'Cancelar'
+}).then((result) => {
+  if (result.value) {
+    
+    $('#confirm-delete').submit();
 
+    
+  }
+})
+}
 </script>
 @endsection

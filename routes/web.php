@@ -135,7 +135,7 @@ Route::resource('compra','CompraController');
 Route::resource('purchase','PurchaseController');
 
 
-
+Route::post('/confeccionar', 'ProductController@confeccionar')->name('producto.confeccionar');
 Route::post('/aprobar', 'CompraController@aprobar')->name('ventas.aprobar');
 Route::post('/rechazar', 'CompraController@rechazar')->name('ventas.rechazar');
 

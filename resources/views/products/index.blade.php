@@ -96,7 +96,16 @@
 
                                                                 <td class="text-center">
 
-<a href="{{ route('productos.show', $products->id) }}"
+                                                                  
+
+                                                                    <a href="javascript:confec({{$products->id}});"
+                                                                        data-toggle="tooltip" data-placement="top"
+                                                                        title="Confeccionar producto"> <i
+                                                                            class="feather icon-scissors mr-2"
+                                                                            style="font-size: 20px"></i></a>
+
+                                                                
+                                                                    <a href="{{ route('productos.show', $products->id) }}"
                                                                         data-toggle="tooltip" data-placement="top"
                                                                         title="Ver producto"> <i
                                                                             class="feather icon-eye mr-2"
@@ -117,11 +126,13 @@
                                                                             title="Eliminar producto"></i>
                                                                     </a>
 
-                                                                    <!--//Con este formulario se manda a la funcion destroy para borrar -->
-                                                                    {!! Form::open(['route' => ['productos.destroy',
-                                                                    $products->id], 'method' => 'DELETE', 'id' =>
-                                                                    'confirm-delete']) !!}
 
+                                                                    <!--//Con este formulario se manda a la funcion destroy para borrar -->
+                                                                    {!! Form::open(['route' =>['producto.confeccionar'], 'method' => 'POST', 'id' =>'confirm-confec']) !!}
+                                                                     
+                                                                     <input type="hidden" id="cantidad" name="suma" value="">
+
+                                                                      <input type="hidden" id="product_id" name="product_id" value="">
                                                                     {!! Form::close() !!}
                                                                 </td>
                                                             </tr>
@@ -168,21 +179,161 @@
 @section('script')
 
 <script type="text/javascript">
-    function destroy() {
-        swal({
-                title: "¡Cuidado!",
-                text: "¿Estás seguro que deseas eliminar este producto?",
-                icon: "warning",
-                buttons: ['Cancelar', 'Eliminar'],
-                dangerMode: 'Eliminar',
-            })
-            .then((willDelete) => {
-                if (willDelete) {
-                    $('#confirm-delete').submit();
 
-                }
-            });
+function destroy() {
+        Swal.fire({
+            title: "¡Cuidado!",
+    text: "¿Estás seguro que deseas eliminar este producto?",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Aceptar',
+  cancelButtonText: 'Cancelar'
+}).then((result) => {
+  if (result.value) {
+    
+    $('#confirm-delete').submit();
+
+    
+  }
+})
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+    function confec(product_id){
+
+  
+
+    Swal.fire({
+  title: "Confeccionar producto",
+  html:  ` <label class="alinear">Cantidad<span style="color:red">*</span></label>
+  <input type="text" name="cantidad" id="p_cantidad" placeholder="Introduzca la cantidad">
+
+  <div class="text-center">
+<h3>Materia prima utilizada</h3>
+<p>Por favor seleccione cuánto y que materia prima utilizo para la fabricación de este producto</p>
+</div>
+
+
+<div id="materiaPrima">
+
+
+<div class="row">
+
+<input type="text" placeholder="holaaaa">  
+
+</div>
+
+
+
+
+
+</div>
+
+<div class="text-center mt-3 mb-3">
+<span data-toggle="tooltip" data-placement="bottom" title="Añadir otra materia prima">
+
+<button href="javascript:productos()" id="add" class="feather icon-plus-square" style="font-size: 35px; cursor: pointer;"></button>
+</span>
+</div>
+
+
+  `,
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Aceptar',
+  cancelButtonText: 'Cancelar'
+
+}).then((result) => {
+  if (result.value) {
+      //Tomo el valor del input
+    var inputVal = document.getElementById("p_cantidad").value;
+    //Mando el valor del input para que se reemplace en el form
+      $('#cantidad').val(inputVal);
+      $('#product_id').val(product_id);
+    $('#confirm-confec').submit();
+
+    
+  }
+})
+
+
+        
+        
+
     }
 
+    
+
+   function productos(){
+  
+
+ 
+    
+    console.log('adkawd');
+
+
+}
+
+
+
+
+
 </script>
+
+<div class="modal fade" id="AjaxM" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+      <center>  <h5 class="modal-title text-center" id="exampleModalLongTitle">Información de la venta</h5></center>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" >
+      <table id="simpletable"
+                                                        class="table table-striped table-bordered nowrap text-center">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Precio unitario</th>
+               
+            </tr>
+        </thead>
+        <tbody id="products">
+     
+            
+       
+    
+</tbody>
+</table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
 @endsection

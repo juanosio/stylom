@@ -3,42 +3,7 @@
 
 @section('content')
 
-<?php 
-$resultado =  \DB::select('SELECT * FROM users');
-// var_dump($resultado);
-$num=0;
 
- foreach($resultado as $res): ?>
-<?php  $num++?>               
-<?php endforeach ?>
-
-<?php 
-$resultado2 =  \DB::select('SELECT * FROM materials');
-$materials= \DB::select('SELECT nombre, stock_actual FROM materials');
-// var_dump($resultado);
-$num2=0;
-
- foreach($resultado2 as $res): ?>
-<?php  $num2++?>               
-<?php endforeach ?>
-
-<?php 
-$resultado3 =  \DB::select('SELECT * FROM products');
-// var_dump($resultado);
-$num3=0;
-
- foreach($resultado3 as $res): ?>
-<?php  $num3++?>               
-<?php endforeach ?>
-
-<?php 
-$resultado4 =  \DB::select('SELECT * FROM suppliers');
-// var_dump($resultado);
-$num4=0;
-
- foreach($resultado4 as $res): ?>
-<?php  $num4++?>               
-<?php endforeach ?>
 
 <script src="{{ asset('js/chart.js') }}"></script>
 
@@ -60,7 +25,7 @@ $num4=0;
                                 <div class="card-block">
                                     <div class="row align-items-end">
                                         <div class="col-8">
-                                            <h4 class="text-white">{{ $num }}</h4>
+                                            <h4 class="text-white">{{ $users }}</h4>
                                             <h6 class="text-white m-b-0">Usuarios</h6>
                                         </div>
                                         
@@ -76,7 +41,7 @@ $num4=0;
                                 <div class="card-block">
                                     <div class="row align-items-end">
                                         <div class="col-8">
-                                            <h4 class="text-white">{{ $num2 }}</h4>
+                                            <h4 class="text-white">{{ $materials }}</h4>
                                             <h6 class="text-white m-b-0">Materia Prima</h6>
                                         </div>
                                         
@@ -92,7 +57,7 @@ $num4=0;
                                 <div class="card-block">
                                     <div class="row align-items-end">
                                         <div class="col-8">
-                                            <h4 class="text-white">{{ $num3 }}</h4>
+                                            <h4 class="text-white">{{ $products }}</h4>
                                             <h6 class="text-white m-b-0">Productos</h6>
                                         </div>
                                         
@@ -108,7 +73,7 @@ $num4=0;
                                 <div class="card-block">
                                     <div class="row align-items-end">
                                         <div class="col-8">
-                                            <h4 class="text-white">{{$num4}}</h4>
+                                            <h4 class="text-white">{{$suppliers}}</h4>
                                             <h6 class="text-white m-b-0">Proveedores</h6>
                                         </div>
                                         

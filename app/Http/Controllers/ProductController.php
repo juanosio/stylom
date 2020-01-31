@@ -140,6 +140,28 @@ $materialProducts = new MaterialProduct;
 
     }
 
+    public function confeccionar(Request $request){
+
+
+        $products = DB::table('products')->get();
+        
+          //Actualizo el inventario
+          
+          $inventario = \DB::select('SELECT * FROM products WHERE id = ?' , 
+          [$request->product_id]);
+
+         $sumarAlInventario = $inventario[0]->cantidad + $request->suma;
+
+
+          $actualizarInventario = Product::find($request->product_id);
+
+          $actualizarInventario->cantidad = $sumarAlInventario;
+
+          $actualizarInventario->save();
+
+          return redirect()->route('productos.index');
+    }
+
     /**
      * Display the specified resource.
      *

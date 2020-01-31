@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Supplier;
+use App\Material;
+use App\User;
+use App\Product;
 
 class HomeController extends Controller
 {
@@ -23,7 +27,18 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $productlist = Product::All();
+        $products = $productlist->count();
+
+        $materiallist = Material::All();
+        $materials = $materiallist->count();
+
+        $userlist = User::All();
+        $users = $userlist->count();
+
+        $supplierlist = Supplier::All();
+        $suppliers = $supplierlist->count();
+        return view('home', compact('products', 'materials', 'users', 'suppliers'));
     }
 
     public function welcome()
